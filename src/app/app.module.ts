@@ -15,6 +15,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 
 import { AuthService } from './shared/services/auth.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -25,7 +26,8 @@ import { AuthService } from './shared/services/auth.service';
     SideNavComponent,
     LoginComponent,
     RegisterComponent,
-    PasswordRecoveryComponent
+    PasswordRecoveryComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
