@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-password-recovery',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PasswordRecoveryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+  }
+
+  ForgotPasswordRecovery(email: string){
+    this.authService.ForgotPassword(email);
   }
 
 }
