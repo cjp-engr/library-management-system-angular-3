@@ -11,6 +11,7 @@ import { BorrowComponent } from './transaction-information/borrow/borrow.compone
 import { BorrowedBooksComponent } from './transaction-information/borrowed-books/borrowed-books.component';
 import { ReturnedBooksComponent } from './transaction-information/returned-books/returned-books.component';
 import { ReportsComponent } from './transaction-information/reports/reports.component';
+import { MemberInformationComponent } from './file-information/member-information/member-information.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'password-recovery', component: PasswordRecoveryComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'admin-information', component: AdminComponent},
+  {path: 'member-information', component: MemberInformationComponent},
   {path: 'members', component: MembersComponent},
   {path: 'books', component: BooksComponent},
   {path: 'borrow', component: BorrowComponent},

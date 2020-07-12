@@ -27,6 +27,7 @@ import { ReturnedBooksComponent } from './transaction-information/returned-books
 import { ReportsComponent } from './transaction-information/reports/reports.component';
 import { BookListComponent } from './file-information/books/book-list/book-list.component';
 import { MemberListComponent } from './file-information/members/member-list/member-list.component';
+import { MemberInformationComponent } from './file-information/member-information/member-information.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { MemberListComponent } from './file-information/members/member-list/memb
     ReturnedBooksComponent,
     ReportsComponent,
     BookListComponent,
-    MemberListComponent
+    MemberListComponent,
+    MemberInformationComponent
   ],
   imports: [
     BrowserModule,
