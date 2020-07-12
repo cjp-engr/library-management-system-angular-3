@@ -55,6 +55,8 @@ export class AuthService {
       //this.SendVerificationMail();
       //this.SetUserData(result.user);
       this.SignUpSetUserData(result.user, firstName, lastName, userName);
+      console.log('Hello New User');
+      this.router.navigate(['/dashboard']);
     }
     catch (error) {
       window.alert(error.message);

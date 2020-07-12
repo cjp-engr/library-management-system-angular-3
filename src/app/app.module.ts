@@ -17,7 +17,14 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 
 import { AuthService } from './shared/services/auth.service';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { MembersComponent } from './file-information/members/members.component';
+import { BooksComponent } from './file-information/books/books.component';
+import { AdminComponent } from './file-information/admin/admin.component';
+import { DashboardComponent } from './file-information/dashboard/dashboard.component';
+import { BorrowComponent } from './transaction-information/borrow/borrow.component';
+import { BorrowedBooksComponent } from './transaction-information/borrowed-books/borrowed-books.component';
+import { ReturnedBooksComponent } from './transaction-information/returned-books/returned-books.component';
+import { ReportsComponent } from './transaction-information/reports/reports.component';
 
 
 @NgModule({
@@ -27,7 +34,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     LoginComponent,
     RegisterComponent,
     PasswordRecoveryComponent,
-    DashboardComponent
+    DashboardComponent,
+    MembersComponent,
+    BooksComponent,
+    AdminComponent,
+    BorrowComponent,
+    BorrowedBooksComponent,
+    ReturnedBooksComponent,
+    ReportsComponent
   ],
   imports: [
     BrowserModule,

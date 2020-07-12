@@ -27,8 +27,7 @@ export class RegisterComponent implements OnInit {
  
   SignUpUser(email: string, password: any, firstName: string, lastName: string, userName: string){
     this.authService.SignUp(email, password, firstName, lastName, userName);
-    window.alert('Hello New User');
-    this.router.navigate(['/dashboard']);
+    
   }
 
   form: FormGroup = new FormGroup({});

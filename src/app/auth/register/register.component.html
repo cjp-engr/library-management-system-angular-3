@@ -24,10 +24,11 @@
                             class="form-control py-4"
                             id="inputFirstName"
                             name="inputFirstName"
-                            ngModel
+                            
                             type="text"
                             placeholder="Enter first name"
                             #userFirstName
+                            required
                           />
                         </div>
                       </div>
@@ -41,10 +42,11 @@
                             class="form-control py-4"
                             id="inputLastName"
                             name="inputLastName"
-                            ngModel
+                            
                             type="text"
                             placeholder="Enter last name"
                             #userLastName
+                            required
                           />
                         </div>
                       </div>
@@ -59,11 +61,13 @@
                         class="form-control py-4"
                         id="inputUserName"
                         name="inputUserName"
-                        ngModel
+                        
                         type="text"
                         aria-describedby="userNameHelp"
                         placeholder="Enter user name"
                         #userUserName
+                        required
+                        
                       />
                     </div>
 
@@ -76,7 +80,7 @@
                         class="form-control py-4"
                         id="inputEmailAddress"
                         name="inputEmailAddress"
-                        ngModel
+                        
                         type="email"
                         aria-describedby="emailHelp"
                         placeholder="Enter email address"
@@ -97,7 +101,7 @@
                             formControlName="password"
                             id="inputPassword"
                             name="inputPassword"
-                            ngModel
+                            
                             type="password"
                             placeholder="Enter password"
                             #userPwd
@@ -121,7 +125,7 @@
                             formControlName="confirm_password"
                             id="inputConfirmPassword"
                             name="inputConfirmPassword"
-                            ngModel
+                            
                             type="password"
                             placeholder="Confirm password"
                             required
