@@ -7,6 +7,10 @@ import { AdminComponent } from './file-information/admin/admin.component';
 import { MembersComponent } from './file-information/members/members.component';
 import { BooksComponent } from './file-information/books/books.component';
 import { DashboardComponent } from './file-information/dashboard/dashboard.component';
+import { BorrowComponent } from './transaction-information/borrow/borrow.component';
+import { BorrowedBooksComponent } from './transaction-information/borrowed-books/borrowed-books.component';
+import { ReturnedBooksComponent } from './transaction-information/returned-books/returned-books.component';
+import { ReportsComponent } from './transaction-information/reports/reports.component';
 
 
 const routes: Routes = [
@@ -17,7 +21,11 @@ const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
   {path: 'admin-information', component: AdminComponent},
   {path: 'members', component: MembersComponent},
-  {path: 'books', component: BooksComponent}
+  {path: 'books', component: BooksComponent},
+  {path: 'borrow', component: BorrowComponent},
+  {path: 'borrowed-books', component: BorrowedBooksComponent},
+  {path: 'returned-books', component: ReturnedBooksComponent},
+  {path: 'reports', component: ReportsComponent}
   
 ];
 

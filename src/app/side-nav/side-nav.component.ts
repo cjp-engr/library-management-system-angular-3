@@ -7,6 +7,7 @@ import { AuthService } from '../shared/services/auth.service';
   styleUrls: ['./side-nav.component.css']
 })
 export class SideNavComponent implements OnInit {
+  isShow = false;
 
   constructor(private authService: AuthService) { }
 
@@ -15,6 +16,14 @@ export class SideNavComponent implements OnInit {
 
   UserSignOut(){
     this.authService.SignOut();
+  }
+
+  IsUserLoggedIn(){
+    return this.authService.isLoggedIn;
+  }
+
+  IsUserLoggedOut(){
+    this.isShow = !!this.isShow;
   }
 
 }
