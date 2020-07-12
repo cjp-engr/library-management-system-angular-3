@@ -25,6 +25,8 @@ import { BorrowComponent } from './transaction-information/borrow/borrow.compone
 import { BorrowedBooksComponent } from './transaction-information/borrowed-books/borrowed-books.component';
 import { ReturnedBooksComponent } from './transaction-information/returned-books/returned-books.component';
 import { ReportsComponent } from './transaction-information/reports/reports.component';
+import { BookListComponent } from './file-information/books/book-list/book-list.component';
+import { MemberListComponent } from './file-information/members/member-list/member-list.component';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { ReportsComponent } from './transaction-information/reports/reports.comp
     BorrowComponent,
     BorrowedBooksComponent,
     ReturnedBooksComponent,
-    ReportsComponent
+    ReportsComponent,
+    BookListComponent,
+    MemberListComponent
   ],
   imports: [
     BrowserModule,
