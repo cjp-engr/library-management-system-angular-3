@@ -28,6 +28,7 @@ import { ReportsComponent } from './transaction-information/reports/reports.comp
 import { BookListComponent } from './file-information/books/book-list/book-list.component';
 import { MemberListComponent } from './file-information/members/member-list/member-list.component';
 import { MemberInformationComponent } from './file-information/member-information/member-information.component';
+import { BookFormsComponent } from './file-information/books/book-forms/book-forms.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { MemberInformationComponent } from './file-information/member-informatio
     ReportsComponent,
     BookListComponent,
     MemberListComponent,
-    MemberInformationComponent
+    MemberInformationComponent,
+    BookFormsComponent
   ],
   imports: [
     BrowserModule,
