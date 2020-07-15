@@ -29,6 +29,7 @@ import { BookListComponent } from './file-information/books/book-list/book-list.
 import { MemberListComponent } from './file-information/members/member-list/member-list.component';
 import { MemberInformationComponent } from './file-information/member-information/member-information.component';
 import { BookFormsComponent } from './file-information/books/book-forms/book-forms.component';
+import { MemberFormsComponent } from './file-information/members/member-forms/member-forms.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { BookFormsComponent } from './file-information/books/book-forms/book-for
     BookListComponent,
     MemberListComponent,
     MemberInformationComponent,
-    BookFormsComponent
+    BookFormsComponent,
+    MemberFormsComponent
   ],
   imports: [
     BrowserModule,
