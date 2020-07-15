@@ -18,38 +18,64 @@
       </tr>
     </thead>
     <tbody>
+
       <tr>
-        <th scope="row">Carmen Joy Palsario</th>
-        <td>09162756852</td>
-        <td>Taguig, Metro Manila</td>
-        <td>15</td>
-        <td>Student</td>
-        <td>
-            <button class="btn-sm btn-outline-info" style="margin:5px">Edit</button>
-            <button class="btn-sm btn-outline-danger" style="margin:5px">Delete</button>
-          </td>
-      </tr>
-      <tr>
-        <th scope="row">Maria Sophia Emmett Barracuda</th>
+        <th scope="row">José Protacio Rizal Mercado y Alonso Realonda</th>
         <td>09162756852</td>
         <td>Quezon City, Metro Manila</td>
         <td>25</td>
         <td>Employee</td>
         <td>
-            <button class="btn-sm btn-outline-info" style="margin:5px">Edit</button>
-            <button class="btn-sm btn-outline-danger" style="margin:5px">Delete</button>
+            <button class="btn-sm btn-outline-info" style="margin:5px" 
+            data-toggle="modal" data-target="#editRegisteredMember">
+              Edit
+            </button>
+
+            <button class="btn-sm btn-outline-danger" style="margin:5px"
+            data-toggle="modal" data-target="#deleteRegisteredMember">
+              Delete
+            </button>
           </td>
       </tr>
-      <tr>
-        <th scope="row">José Protacio Rizal Mercado y Alonso Realonda</th>
-        <td>09214523541</td>
-        <td>Calamba, Laguna</td>
-        <td>39</td>
-        <td>Tambay</td>
-        <td>
-            <button class="btn-sm btn-outline-info" style="margin:5px">Edit</button>
-            <button class="btn-sm btn-outline-danger" style="margin:5px">Delete</button>
-          </td>
-      </tr>
+
     </tbody>
   </table>
+
+  <div class="modal fade" id="editRegisteredMember" tabindex="-1" role="dialog" aria-labelledby="editRegisteredMemberTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Edit Member Information</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <app-member-forms></app-member-forms>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="deleteRegisteredMember" tabindex="-1" role="dialog" aria-labelledby="deleteRegisteredMemberTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Delete Registered Member</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete member?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Yes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
