@@ -2,3 +2,4 @@ https://www.positronx.io/full-angular-7-firebase-authentication-system/
 https://www.sourcecodester.com/tutorials/php/10851/library-management-system-barcode.html
 https://www.youtube.com/watch?v=9wxEwE8UFr0&t=286s
 Shift + Alt + F
+https://dottedsquirrel.com/angular/how-to-crud-in-angular-firebase-firestore/

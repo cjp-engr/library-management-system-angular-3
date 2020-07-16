@@ -13,27 +13,24 @@ export class BookFormsComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+
+    var genre = ['Action and adventure', 'Art/architecture', 'Alternate history', 'Autobiography',
+                  'Anthology', 'Biography', 'Chick lit' , 'Business/economics', 'Children\'s', 'Crafts/hobbies',
+                  'Classic', 'Cookbook', 'Comic book', 'Diary', 'Coming-of-age', 'Dictionary', 'Crime',
+                  'Encyclopedia', 'Drama', 'Guide', 'Fairytale'];
     this.dropdownList = [
-      { id: 0, itemName: 'India' },
-      { id: 1, itemName: 'Singapore' },
-      { id: 2, itemName: 'Australia' },
-      { id: 3, itemName: 'Canada' },
-      { id: 4, itemName: 'South Korea' },
-      { id: 5, itemName: 'Germany' },
-      { id: 6, itemName: 'France' },
-      { id: 7, itemName: 'Russia' },
-      { id: 8, itemName: 'Italy' },
-      { id: 9, itemName: 'Sweden' },
-    ];
-    this.selectedItems = [
-      { id: 2, itemName: 'Singapore' },
-      { id: 3, itemName: 'Australia' },
-      { id: 4, itemName: 'Canada' },
-      { id: 5, itemName: 'South Korea' },
+      { id: 0, itemName:  genre[0]}, { id: 1, itemName:  genre[1]}, { id: 2, itemName:  genre[2]},
+      { id: 3, itemName:  genre[3]}, { id: 4, itemName:  genre[4]}, { id: 5, itemName:  genre[5]},
+      { id: 6, itemName:  genre[6]}, { id: 7, itemName:  genre[7]}, { id: 8, itemName:  genre[8]},
+      { id: 9, itemName:  genre[9]}, { id: 10, itemName: genre[10]},{ id: 11, itemName: genre[11]},
+      { id: 12, itemName: genre[12]},{ id: 13, itemName: genre[13]},{ id: 14, itemName: genre[14]},
+      { id: 15, itemName: genre[15]},{ id: 16, itemName: genre[16]},{ id: 17, itemName: genre[17]},
+      { id: 18, itemName: genre[18]},{ id: 19, itemName: genre[19]},{ id: 20, itemName: genre[20]}
+      
     ];
     this.dropdownSettings = {
       singleSelection: false,
-      text: 'Select Countries',
+      text: 'Select Genre',
       selectAllText: 'Select All',
       unSelectAllText: 'UnSelect All',
       enableSearchFilter: true,
