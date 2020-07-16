@@ -19,12 +19,15 @@
   </thead>
   <tbody>
 
-    <tr>
-      <th scope="row">José Protacio Rizal Mercado y Alonso Realonda</th>
-      <td>09162756852</td>
-      <td>Quezon City, Metro Manila</td>
-      <td>25</td>
-      <td>Employee</td>
+    <tr *ngFor="let memberInfo of memberInformation">
+
+      <td>{{ memberInfo.payload.doc.data().inputFirstName }} 
+        {{ memberInfo.payload.doc.data().inputLastName }}
+      </td>
+      <td>{{ memberInfo.payload.doc.data().inputMobileNumber }}</td>
+      <td>{{ memberInfo.payload.doc.data().inputAddress }}</td>
+      <td>{{ memberInfo.payload.doc.data().inputAge }}</td>
+      <td>{{ memberInfo.payload.doc.data().inputStatus }}</td>
       <td>
           <button class="btn-sm btn-outline-info" style="margin:5px" 
           data-toggle="modal" data-target="#editRegisteredMemberModal">

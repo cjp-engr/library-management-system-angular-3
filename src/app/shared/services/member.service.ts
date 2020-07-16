@@ -28,22 +28,19 @@ export class MemberService {
     completed: new FormControl(false)
 })
 
-addNewMember(data: any) {
-  return new Promise<any>((resolve, reject) =>{
-      this.firestore
-          .collection("members")
-          .add(data)
-          .then(res => {}, err => reject(err));
-  });
+getMemberInformation():any {
+  return this.firestore.collection("members").snapshotChanges();
 }
 
-onAddMemberSubmit(){
+addMemberSubmit(){
   let data = this.form.value;
-  this.addNewMember(data)
-          .then(res => {
-      }); 
+  return new Promise<any>((resolve, reject) =>{
+    this.firestore
+        .collection("members")
+        .add(data)
+        .then(res => {}, err => reject(err));
+});
 
 }
-
 
 }

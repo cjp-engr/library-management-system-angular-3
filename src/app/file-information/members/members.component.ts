@@ -14,7 +14,7 @@ export class MembersComponent implements OnInit {
   }
 
   onAddMemberSubmit(){
-      this.memberService.onAddMemberSubmit();
+      this.memberService.addMemberSubmit();
   }
 
 }
