@@ -60,6 +60,9 @@
             </select>
           </div>
         </div>
+      </div>
+
+      <div class="col-md-6">
 
         <div class="form-group col-md-13">
           <label for="inputDescription">Description</label>
@@ -69,19 +72,6 @@
             rows="3"
             style="resize: none;"
           ></textarea>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="form-group col-md-13">
-          <textarea
-            class="form-control"
-            id="inputSubjects"
-            rows="2"
-            style="resize: none;"
-            placeholder="Subjects"
-          >
-          </textarea>
         </div>
 
         <angular2-multiselect
@@ -94,20 +84,6 @@
           (onDeSelectAll)="onDeSelectAll($event)"
         ></angular2-multiselect>
 
-        <div class="form-group">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck" />
-            <label class="form-check-label" for="gridCheck">
-              Check me out
-            </label>
-          </div>
-        </div>
-        <button type="submit" class="btn btn-primary btn-block">
-          Add New Book
-        </button>
-        <button type="submit" class="btn btn-success btn-block">
-          Edit Book
-        </button>
       </div>
     </div>
   </div>
