@@ -1,82 +1,82 @@
 <table class="table" style="width: 100%">
-    <colgroup>
-       <col span="1" style="width: 25%;">
-       <col span="1" style="width: 20%;">
-       <col span="1" style="width: 20%;">
-       <col span="1" style="width: 10%;">
-       <col span="1" style="width: 10%;">
-    </colgroup>
+  <colgroup>
+     <col span="1" style="width: 25%;">
+     <col span="1" style="width: 20%;">
+     <col span="1" style="width: 20%;">
+     <col span="1" style="width: 10%;">
+     <col span="1" style="width: 10%;">
+  </colgroup>
 
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Mobile Number</th>
-        <th scope="col">Address</th>
-        <th scope="col">Age</th>
-        <th scope="col">Status</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Mobile Number</th>
+      <th scope="col">Address</th>
+      <th scope="col">Age</th>
+      <th scope="col">Status</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
 
-      <tr>
-        <th scope="row">José Protacio Rizal Mercado y Alonso Realonda</th>
-        <td>09162756852</td>
-        <td>Quezon City, Metro Manila</td>
-        <td>25</td>
-        <td>Employee</td>
-        <td>
-            <button class="btn-sm btn-outline-info" style="margin:5px" 
-            data-toggle="modal" data-target="#editRegisteredMemberModal">
-              Edit
-            </button>
-
-            <button class="btn-sm btn-outline-danger" style="margin:5px"
-            data-toggle="modal" data-target="#deleteRegisteredMember">
-              Delete
-            </button>
-          </td>
-      </tr>
-
-    </tbody>
-  </table>
-
-  <div class="modal fade" id="editRegisteredMemberModal" tabindex="-1" role="dialog" aria-labelledby="editRegisteredMemberModalTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Edit Member Information</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+    <tr>
+      <th scope="row">José Protacio Rizal Mercado y Alonso Realonda</th>
+      <td>09162756852</td>
+      <td>Quezon City, Metro Manila</td>
+      <td>25</td>
+      <td>Employee</td>
+      <td>
+          <button class="btn-sm btn-outline-info" style="margin:5px" 
+          data-toggle="modal" data-target="#editRegisteredMemberModal">
+            Edit
           </button>
-        </div>
-        <div class="modal-body">
-          <app-member-forms></app-member-forms>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Update</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
+
+          <button class="btn-sm btn-outline-danger" style="margin:5px"
+          data-toggle="modal" data-target="#deleteRegisteredMember">
+            Delete
+          </button>
+        </td>
+    </tr>
+
+  </tbody>
+</table>
+
+<div class="modal fade" id="editRegisteredMemberModal" tabindex="-1" role="dialog" aria-labelledby="editRegisteredMemberModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Edit Member Information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-member-forms></app-member-forms>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Update</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="modal fade" id="deleteRegisteredMember" tabindex="-1" role="dialog" aria-labelledby="deleteRegisteredMemberTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Delete Registered Member</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          Are you sure you want to delete member?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Yes</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-        </div>
+<div class="modal fade" id="deleteRegisteredMember" tabindex="-1" role="dialog" aria-labelledby="deleteRegisteredMemberTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Delete Registered Member</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete member?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Yes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
       </div>
     </div>
   </div>
+</div>

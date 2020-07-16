@@ -31,6 +31,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
+import { MemberService } from './shared/services/member.service';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
     AngularMultiSelectModule // auth
 
   ],
-  providers: [AuthService],
+  providers: [AuthService,
+              MemberService],
   bootstrap: [AppComponent]
 })
 

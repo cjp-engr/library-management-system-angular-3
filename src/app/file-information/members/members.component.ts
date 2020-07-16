@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MemberService } from 'src/app/shared/services/member.service';
 
 @Component({
   selector: 'app-members',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MembersComponent implements OnInit {
 
-  constructor() { }
+  constructor(private memberService: MemberService) { }
 
   ngOnInit(): void {
+  }
+
+  onAddMemberSubmit(){
+      this.memberService.onAddMemberSubmit();
   }
 
 }

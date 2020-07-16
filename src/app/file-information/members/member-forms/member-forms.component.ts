@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MemberService } from 'src/app/shared/services/member.service';
 
 @Component({
   selector: 'app-member-forms',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MemberFormsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public memberService: MemberService) { }
 
   ngOnInit(): void {
   }
+/* 
+   onSubmit() {
+    
+    let data = this.memberService.form.value;
+
+    this.memberService.addNewMember(data)
+            .then(res => {
+
+        }); 
+
+}  
+*/
 
 }
