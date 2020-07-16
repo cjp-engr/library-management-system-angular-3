@@ -9,13 +9,6 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { PasswordRecoveryComponent } from './auth/password-recovery/password-recovery.component';
-
-import { AngularFireModule } from "@angular/fire";
-import { AngularFireAuthModule } from "@angular/fire/auth";
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-
-import { environment } from 'src/environments/environment';
-
 import { AuthService } from './shared/services/auth.service';
 import { MembersComponent } from './file-information/members/members.component';
 import { BooksComponent } from './file-information/books/books.component';
@@ -31,6 +24,13 @@ import { MemberInformationComponent } from './file-information/member-informatio
 import { BookFormsComponent } from './file-information/books/book-forms/book-forms.component';
 import { MemberFormsComponent } from './file-information/members/member-forms/member-forms.component';
 
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+import { environment } from 'src/environments/environment';
+
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -61,7 +61,8 @@ import { MemberFormsComponent } from './file-information/members/member-forms/me
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, // firestore
-    AngularFireAuthModule // auth
+    AngularFireAuthModule,
+    AngularMultiSelectModule // auth
 
   ],
   providers: [AuthService],
