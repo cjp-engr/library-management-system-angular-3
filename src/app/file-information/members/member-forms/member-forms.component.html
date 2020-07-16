@@ -115,7 +115,10 @@
         formControlName="inputState"
         >
           <option selected>Choose...</option>
-          <option>...</option>
+          <option *ngFor="let stateListOfValue of stateListOfValues">
+            {{stateListOfValue}}
+            
+          </option>
         </select>
       </div>
 

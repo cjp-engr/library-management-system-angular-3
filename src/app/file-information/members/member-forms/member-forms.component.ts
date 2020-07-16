@@ -12,17 +12,13 @@ export class MemberFormsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-/* 
-   onSubmit() {
-    
-    let data = this.memberService.form.value;
 
-    this.memberService.addNewMember(data)
-            .then(res => {
-
-        }); 
-
+  stateListOfValues = ['Ilocos Region', 'Cagayan Valley', 'Central Luzon', 'Calabarzon', 'Bicol Region',
+                      'Western Visayas', 'Central Visayas', 'Eastern Visayas', 'Zamboanga Peninsula', 
+                      'Northern Mindanao', 'Davao Region', 'Soccsksargen', 'National Capital Region', 
+                      'Cordillera Administrative Region', 'Autonomous Region In Muslim Mindanao',
+                      'Caraga', 'Mimaropa'];
+ 
 }  
-*/
 
-}
+
