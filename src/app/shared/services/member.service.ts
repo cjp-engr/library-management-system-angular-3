@@ -39,7 +39,7 @@ export class MemberService {
         .collection('members')
         .add(data);
       console.log(e.id);
-      console.log('Hi there');
+      console.log('Hi there, walang error');
     }
     catch (er) {
       console.log(er.message);
