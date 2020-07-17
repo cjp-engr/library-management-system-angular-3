@@ -30,7 +30,8 @@
       <td>{{ memberInfo.payload.doc.data().inputStatus }}</td>
       <td>
           <button class="btn-sm btn-outline-info" style="margin:5px" 
-          data-toggle="modal" data-target="#editRegisteredMemberModal">
+          data-toggle="modal" data-target="#editRegisteredMemberModal"
+          (click) = "populateMemberInformationForm(memberInfo.payload.doc.data(), memberInfo.payload.doc.id)">
             Edit
           </button>
 
@@ -57,7 +58,7 @@
         <app-member-forms></app-member-forms>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Update</button>
+        <button type="button" class="btn btn-primary" (click) = "updateMemberInfoButton()">Update</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>

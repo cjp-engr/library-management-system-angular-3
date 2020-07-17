@@ -26,9 +26,23 @@ export class MemberListComponent implements OnInit {
 
   memberInformation: any;
 
-  getMemberInformation = () =>
+  getMemberInformation = () => {
     this.memberService
     .getMemberInformation()
     .subscribe((res: any) =>(this.memberInformation = res));
+  }
 
+  populateMemberInformationForm(memberInfo: any, memberID: any){
+
+    this.memberService.populateMemberInformationForm(memberInfo, memberID);
+    
+  }
+
+  getMemberID(memberID: any){
+    console.log(memberID);
+  }
+
+  updateMemberInfoButton(){
+    this.memberService.updateMemberInfoButton();
+  }
 }

@@ -1,13 +1,18 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { formatDate } from '@angular/common';
+import { merge } from 'jquery';
 
 @Injectable({
   providedIn: 'root',
 })
-export class MemberService {
+export class MemberService  {
   today = new Date();
+
+  memberInfo: any;
+  memberID: any;
+  timeAndDateUpdated: any;
 
   constructor(private firestore: AngularFirestore) {}
   
@@ -24,6 +29,7 @@ export class MemberService {
     inputState: new FormControl('', Validators.required),
     inputZip: new FormControl(null, Validators.required),
     inputDateAndTimeAdded: new FormControl(formatDate(this.today, 'd MMM yyyy hh:mm:ss a', 'en-US')),
+
     //memberInformationUpdated: new FormControl(false),
   });
 
@@ -32,8 +38,9 @@ export class MemberService {
   }
 
   async addMemberSubmit() {
-    let data = this.form.getRawValue();
 
+    let data = this.form.getRawValue();
+    
     try {
       const e = await this.firestore
         .collection('members')
@@ -45,18 +52,33 @@ export class MemberService {
       console.log(er.message);
     }
 
-/*     return new Promise<any>((resolve, reject) => {
-      this.firestore
-        .collection('members')
-        .add(data)
-        .then(
-          (err) => {
-            //eto po ang naglog ng error
-            console.log(data);
-            return reject(err);
-          }
-        );
-    }); */
+  }
+
+  updateMemberInformation(memberInfo: any, memberID: any){
+    console.log('memberID: '+memberID);
+    if(memberInfo != null && memberID != null){
+      this.memberID = memberID;
+      this.memberInfo = memberID;
+      console.log('updateMemberInformation Not Null');
+    }
+
+    
+    
+    //this.updateMemberInfoButton();
+  }
+
+  updateMemberInfoButton(){
+    console.log('Hello, updateMemberInfoButton()');
+    this.firestore.doc('members/'+this.memberID).set(this.form.value);
+    
+  }
+
+  populateMemberInformationForm(memberInfo: any, memberID: any){
+    console.log(memberInfo);
+    
+    this.form.setValue(memberInfo);
+    this.updateMemberInformation(memberInfo, memberID);
+
   }
 
   clearForm() {
