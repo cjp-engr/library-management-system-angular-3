@@ -34,6 +34,7 @@ export class MemberListComponent implements OnInit {
     if(this.memberService.form.valid){
       this.memberService.updateMemberInformation();
       this.memberService.clearForm();
+      this.memberID = '';
       this.toastr.success('You have successfully updated the member\'s information', 'Success!');
     }else{
       this.toastr.warning('Please complete the form', 'Not Complete');
@@ -51,6 +52,7 @@ export class MemberListComponent implements OnInit {
 
   closeButtonClicked(){
     //console.log("closeButtonClicked");
+    this.memberID = '';
     this.memberService.clearForm();
   }
 
