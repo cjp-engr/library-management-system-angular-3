@@ -31,7 +31,7 @@ export class MemberService {
     inputDateAndTimeAdded: new FormControl(
       formatDate(this.today, 'd MMM yyyy hh:mm:ss a', 'en-US')
     ),
-    completed: new FormControl(false),
+    memberInformationUpdated: new FormControl(false),
   });
 
   getMemberInformation(): any {
@@ -45,10 +45,9 @@ export class MemberService {
         .collection('members')
         .add(data)
         .then(
-          () => {
-            this.clearForm();
-          },
-          (err) => reject(err)
+          (err) => {
+            return reject(err);
+          }
         );
     });
   }
