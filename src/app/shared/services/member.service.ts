@@ -31,18 +31,19 @@ export class MemberService {
     return this.firestore.collection('members').snapshotChanges();
   }
 
-  addMemberSubmit() {
+  async addMemberSubmit() {
     let data = this.form.getRawValue();
 
-    return this.firestore
-    .collection('members')
-    .add(data).then((e) => {
+    try {
+      const e = await this.firestore
+        .collection('members')
+        .add(data);
       console.log(e.id);
       console.log('Hi there');
-      })
-      .catch((er) => {
+    }
+    catch (er) {
       console.log(er.message);
-      })
+    }
 
 /*     return new Promise<any>((resolve, reject) => {
       this.firestore
