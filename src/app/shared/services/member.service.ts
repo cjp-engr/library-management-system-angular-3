@@ -62,9 +62,6 @@ export class MemberService  {
       console.log('updateMemberInformation Not Null');
     }
 
-    
-    
-    //this.updateMemberInfoButton();
   }
 
   updateMemberInfoButton(){
