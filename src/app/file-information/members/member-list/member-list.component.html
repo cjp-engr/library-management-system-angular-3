@@ -25,7 +25,7 @@
         {{ memberInfo.payload.doc.data().inputLastName }}
       </td>
       <td>{{ memberInfo.payload.doc.data().inputMobileNumber }}</td>
-      <td>{{ memberInfo.payload.doc.data().inputAddress }}</td>
+      <td>{{ memberInfo.payload.doc.data().inputState }}</td>
       <td>{{ memberInfo.payload.doc.data().inputAge }}</td>
       <td>{{ memberInfo.payload.doc.data().inputStatus }}</td>
       <td>
@@ -36,7 +36,8 @@
           </button>
 
           <button class="btn-sm btn-outline-danger" style="margin:5px"
-          data-toggle="modal" data-target="#deleteRegisteredMember">
+          data-toggle="modal" data-target="#deleteRegisteredMember"
+          (click) = "deleteMemberInfoButton(memberInfo.payload.doc.id)">
             Delete
           </button>
         </td>
@@ -58,8 +59,8 @@
         <app-member-forms></app-member-forms>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click) = "updateMemberInfoButton()">Update</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="updateMemberInfoButton()">Update</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeButtonClicked()">Close</button>
       </div>
     </div>
   </div>
@@ -78,7 +79,8 @@
         Are you sure you want to delete member?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Yes</button>
+        
+        <button type="button" class="btn btn-primary" (click) = "deleteYesButtonClicked()">Yes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
       </div>
     </div>

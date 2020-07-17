@@ -73,11 +73,5 @@ import { MemberService } from './shared/services/member.service';
 
 export class AppModule { 
 
-/* 
-    constructor(db: AngularFirestore) {
-      const things = db.collection('things').valueChanges();
-      things.subscribe(console.log);
-  }
-    */
          
 }

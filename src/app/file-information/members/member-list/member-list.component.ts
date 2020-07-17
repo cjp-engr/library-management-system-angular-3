@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MemberService } from 'src/app/shared/services/member.service';
-import { Member } from 'src/app/shared/model/member.model';
 
 @Component({
   selector: 'app-member-list',
@@ -11,20 +10,14 @@ import { Member } from 'src/app/shared/model/member.model';
 
 export class MemberListComponent implements OnInit {
 
+  memberInformation: any;
+  memberID: any;
 
   constructor(private memberService: MemberService) { }
-/* 
-  ngOnInit() {this.getCoffeeOrders();}
-  ...  coffeeOrders;   getCoffeeOrders = () =>
-        this.ordersService
-        .getCoffeeOrders()
-        .subscribe(res =>(this.coffeeOrders = res));
-         */
+
   ngOnInit(){
     this.getMemberInformation();
   }
-
-  memberInformation: any;
 
   getMemberInformation = () => {
     this.memberService
@@ -33,16 +26,28 @@ export class MemberListComponent implements OnInit {
   }
 
   populateMemberInformationForm(memberInfo: any, memberID: any){
-
     this.memberService.populateMemberInformationForm(memberInfo, memberID);
-    
-  }
-
-  getMemberID(memberID: any){
-    console.log(memberID);
   }
 
   updateMemberInfoButton(){
-    this.memberService.updateMemberInfoButton();
+    if(this.memberService.form.valid){
+      this.memberService.updateMemberInformation();
+      this.memberService.clearForm();
+    }
+
   }
+
+  deleteMemberInfoButton(memberID: any){
+    this.memberID = memberID;
+  }
+
+  deleteYesButtonClicked(){
+    this.memberService.deleteMemberInformation(this.memberID);
+  }
+
+  closeButtonClicked(){
+    //console.log("closeButtonClicked");
+    this.memberService.clearForm();
+  }
+
 }

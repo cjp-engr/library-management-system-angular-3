@@ -2,7 +2,6 @@ import { Injectable, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { formatDate } from '@angular/common';
-import { merge } from 'jquery';
 
 @Injectable({
   providedIn: 'root',
@@ -33,7 +32,7 @@ export class MemberService  {
     //memberInformationUpdated: new FormControl(false),
   });
 
-  getMemberInformation(): any {
+  getMemberInformation() {
     return this.firestore.collection('members').snapshotChanges();
   }
 
@@ -54,27 +53,43 @@ export class MemberService  {
 
   }
 
-  updateMemberInformation(memberInfo: any, memberID: any){
-    console.log('memberID: '+memberID);
-    if(memberInfo != null && memberID != null){
-      this.memberID = memberID;
-      this.memberInfo = memberID;
-      console.log('updateMemberInformation Not Null');
+  async deleteMemberInformation(memberID: any){
+    console.log(memberID);
+    try {
+      await this.firestore.collection('members').doc(memberID).delete();
+      
+      console.log('Hi there, walang error');
     }
-
+    catch (er) {
+      console.log(er.message);
+    }
+    //this.firestore.collection('members').doc(memberID).delete();
+       
   }
 
-  updateMemberInfoButton(){
-    console.log('Hello, updateMemberInfoButton()');
-    this.firestore.doc('members/'+this.memberID).set(this.form.value);
+  async updateMemberInformation(){
+    //console.log('Hello, updateMemberInfoButton()');
+    try {
+      await this.firestore.doc('members/'+this.memberID).set(this.form.value);
+      
+      console.log('Hi there, walang error');
+    }
+    catch (er) {
+      console.log(er.message);
+    }
+    //this.firestore.doc('members/'+this.memberID).set(this.form.value);
     
   }
 
   populateMemberInformationForm(memberInfo: any, memberID: any){
     console.log(memberInfo);
-    
     this.form.setValue(memberInfo);
-    this.updateMemberInformation(memberInfo, memberID);
+
+    if(memberInfo != null && memberID != null){
+      this.memberID = memberID;
+      this.memberInfo = memberID;
+      console.log('updateMemberInformation Not Null');
+    }
 
   }
 
