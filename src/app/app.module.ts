@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,6 +34,9 @@ import { environment } from 'src/environments/environment';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import { MemberService } from './shared/services/member.service';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +67,10 @@ import { MemberService } from './shared/services/member.service';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule,
-    AngularMultiSelectModule // auth
+    AngularMultiSelectModule,
+    CommonModule,
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot() 
 
   ],
   providers: [AuthService,

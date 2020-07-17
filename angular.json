@@ -25,7 +25,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/themes/default.theme.scss"
+              "src/themes/default.theme.scss",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js"
@@ -92,7 +93,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/themes/default.theme.scss"
+              "src/themes/default.theme.scss",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js"

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MemberService } from 'src/app/shared/services/member.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-member-list',
@@ -13,7 +14,7 @@ export class MemberListComponent implements OnInit {
   memberInformation: any;
   memberID: any;
 
-  constructor(private memberService: MemberService) { }
+  constructor(private memberService: MemberService, private toastr: ToastrService) { }
 
   ngOnInit(){
     this.getMemberInformation();
@@ -33,6 +34,9 @@ export class MemberListComponent implements OnInit {
     if(this.memberService.form.valid){
       this.memberService.updateMemberInformation();
       this.memberService.clearForm();
+      this.toastr.success('You have successfully updated the member\'s information', 'Success!');
+    }else{
+      this.toastr.warning('Please complete the form', 'Not Complete');
     }
 
   }
