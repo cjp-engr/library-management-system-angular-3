@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MemberService } from 'src/app/shared/services/member.service';
+import { FormControl, FormGroup } from "@angular/forms";
 
 @Component({
   selector: 'app-members',

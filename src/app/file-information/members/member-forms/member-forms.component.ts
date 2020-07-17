@@ -18,7 +18,7 @@ export class MemberFormsComponent implements OnInit {
                       'Northern Mindanao', 'Davao Region', 'Soccsksargen', 'National Capital Region', 
                       'Cordillera Administrative Region', 'Autonomous Region In Muslim Mindanao',
                       'Caraga', 'Mimaropa'];
- 
+      
 }  
 
 
