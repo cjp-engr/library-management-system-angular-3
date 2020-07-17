@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { formatDate } from '@angular/common';
 
@@ -11,17 +11,23 @@ export class MemberService {
 
   constructor(private firestore: AngularFirestore) {}
   form = new FormGroup({
-    inputFirstName: new FormControl(''),
-    inputLastName: new FormControl(''),
-    inputAge: new FormControl(''),
-    inputGender: new FormControl(''),
-    inputStatus: new FormControl(''),
-    inputEmail: new FormControl(''),
-    inputMobileNumber: new FormControl(''),
-    inputAddress: new FormControl(''),
-    inputCity: new FormControl(''),
-    inputState: new FormControl(''),
-    inputZip: new FormControl(''),
+    inputFirstName: new FormControl('', Validators.required),
+    inputLastName: new FormControl('', Validators.required),
+    inputAge: new FormControl('', [
+      Validators.pattern('^[0-9]*$'),
+      Validators.max(150),
+    ]),
+    inputGender: new FormControl('', Validators.required),
+    inputStatus: new FormControl('', Validators.required),
+    inputEmail: new FormControl('', Validators.required),
+    inputMobileNumber: new FormControl('', Validators.required),
+    inputAddress: new FormControl('', Validators.required),
+    inputCity: new FormControl('', Validators.required),
+    inputState: new FormControl('', Validators.required),
+    inputZip: new FormControl('', [
+      Validators.pattern('^[0-9]*$'),
+      Validators.maxLength(7),
+    ]),
     inputDateAndTimeAdded: new FormControl(
       formatDate(this.today, 'd MMM yyyy hh:mm:ss a', 'en-US')
     ),
