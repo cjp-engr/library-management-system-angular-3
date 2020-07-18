@@ -37,6 +37,9 @@ import { MemberService } from './shared/services/member.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { BooksService } from './shared/services/books.service';
+import { SearchMemberComponent } from './file-information/member-information/search-member/search-member.component';
+import { AdminListComponent } from './file-information/admin/admin-list/admin-list.component';
+import { AdminFormComponent } from './file-information/admin/admin-form/admin-form.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +60,10 @@ import { BooksService } from './shared/services/books.service';
     MemberListComponent,
     MemberInformationComponent,
     BookFormsComponent,
-    MemberFormsComponent
+    MemberFormsComponent,
+    SearchMemberComponent,
+    AdminListComponent,
+    AdminFormComponent
   ],
   imports: [
     BrowserModule,

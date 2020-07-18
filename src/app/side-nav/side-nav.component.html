@@ -57,7 +57,7 @@
                                 Admin Information
                             </a>
 
-                            <a class="nav-link" routerLink="/member-information">
+                            <a class="nav-link" routerLink="/member-information" data-toggle="modal" data-target="#exampleModalCenter">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Member Information
                             </a>
@@ -157,3 +157,23 @@
         <script src="assets/demo/datatables-demo.js"></script>
     </body>
 </html>
+
+<!-- Modal Member Information-->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Search Member</h5>
+
+        </div>
+        <div class="modal-body">
+            <app-search-member></app-search-member>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">OK</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Modal Member Information-->
