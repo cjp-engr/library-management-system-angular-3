@@ -6,6 +6,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
   providedIn: 'root',
 })
 export class BooksService {
+  
+  bookInfo: any;
+  bookID: any;
   constructor(private firestore: AngularFirestore) {}
 
   form = new FormGroup({
@@ -19,6 +22,10 @@ export class BooksService {
     inputGenre: new FormControl('')
   });
 
+  getBooksInformation() { 
+    return this.firestore.collection('books').snapshotChanges();
+  }
+
   async addBooks() {
 
     let data = this.form.getRawValue();
@@ -27,8 +34,7 @@ export class BooksService {
       const e = await this.firestore
         .collection('books')
         .add(data);
-      console.log(e.id);
-      console.log('Hi there, walang error');
+        console.log(e.id);
     }
     catch (er) {
       console.log(er.message);
@@ -36,8 +42,20 @@ export class BooksService {
 
   }
 
-  getBooksInformation() { 
-    return this.firestore.collection('books').snapshotChanges();
+  async updateBookInformation(){
+    try {
+      await this.firestore.doc('books/'+this.bookID).set(this.form.value);
+      
+    }
+    catch (er) {
+      console.log(er.message);
+    }
+  }
+
+  populateBookInformationForm(bookInfo: any, bookID: any){
+    this.form.setValue(bookInfo);
+    this.bookInfo = bookInfo;
+    this.bookID = bookID;
   }
 
 }

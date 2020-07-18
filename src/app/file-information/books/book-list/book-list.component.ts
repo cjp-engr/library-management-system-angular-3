@@ -9,6 +9,7 @@ import { BooksService } from 'src/app/shared/services/books.service';
 export class BookListComponent implements OnInit {
 
   bookInformations:any;
+  updateBookButton: any;
 
   constructor(public booksService: BooksService) { }
 
@@ -24,7 +25,18 @@ export class BookListComponent implements OnInit {
   getBooksInformation = () => {
     this.booksService.getBooksInformation()
       .subscribe(res => (this.bookInformations = res));
-      console.log('getBooksInformation');
+      //console.log('getBooksInformation');
+  }
+
+  populateBookInformationForm(bookInfo: any, bookID: any){
+    console.log(bookID);
+    console.log(bookInfo);
+    this.booksService.populateBookInformationForm(bookInfo, bookID);
+  }
+
+  updateBookInformation(){
+    this.booksService.updateBookInformation();
+    this.updateBookButton = "modal";
   }
 
 }

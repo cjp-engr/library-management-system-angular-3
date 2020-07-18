@@ -11,3 +11,4 @@ https://medium.com/@puoygae/tutorial-how-to-upload-files-using-firebase-fbe59853
 https://fireship.io/lessons/angular-firebase-storage-uploads-multi/
 https://ng-bootstrap.github.io/#/components/modal/examples
 https://medium.com/@NetanelBasal/typescript-integrate-jquery-plugin-in-your-project-e28c6887d8dc
+https://www.angularjswiki.com/angular/how-to-use-font-awesome-icons-in-angular-applications/

@@ -82,12 +82,12 @@ export class MemberService  {
   }
 
   populateMemberInformationForm(memberInfo: any, memberID: any){
-    console.log(memberInfo);
+    //console.log(memberInfo);
     this.form.setValue(memberInfo);
 
     if(memberInfo != null && memberID != null){
       this.memberID = memberID;
-      this.memberInfo = memberID;
+      this.memberInfo = memberInfo;
       console.log('updateMemberInformation Not Null');
     }
 

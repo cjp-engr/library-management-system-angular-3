@@ -24,6 +24,12 @@
       data-toggle="modal"
       data-target="#editBookInformationModal"
       *ngFor="let bookInfo of bookInformations"
+      (click)="
+        populateBookInformationForm(
+          bookInfo.payload.doc.data(),
+          bookInfo.payload.doc.id
+        )
+      "
     >
       <td>{{ bookInfo.payload.doc.data().inputTitle }}</td>
       <td>{{ bookInfo.payload.doc.data().inputAuthor }}</td>
@@ -62,7 +68,14 @@
         <app-book-forms></app-book-forms>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Update</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="updateBookInformation()"
+          [attr.data-dismiss] = "updateBookButton"
+        >
+          Update
+        </button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">
           Close
         </button>

@@ -4,24 +4,24 @@
       <div class="col-md-6">
         <div class="form-group">
           <label for="inputTitle">Title</label>
-          <input
-            type="text"
-            class="form-control"
-            id="inputTitle"
-            placeholder="Title"
-            formControlName="inputTitle"
-          />
+          <textarea
+          class="form-control"
+          id="inputTitle"
+          rows="2"
+          style="resize: none;"
+          formControlName="inputTitle"
+        ></textarea>
         </div>
 
         <div class="form-group">
           <label for="inputAuthor">Author</label>
-          <input
-            type="text"
-            class="form-control"
-            id="inputAuthor"
-            placeholder="Author"
-            formControlName="inputAuthor"
-          />
+          <textarea
+          class="form-control"
+          id="inputAuthor"
+          rows="2"
+          style="resize: none;"
+          formControlName="inputAuthor"
+        ></textarea>
         </div>
 
         <div class="form-row">
@@ -58,6 +58,7 @@
               <option>Checked Out</option>
               <option>Not Available</option>
               <option>On Hold</option>
+              
             </select>
           </div>
 
@@ -81,7 +82,7 @@
           <textarea
             class="form-control"
             id="inputDescription"
-            rows="3"
+            rows="5"
             style="resize: none;"
             formControlName="inputDescription"
           ></textarea>
