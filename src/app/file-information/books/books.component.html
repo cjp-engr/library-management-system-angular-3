@@ -19,7 +19,7 @@
         <app-book-forms></app-book-forms>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="onAddBook()">Save</button>
+        <button type="button" class="btn btn-primary" [attr.data-dismiss] = "addBookModal" (click)="onAddBook()">Save</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>

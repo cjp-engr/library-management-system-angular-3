@@ -16,7 +16,7 @@ export class BooksService {
     inputStatus: new FormControl(''),
     inputType: new FormControl(''),
     inputDescription: new FormControl(''),
-    inputGenre: new FormControl(''),
+    inputGenre: new FormControl('')
   });
 
   async addBooks() {
@@ -34,6 +34,10 @@ export class BooksService {
       console.log(er.message);
     }
 
+  }
+
+  getBooksInformation() { 
+    return this.firestore.collection('books').snapshotChanges();
   }
 
 }

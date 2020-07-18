@@ -1,54 +1,72 @@
-<table class="table" style="width: 100%">
-    <colgroup>
-       <col span="1" style="width: 30%;">
-       <col span="1" style="width: 20%;">
-       <col span="1" style="width: 15%;">
-       <col span="1" style="width: 15%;">
-       <col span="1" style="width: 10%;">
-       <col span="1" style="width: 20%;">
-    </colgroup>
+<table class="table" style="width: 100%;">
+  <colgroup>
+    <col span="1" style="width: 30%;" />
+    <col span="1" style="width: 20%;" />
+    <col span="1" style="width: 15%;" />
+    <col span="1" style="width: 15%;" />
+    <col span="1" style="width: 10%;" />
+    <col span="1" style="width: 20%;" />
+  </colgroup>
 
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Title</th>
-        <th scope="col">Author</th>
-        <th scope="col">ISBN</th>
-        <th scope="col">Type</th>
-        <th scope="col">Year Published</th>
-        <th scope="col">Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="pointer" data-toggle="modal" data-target="#editBookInformationModal">
-        
-        <td>Begin Again: James Baldwin's America and Its Urgent Lessons for Our Own</td>
-        <td>Robert Greene</td>
-        <td>9780143111375</td>
-        <td>Non-Fiction</td>
-        <td>2010</td>
-        <td>Available</td>
-      </tr>
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Author</th>
+      <th scope="col">ISBN</th>
+      <th scope="col">Type</th>
+      <th scope="col">Year Published</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      class="pointer"
+      data-toggle="modal"
+      data-target="#editBookInformationModal"
+      *ngFor="let bookInfo of bookInformations"
+    >
+      <td>{{ bookInfo.payload.doc.data().inputTitle }}</td>
+      <td>{{ bookInfo.payload.doc.data().inputAuthor }}</td>
+      <td>{{ bookInfo.payload.doc.data().inputISBN }}</td>
+      <td>{{ bookInfo.payload.doc.data().inputType }}</td>
+      <td>{{ bookInfo.payload.doc.data().inputYearPublished }}</td>
+      <td>{{ bookInfo.payload.doc.data().inputStatus }}</td>
+    </tr>
+  </tbody>
+</table>
 
-    </tbody>
-  </table>
-
-  <div class="modal fade" id="editBookInformationModal" tabindex="-1" role="dialog" aria-labelledby="editBookInformationModalTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Edit Book Information</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <app-book-forms></app-book-forms>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Update</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
+<div
+  class="modal fade"
+  id="editBookInformationModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="editBookInformationModalTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          Edit Book Information
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-book-forms></app-book-forms>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Update</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
       </div>
     </div>
   </div>
-
+</div>

@@ -7,7 +7,7 @@ import { BooksService } from 'src/app/shared/services/books.service';
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent implements OnInit {
-
+  addBookModal: any;
   constructor(public booksService: BooksService) { }
 
   ngOnInit(): void {
@@ -15,6 +15,7 @@ export class BooksComponent implements OnInit {
 
   onAddBook(){
     this.booksService.addBooks();
+    this.addBookModal = "modal"
   }
 
 }
