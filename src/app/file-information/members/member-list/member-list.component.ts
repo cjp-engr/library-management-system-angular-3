@@ -13,6 +13,7 @@ export class MemberListComponent implements OnInit {
 
   memberInformation: any;
   memberID: any;
+  memberInfo: any;
   closeModalAfterSubmit:any = "";
 
   constructor(private memberService: MemberService, private toastr: ToastrService) { }
@@ -28,14 +29,15 @@ export class MemberListComponent implements OnInit {
   }
 
   populateMemberInformationForm(memberInfo: any, memberID: any){
-    this.memberService.populateMemberInformationForm(memberInfo, memberID);
+    this.memberInfo = memberInfo;
+    this.memberID = memberID;
+    this.memberService.populateMemberInformationForm(this.memberInfo, this.memberID);
   }
 
   updateMemberInfoButton(){
     if(this.memberService.form.valid){
       this.memberService.updateMemberInformation();
-      this.memberService.clearForm();
-      this.memberID = '';
+      this.clearAllData();
       this.toastr.success('You have successfully updated the member\'s information.', 'Updated!');
       this.closeModalAfterSubmit = "modal";
     }else{
@@ -50,11 +52,17 @@ export class MemberListComponent implements OnInit {
 
   deleteYesButtonClicked(){
     this.memberService.deleteMemberInformation(this.memberID);
+    this.clearAllData();
   }
 
   closeButtonClicked(){
     //console.log("closeButtonClicked");
+    this.clearAllData();
+  }
+
+  clearAllData(){
     this.memberID = '';
+    this.memberInfo = '';
     this.memberService.clearForm();
   }
 

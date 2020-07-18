@@ -19,7 +19,8 @@ export class BooksService {
     inputStatus: new FormControl('', Validators.required),
     inputType: new FormControl('', Validators.required),
     inputDescription: new FormControl('', Validators.required),
-    inputGenre: new FormControl('', Validators.required)
+    inputGenre: new FormControl('', Validators.required),
+    inputBarcode: new FormControl('', Validators.required)
   });
 
   getBooksInformation() { 
@@ -56,6 +57,22 @@ export class BooksService {
     this.form.setValue(bookInfo);
     this.bookInfo = bookInfo;
     this.bookID = bookID;
+  }
+
+  clearForm(){
+    if(this.form.valid){
+      this.form.reset({
+        inputTitle: '',
+        inputAuthor: '',
+        inputISBN: '',
+        inputYearPublished: '',
+        inputStatus: '',
+        inputType: '',
+        inputDescription: '',
+        inputGenre: '',
+        inputBarcode: ''
+      })
+    }
   }
 
 }

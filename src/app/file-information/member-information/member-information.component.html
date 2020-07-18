@@ -1,8 +1,28 @@
-<div style="padding: 50px;">
+<div style="padding: 20px;">
+  <h3>Borrowed Transaction</h3>
+  <h4>Borrower Name:</h4>
+  <!-- SEARCH INPUT -->
+  <form class="form-inline my-2 my-lg-0 float-left" style="padding-bottom:5px;">
+    <input
+      class="form-control mr-sm-2"
+      type="search"
+      placeholder="Search"
+      aria-label="Search"
+    />
+  </form>
+  <!-- SEARCH INPUT -->
 
-<h3>Borrowed Transaction</h3>
-<h4>Borrower Name: </h4>
   <table class="table" style="width: 100%;">
+    <colgroup>
+      <col span="1" style="width: 10%;" />
+      <col span="1" style="width: 20%;" />
+      <col span="1" style="width: 15%;" />
+      <col span="1" style="width: 15%;" />
+      <col span="1" style="width: 15%;" />
+      <col span="1" style="width: 15%;" />
+      <col span="1" style="width: 8%;" />
+      <col span="1" style="width: 7%;" />
+    </colgroup>
     <thead class="thead-dark">
       <tr>
         <th scope="col">Barcode</th>
@@ -15,9 +35,67 @@
         <th scope="col">Action</th>
       </tr>
     </thead>
+    <tbody>
+      <tr>
+        <td>XDSD1243</td>
+        <td>
+          Freakonomics: A Rogue Economist Explores the Hidden Side of Everything
+        </td>
+        <td>Steven D. Levitt, Stephen J. Dubner</td>
+        <td>9780061234002</td>
+        <td>July 18, 2020 8:00 AM</td>
+        <td>July 28, 2020 8:00 AM</td>
+        <td>P 123</td>
+        <td>
+          <button type="button" class="btn btn-danger">Return</button>
+        </td>
+      </tr>
+    </tbody>
   </table>
-  <div style="padding: 15px;"></div>
+
+  <!-- PAGINATION -->
+  <nav aria-label="Page navigation example" class="float-right">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link">1</a></li>
+      <li class="page-item"><a class="page-link">2</a></li>
+      <li class="page-item"><a class="page-link">3</a></li>
+      <li class="page-item">
+        <a class="page-link" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- PAGINATION -->
+
+  <div style="padding: 20px;"></div>
+  <!-- SEARCH INPUT -->
+  <form class="form-inline my-2 my-lg-0 float-left" style="padding-bottom:5px;">
+    <input
+      class="form-control mr-sm-2"
+      type="search"
+      placeholder="Search"
+      aria-label="Search"
+    />
+  </form>
+  <!-- SEARCH INPUT -->
   <table class="table" style="width: 100%;">
+    <colgroup>
+      <col span="1" style="width: 15%;" />
+      <col span="1" style="width: 10%;" />
+      <col span="1" style="width: 25%;" />
+      <col span="1" style="width: 15%;" />
+      <col span="1" style="width: 10%;" />
+      <col span="1" style="width: 15%;" />
+      <col span="1" style="width: 8%;" />
+    </colgroup>
     <thead class="thead-dark">
       <tr>
         <th scope="col">Book Image</th>
@@ -29,5 +107,42 @@
         <th scope="col">Action</th>
       </tr>
     </thead>
+    <tbody>
+      <tr>
+        <td>Book Image</td>
+        <td>XDSD1243</td>
+        <td>
+          Freakonomics: A Rogue Economist Explores the Hidden Side of Everything
+        </td>
+        <td>Steven D. Levitt, Stephen J. Dubner</td>
+        <td>9780061234002</td>
+        <td>Available</td>
+        <td>
+          <button type="button" class="btn btn-success">Borrow</button>
+        </td>
+      </tr>
+    </tbody>
   </table>
+
+  <!-- PAGINATION -->
+  <nav aria-label="Page navigation example" class="float-right">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link">1</a></li>
+      <li class="page-item"><a class="page-link">2</a></li>
+      <li class="page-item"><a class="page-link">3</a></li>
+      <li class="page-item">
+        <a class="page-link" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- PAGINATION -->
 </div>

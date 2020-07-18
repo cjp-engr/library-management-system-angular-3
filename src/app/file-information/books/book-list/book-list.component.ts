@@ -11,6 +11,8 @@ export class BookListComponent implements OnInit {
 
   bookInformations:any;
   updateBookButton: any;
+  bookInfo: any; 
+  bookID: any
 
   constructor(public booksService: BooksService, private toastr: ToastrService) { }
 
@@ -30,20 +32,31 @@ export class BookListComponent implements OnInit {
   }
 
   populateBookInformationForm(bookInfo: any, bookID: any){
-    console.log(bookID);
-    console.log(bookInfo);
-    this.booksService.populateBookInformationForm(bookInfo, bookID);
+    this.bookInfo = bookInfo;
+    this.bookID = bookID;
+    this.booksService.populateBookInformationForm(this.bookInfo, this.bookID);
   }
 
   updateBookInformation(){
     if(this.booksService.form.valid){
       this.booksService.updateBookInformation();
+      this.clearAllData();
       this.toastr.success('You have successfully updated the book information.', 'Updated!');
       this.updateBookButton = "modal";
     }else{
       this.toastr.warning('Please complete the form.', 'Warning!');
     }
 
+  }
+
+  closeButtonClicked(){
+    this.clearAllData();
+  }
+
+  clearAllData(){
+    this.bookID = '';
+    this.bookInfo = '';
+    this.booksService.clearForm();
   }
 
 }

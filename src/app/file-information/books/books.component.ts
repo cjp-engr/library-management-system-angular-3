@@ -18,6 +18,7 @@ export class BooksComponent implements OnInit {
     if(this.booksService.form.valid){
       this.booksService.addBooks();
       this.toastr.success('You have successfully added the book information.', 'Added!');
+      this.booksService.clearForm();
       this.addBookModal = "modal"
     }else{
       this.toastr.warning('Please complete the form.', 'Required!');
