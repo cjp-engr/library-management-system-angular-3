@@ -9,3 +9,5 @@ https://javebratt.com/angularfire-idfield/
 https://www.freakyjolly.com/angular-crud-operations-using-firebase-and-firestore-database-in-angular-application-tutorial/#.XxGkw54zYdU
 https://medium.com/@puoygae/tutorial-how-to-upload-files-using-firebase-fbe598538c52
 https://fireship.io/lessons/angular-firebase-storage-uploads-multi/
+https://ng-bootstrap.github.io/#/components/modal/examples
+https://medium.com/@NetanelBasal/typescript-integrate-jquery-plugin-in-your-project-e28c6887d8dc

@@ -1,26 +1,51 @@
-<div style="padding: 50px">
-
-  <div class="text-center" style="padding: 10px">
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addNewMemberModal">Add New Member</button>
+<div style="padding: 50px;">
+  <div class="text-center" style="padding: 10px;">
+    <button
+      type="button"
+      class="btn btn-primary btn-lg"
+      data-toggle="modal"
+      data-target="#addNewMemberModal"
+    >
+      Add New Member
+    </button>
   </div>
 
   <app-member-list></app-member-list>
 </div>
 
-<div class="modal fade" id="addNewMemberModal" tabindex="-1" role="dialog" aria-labelledby="addNewMemberModalTitle" aria-hidden="true">
+<div
+  class="modal fade"
+  id="addNewMemberModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="addNewMemberModalTitle"
+  aria-hidden="true"
+>
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Member Information Form</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          Member Information Form
+        </h5>
       </div>
       <div class="modal-body">
         <app-member-forms></app-member-forms>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click) = "onAddMemberSubmit()">Add</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button
+          type="submit"
+          id="onAddMember"
+          class="btn btn-primary"
+          [attr.data-dismiss]="closeModalAfterSubmit"
+          (click)="onAddMemberSubmit()"
+        >
+          Add
+        </button>
+        
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
       </div>
     </div>
   </div>
 </div>
-

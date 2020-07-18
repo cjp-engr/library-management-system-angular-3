@@ -75,7 +75,7 @@ import { ToastrModule } from 'ngx-toastr';
   ],
   providers: [AuthService,
               MemberService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 
 export class AppModule { 

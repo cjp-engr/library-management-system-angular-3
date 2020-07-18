@@ -13,6 +13,7 @@ export class MemberListComponent implements OnInit {
 
   memberInformation: any;
   memberID: any;
+  closeModalAfterSubmit:any = "";
 
   constructor(private memberService: MemberService, private toastr: ToastrService) { }
 
@@ -35,9 +36,10 @@ export class MemberListComponent implements OnInit {
       this.memberService.updateMemberInformation();
       this.memberService.clearForm();
       this.memberID = '';
-      this.toastr.success('You have successfully updated the member\'s information', 'Success!');
+      this.toastr.success('You have successfully updated the member\'s information.', 'Success!');
+      this.closeModalAfterSubmit = "modal";
     }else{
-      this.toastr.warning('Please complete the form', 'Not Complete');
+      this.toastr.warning('Please complete the form.', 'Not Complete');
     }
 
   }
