@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from 'src/app/shared/services/books.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-books',
@@ -8,14 +9,20 @@ import { BooksService } from 'src/app/shared/services/books.service';
 })
 export class BooksComponent implements OnInit {
   addBookModal: any;
-  constructor(public booksService: BooksService) { }
+  constructor(public booksService: BooksService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
 
   onAddBook(){
-    this.booksService.addBooks();
-    this.addBookModal = "modal"
+    if(this.booksService.form.valid){
+      this.booksService.addBooks();
+      this.toastr.success('You have successfully added the book information.', 'Added!');
+      this.addBookModal = "modal"
+    }else{
+      this.toastr.warning('Please complete the form.', 'Required!');
+    }
+
   }
 
 }

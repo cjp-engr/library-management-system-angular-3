@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from 'src/app/shared/services/books.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-book-list',
@@ -11,7 +12,7 @@ export class BookListComponent implements OnInit {
   bookInformations:any;
   updateBookButton: any;
 
-  constructor(public booksService: BooksService) { }
+  constructor(public booksService: BooksService, private toastr: ToastrService) { }
 
   ngOnInit() {
     this.getBooksInformation();
@@ -35,8 +36,14 @@ export class BookListComponent implements OnInit {
   }
 
   updateBookInformation(){
-    this.booksService.updateBookInformation();
-    this.updateBookButton = "modal";
+    if(this.booksService.form.valid){
+      this.booksService.updateBookInformation();
+      this.toastr.success('You have successfully updated the book information.', 'Updated!');
+      this.updateBookButton = "modal";
+    }else{
+      this.toastr.warning('Please complete the form.', 'Warning!');
+    }
+
   }
 
 }

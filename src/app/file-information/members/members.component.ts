@@ -23,13 +23,13 @@ export class MembersComponent implements OnInit {
       this.memberService.clearForm();
       this.toastr.success(
         'You have successfully added new member.',
-        'Success!'
+        'Added!'
       );
       this.closeModalAfterSubmit = "modal";
 
     } else {
       //window.alert('Not ok!');
-      this.toastr.warning('Please complete the form.', 'Not Complete');
+      this.toastr.warning('Please complete the form.', 'Required!');
     }
   }
 }

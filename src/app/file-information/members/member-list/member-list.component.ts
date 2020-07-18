@@ -36,10 +36,10 @@ export class MemberListComponent implements OnInit {
       this.memberService.updateMemberInformation();
       this.memberService.clearForm();
       this.memberID = '';
-      this.toastr.success('You have successfully updated the member\'s information.', 'Success!');
+      this.toastr.success('You have successfully updated the member\'s information.', 'Updated!');
       this.closeModalAfterSubmit = "modal";
     }else{
-      this.toastr.warning('Please complete the form.', 'Not Complete');
+      this.toastr.warning('Please complete the form.', 'Required!');
     }
 
   }

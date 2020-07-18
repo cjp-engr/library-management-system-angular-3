@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
@@ -12,14 +12,14 @@ export class BooksService {
   constructor(private firestore: AngularFirestore) {}
 
   form = new FormGroup({
-    inputTitle: new FormControl(''),
-    inputAuthor: new FormControl(''),
-    inputISBN: new FormControl(''),
-    inputYearPublished: new FormControl(''),
-    inputStatus: new FormControl(''),
-    inputType: new FormControl(''),
-    inputDescription: new FormControl(''),
-    inputGenre: new FormControl('')
+    inputTitle: new FormControl('', Validators.required),
+    inputAuthor: new FormControl('', Validators.required),
+    inputISBN: new FormControl('', Validators.required),
+    inputYearPublished: new FormControl('', Validators.required),
+    inputStatus: new FormControl('', Validators.required),
+    inputType: new FormControl('', Validators.required),
+    inputDescription: new FormControl('', Validators.required),
+    inputGenre: new FormControl('', Validators.required)
   });
 
   getBooksInformation() { 

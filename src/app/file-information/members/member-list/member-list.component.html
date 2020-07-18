@@ -1,10 +1,10 @@
-<table class="table" style="width: 100%">
+<table class="table" style="width: 100%;">
   <colgroup>
-     <col span="1" style="width: 25%;">
-     <col span="1" style="width: 20%;">
-     <col span="1" style="width: 20%;">
-     <col span="1" style="width: 10%;">
-     <col span="1" style="width: 10%;">
+    <col span="1" style="width: 25%;" />
+    <col span="1" style="width: 20%;" />
+    <col span="1" style="width: 20%;" />
+    <col span="1" style="width: 10%;" />
+    <col span="1" style="width: 10%;" />
   </colgroup>
 
   <thead class="thead-dark">
@@ -18,10 +18,9 @@
     </tr>
   </thead>
   <tbody>
-
     <tr *ngFor="let memberInfo of memberInformation">
-
-      <td>{{ memberInfo.payload.doc.data().inputFirstName }} 
+      <td>
+        {{ memberInfo.payload.doc.data().inputFirstName }}
         {{ memberInfo.payload.doc.data().inputLastName }}
       </td>
       <td>{{ memberInfo.payload.doc.data().inputMobileNumber }}</td>
@@ -29,46 +28,95 @@
       <td>{{ memberInfo.payload.doc.data().inputAge }}</td>
       <td>{{ memberInfo.payload.doc.data().inputStatus }}</td>
       <td>
-          <button class="btn-sm btn-outline-info" style="margin:5px" 
-          data-toggle="modal" data-target="#editRegisteredMemberModal"
-          (click) = "populateMemberInformationForm(memberInfo.payload.doc.data(), memberInfo.payload.doc.id)">
-            Edit
-          </button>
+        <button
+          class="btn-sm btn-outline-info"
+          style="margin: 5px; cursor: pointer;"
+          data-toggle="modal"
+          data-target="#editRegisteredMemberModal"
+          (click)="
+            populateMemberInformationForm(
+              memberInfo.payload.doc.data(),
+              memberInfo.payload.doc.id
+            )
+          "
+        >
+          Edit
+        </button>
 
-          <button class="btn-sm btn-outline-danger" style="margin:5px"
-          data-toggle="modal" data-target="#deleteRegisteredMember"
-          (click) = "deleteMemberInfoButton(memberInfo.payload.doc.id)">
-            Delete
-          </button>
-        </td>
+        <button
+          class="btn-sm btn-outline-danger"
+          style="margin: 5px; cursor: pointer;"
+          data-toggle="modal"
+          data-target="#deleteRegisteredMember"
+          (click)="deleteMemberInfoButton(memberInfo.payload.doc.id)"
+        >
+          Delete
+        </button>
+      </td>
     </tr>
-
   </tbody>
 </table>
 
-<div class="modal fade" id="editRegisteredMemberModal" tabindex="-1" role="dialog" aria-labelledby="editRegisteredMemberModalTitle" aria-hidden="true">
+<div
+  class="modal fade"
+  id="editRegisteredMemberModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="editRegisteredMemberModalTitle"
+  aria-hidden="true"
+>
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Edit Member Information</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          Edit Member Information
+        </h5>
       </div>
       <div class="modal-body">
         <app-member-forms></app-member-forms>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" [attr.data-dismiss]="closeModalAfterSubmit" (click)="updateMemberInfoButton()">Update</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeButtonClicked()">Close</button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [attr.data-dismiss]="closeModalAfterSubmit"
+          (click)="updateMemberInfoButton()"
+        >
+          Update
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          (click)="closeButtonClicked()"
+        >
+          Close
+        </button>
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="deleteRegisteredMember" tabindex="-1" role="dialog" aria-labelledby="deleteRegisteredMemberTitle" aria-hidden="true">
+<div
+  class="modal fade"
+  id="deleteRegisteredMember"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="deleteRegisteredMemberTitle"
+  aria-hidden="true"
+>
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Delete Registered Member</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          Delete Registered Member
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -76,9 +124,17 @@
         Are you sure you want to delete member?
       </div>
       <div class="modal-footer">
-        
-        <button type="button" class="btn btn-primary" data-dismiss="modal" (click) = "deleteYesButtonClicked()">Yes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-dismiss="modal"
+          (click)="deleteYesButtonClicked()"
+        >
+          Yes
+        </button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          No
+        </button>
       </div>
     </div>
   </div>
