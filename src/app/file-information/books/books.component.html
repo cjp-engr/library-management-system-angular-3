@@ -1,6 +1,6 @@
 <div style="padding: 50px">
   <div class="text-center" style="padding: 10px">
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addBookInformationModal">Add New Book</button>
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addBookInformationModal">Add Book</button>
   </div>
 
   <app-book-list></app-book-list> 
@@ -19,7 +19,7 @@
         <app-book-forms></app-book-forms>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-primary" (click)="onAddBook()">Save</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>

@@ -36,6 +36,7 @@ import { MemberService } from './shared/services/member.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { BooksService } from './shared/services/books.service';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { ToastrModule } from 'ngx-toastr';
 
   ],
   providers: [AuthService,
-              MemberService],
+              MemberService,
+              BooksService],
   bootstrap: [AppComponent],
 })
 
