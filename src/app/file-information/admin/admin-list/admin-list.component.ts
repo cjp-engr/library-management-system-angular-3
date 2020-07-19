@@ -11,5 +11,6 @@ export class AdminListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
 
 }
