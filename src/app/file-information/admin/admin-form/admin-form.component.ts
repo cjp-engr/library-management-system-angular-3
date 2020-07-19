@@ -18,19 +18,34 @@ export class AdminFormComponent implements OnInit {
 
   ref: AngularFireStorageReference;
   task: AngularFireUploadTask;
+  url: any;
 
   constructor(private afStorage: AngularFireStorage) {
 
    }
 
-   upload(event: any) {
-    const id = Math.random().toString(36).substring(2);
-    this.ref = this.afStorage.ref(id);
-    this.task = this.ref.put(event.target.files[0]);
-    this.uploadProgress = this.task.percentageChanges();
+   
+   ngOnInit(): void {
   }
 
-   ngOnInit(): void {
+   upload(event: any) {
+
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+      reader.onload = (event) => { // called once readAsDataURL is completed
+        this.url = event.target.result;
+      }
+    }
+
+    const id = Math.random().toString(36).substring(2);
+    
+    this.ref = this.afStorage.ref(id); // create a reference to the storage bucket location
+    this.task = this.ref.put(event.target.files[0]); // the put method creates an AngularFireUploadTask and kicks off the upload
+    this.uploadProgress = this.task.percentageChanges();
+
   }
 
 }
