@@ -12,4 +12,4 @@ https://fireship.io/lessons/angular-firebase-storage-uploads-multi/
 https://ng-bootstrap.github.io/#/components/modal/examples
 https://medium.com/@NetanelBasal/typescript-integrate-jquery-plugin-in-your-project-e28c6887d8dc
 https://www.angularjswiki.com/angular/how-to-use-font-awesome-icons-in-angular-applications/
-https://dev.to/fayvik/uploading-an-image-to-firebase-cloud-storage-with-angular-2aeh#:~:text=Click%20project%20overview%20%3E%20project%20settings,to%20src%2Fenvironments%2Fenviorment.
+https://codingthesmartway.com/firebase-cloud-storage-with-angular/

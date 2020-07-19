@@ -1,46 +1,12 @@
-<table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Name</th>d
+/*
 
-        <th scope="col">Position</th>d
-        <th scope="col">Employee No.</th>d
-        <th scope="col">Date of Birth</th>d
-        <th scope="col">Hire Date</th>d
-        <th scope="col">Gender</th>d
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if request.auth == null;
+    }
+  }
+}
 
-        <th scope="col">Employment Status</th>d
-        <th scope="col">Marital Status</th>d
-        
-        <th scope="col">Length of Stay</th>
-                <th scope="col">Reports to</th>
-                        <th scope="col">Salary</th>
-                                <th scope="col">Department</th>
-
-                <th scope="col">Mobile Number</th>d
-        <th scope="col">Telephone Number</th>d
-        <th scope="col">Email</th>d
-
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>
+*/

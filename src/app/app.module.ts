@@ -28,6 +28,7 @@ import { MemberFormsComponent } from './file-information/members/member-forms/me
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { environment } from 'src/environments/environment';
 
@@ -73,7 +74,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule, // firestore
+    AngularFirestoreModule,
+    AngularFireStorageModule, 
     AngularFireAuthModule,
     AngularMultiSelectModule,
     CommonModule,
@@ -89,5 +91,5 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export class AppModule { 
 
-         
+
 }

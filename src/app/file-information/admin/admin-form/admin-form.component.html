@@ -117,17 +117,17 @@
   </div>
 
   <div class="form-row">
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-8">
       <label for="inputAddress">Address</label>
-      <textarea
+      <input
+        type="text"
         class="form-control"
         id="inputAddress"
-        rows="2"
-        style="resize: none;"
-      ></textarea>
+        placeholder="Address"
+      />
     </div>
     <div
-      class="form-group col-md-6"
+      class="form-group col-md-4"
       style="display: flex; align-items: center; justify-content: center;"
     >
       <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#employeeImageModal">
@@ -226,7 +226,7 @@
   </div>
 </form>
 
-<!-- Modal -->
+<!-- Modal employeeImageModal-->
 <div
   class="modal fade"
   id="employeeImageModal"
@@ -242,21 +242,20 @@
       </div>
       <div class="modal-body">
         <!-- IMAGE -->
-        <img
-          src="https://firebasestorage.googleapis.com/v0/b/library-management-syste-35429.appspot.com/o/chibi.png?alt=media&token=b0edd9b1-bd97-4596-bb6c-bddbbc46f5e6"
-          width="350"
-          height="350"
-          alt="..."
-          class="rounded upload-img-center"
-          style="border-style: solid;"
-        />
+
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
         <div style="padding:5px;">
 
         </div>
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary btn-lg btn-block">Upload Image</button>
+        <label class="btn btn-primary btn-block">
+          Upload Image
+          <input type="file" (change)="upload($event)" accept=".png,.jpg" hidden/>
+      </label>
       </div>
     </div>
   </div>
