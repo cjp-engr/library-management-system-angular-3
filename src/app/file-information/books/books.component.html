@@ -1,6 +1,10 @@
 <div style="padding: 50px">
-  <div class="text-center" style="padding: 10px">
+  <div class="d-flex justify-content-between" style="padding-bottom: 10px">
     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addBookInformationModal">Add Book</button>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
   </div>
 
   <app-book-list></app-book-list> 
