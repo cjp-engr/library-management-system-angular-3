@@ -1,28 +1,28 @@
 <form>
     <div class="form-row">
       <div class="form-group col-md-5">
-        <label for="inputEmail4">First Name</label>
-        <input type="text" class="form-control" id="inputEmail4" placeholder="First Name">
+        <label for="inputFirstName">First Name</label>
+        <input type="text" class="form-control" id="inputFirstName" placeholder="First Name">
       </div>
       <div class="form-group col-md-3">
-        <label for="inputPassword4">Middle Name</label>
-        <input type="text" class="form-control" id="inputPassword4" placeholder="Middle Name">
+        <label for="inputMiddleName">Middle Name</label>
+        <input type="text" class="form-control" id="inputMiddleName" placeholder="Middle Name">
       </div>
       <div class="form-group col-md-4">
-        <label for="inputPassword4">Last Name</label>
-        <input type="text" class="form-control" id="inputPassword4" placeholder="Last Name">
+        <label for="inputLastName">Last Name</label>
+        <input type="text" class="form-control" id="inputLastName" placeholder="Last Name">
       </div>
     </div>
 
     <div class="form-row">
 
         <div class="form-group col-md-3">
-            <label for="inputPassword4">Nick Name</label>
-            <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+            <label for="inputNickName">Nick Name</label>
+            <input type="text" class="form-control" id="inputNickName" placeholder="Nick Name">
           </div>
         <div class="form-group col-md-3">
-          <label for="inputEmail4">Gender</label>
-          <select id="inputState" class="form-control">
+          <label for="inputGender">Gender</label>
+          <select id="inputGender" class="form-control">
             <option selected>Choose...</option>
             <option>Male</option>
             <option>Female</option>
@@ -30,9 +30,10 @@
           </select>
         </div>
         <div class="form-group col-md-3">
-            <label for="inputState">Date of Birth</label>
+            <label for="inputDateOfBirth">Date of Birth</label>
             <div class="input-group">
               <input class="form-control" placeholder="yyyy-mm-dd"
+                    id = "inputDateOfBirth"
                      name="dp" [(ngModel)]="model" ngbDatepicker #dd="ngbDatepicker">
               <div class="input-group-append">
                 <button class="btn btn-outline-secondary glyphicon glyphicon-align-left" aria-hidden="true" (click)="dd.toggle()" type="button">
@@ -42,8 +43,8 @@
             </div>
         </div>
         <div class="form-group col-md-3">
-            <label for="inputEmail4">Marital Status</label>
-            <select id="inputState" class="form-control">
+            <label for="inputMaritalStatus">Marital Status</label>
+            <select id="inputMaritalStatus" class="form-control">
                 <option selected>Choose...</option>
                 <option>Single</option>
                 <option>Married</option>
@@ -57,40 +58,46 @@
 
       <div class="form-row">
         <div class="form-group col-md-4">
-          <label for="inputEmail4">Mobile Number</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+          <label for="inputMobileNumber">Mobile Number</label>
+          <input type="text" class="form-control" id="inputMobileNumber" placeholder="Mobile Number">
         </div>
         <div class="form-group col-md-4">
-          <label for="inputPassword4">Telephone Number</label>
-          <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+          <label for="inputTelephoneNumber">Telephone Number</label>
+          <input type="text" class="form-control" id="inputTelephoneNumber" placeholder="Telephone Number">
         </div>
         <div class="form-group col-md-4">
-            <label for="inputEmail4">Email</label>
-            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+            <label for="inputEmail">Email</label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
           </div>
       </div>
 
       <div class="form-row">
-        <div class="form-group col-md-12">
-          <label for="inputEmail4">Address</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+        <div class="form-group col-md-6">
+          <label for="inputAddress">Address</label>
+          <textarea class="form-control" id="inputAddress" rows="2" style="resize: none;"></textarea>
+        </div>
+        <div class="form-group col-md-6" style="  display: flex;
+        align-items: center;
+        justify-content: center;">
+          <button type="button" class="btn btn-primary btn-lg btn-block">Employee Image</button>
         </div>
 
       </div>
 
     <div class="form-row">
                 <div class="form-group col-md-3">
-                  <label for="inputEmail4">Position</label>
-                  <input type="text" class="form-control" id="inputEmail4" placeholder="Position">
+                  <label for="inputPosition">Position</label>
+                  <input type="text" class="form-control" id="inputPosition" placeholder="Position">
                 </div>
                 <div class="form-group col-md-3">
-                  <label for="inputPassword4">Employee No.</label>
-                  <input type="text" class="form-control" id="inputPassword4" placeholder="Employee No.">
+                  <label for="inputEmployeeNo">Employee No.</label>
+                  <input type="text" class="form-control" id="inputEmployeeNo" placeholder="Employee No.">
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="inputState">Hire Date</label>
+                    <label for="inputHireDate">Hire Date</label>
                     <div class="input-group">
                       <input class="form-control" placeholder="yyyy-mm-dd"
+                            id="inputHireDate"
                              name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
                       <div class="input-group-append">
                         <button class="btn btn-outline-secondary glyphicon glyphicon-align-left" aria-hidden="true" (click)="d.toggle()" type="button">
@@ -100,8 +107,8 @@
                     </div>
                   </div>
                 <div class="form-group col-md-3">
-                    <label for="inputState">Employment Status</label>
-                    <select id="inputState" class="form-control">
+                    <label for="inputEmploymentStatus">Employment Status</label>
+                    <select id="inputEmploymentStatus" class="form-control">
                       <option selected>Choose...</option>
                       <option>Full-time</option>
                       <option>Part-time</option>
@@ -115,16 +122,16 @@
 
       <div class="form-row">
         <div class="form-group col-md-4">
-          <label for="inputEmail4">Department</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+          <label for="inputDepartment">Department</label>
+          <input type="text" class="form-control" id="inputDepartment" placeholder="Department">
         </div>
         <div class="form-group col-md-3">
-            <label for="inputEmail4">Salary</label>
-            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+            <label for="inputSalary">Salary</label>
+            <input type="text" class="form-control" id="inputSalary" placeholder="Salary">
           </div>
           <div class="form-group col-md-4">
-            <label for="inputEmail4">Reports to</label>
-            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+            <label for="inputReportsTo">Reports to</label>
+            <input type="text" class="form-control" id="inputReportsTo" placeholder="Reports to">
           </div>
 
       </div>
