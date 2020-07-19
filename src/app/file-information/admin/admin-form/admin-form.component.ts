@@ -26,7 +26,7 @@ export class AdminFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-   upload(event: any) {
+   uploadImage(event: any) {
      this.event = event;
 
     if (event.target.files && event.target.files[0]) {

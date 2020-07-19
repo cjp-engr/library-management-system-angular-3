@@ -40,6 +40,7 @@ export class BookListComponent implements OnInit {
   updateBookInformation(){
     if(this.booksService.form.valid){
       this.booksService.updateBookInformation();
+      this.booksService.saveImageButton();
       this.clearAllData();
       this.toastr.success('You have successfully updated the book information.', 'Updated!');
       this.updateBookButton = "modal";

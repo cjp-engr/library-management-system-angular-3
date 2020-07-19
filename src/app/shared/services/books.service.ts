@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
+//import { Observable } from 'rxjs';
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from '@angular/fire/storage';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +11,15 @@ export class BooksService {
   
   bookInfo: any;
   bookID: any;
-  constructor(private firestore: AngularFirestore) {}
+
+  //uploadProgress: Observable<number>;
+
+  ref: AngularFireStorageReference;
+  task: AngularFireUploadTask;
+  url: any;
+  event: any;
+
+  constructor(private firestore: AngularFirestore, private afStorage: AngularFireStorage) {}
 
   form = new FormGroup({
     inputTitle: new FormControl('', Validators.required),
@@ -74,5 +84,27 @@ export class BooksService {
       })
     }
   }
+
+  setEventInfo(event: any){
+    this.event = event;
+  }
+
+  saveImageButton(){
+    const empID = Math.random().toString(36).substring(2);
+    this.ref = this.afStorage.ref(empID);
+    this.task = this.ref.put((<HTMLInputElement>this.event.target).files[0]);
+    console.log(this.event);
+    //this.uploadProgress = this.task.percentageChanges(); 
+    this.clearAllData();
+  }
+
+  clearAllData(){
+    this.event = '';
+    this.url = '';
+    //this.uploadProgress = null;
+    this.ref = null;
+    this.task = null;
+  }
+
 
 }

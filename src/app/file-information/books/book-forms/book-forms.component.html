@@ -108,12 +108,10 @@
           <div class="form-group col-md-7">
             <!-- RESERVE FOR BOOK IMAGE -->
             <img class = "upload-img-center" [src]="url" width="150" height="150"> <br/>
-            <div class="progress">
-            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+
             <label class="btn btn-primary btn-block">
               Upload Image
-              <input type="file" (change)="upload($event)" accept=".png,.jpg" hidden/>
+              <input type="file" (change)="uploadImage($event)" accept=".png,.jpg" hidden/>
             </label> 
           </div>
 
