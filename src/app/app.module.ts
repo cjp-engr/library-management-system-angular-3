@@ -40,6 +40,7 @@ import { BooksService } from './shared/services/books.service';
 import { SearchMemberComponent } from './file-information/member-information/search-member/search-member.component';
 import { AdminListComponent } from './file-information/admin/admin-list/admin-list.component';
 import { AdminFormComponent } from './file-information/admin/admin-form/admin-form.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,7 @@ import { AdminFormComponent } from './file-information/admin/admin-form/admin-fo
     AngularMultiSelectModule,
     CommonModule,
     BrowserAnimationsModule, 
-    ToastrModule.forRoot() 
+    ToastrModule.forRoot(), NgbModule 
 
   ],
   providers: [AuthService,

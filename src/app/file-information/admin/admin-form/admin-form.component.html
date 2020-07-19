@@ -1,1 +1,88 @@
-<p>admin-form works!</p>
+<form>
+    <div class="form-row">
+      <div class="form-group col-md-5">
+        <label for="inputEmail4">First Name</label>
+        <input type="text" class="form-control" id="inputEmail4" placeholder="First Name">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="inputPassword4">Middle Name</label>
+        <input type="text" class="form-control" id="inputPassword4" placeholder="Middle Name">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputPassword4">Last Name</label>
+        <input type="text" class="form-control" id="inputPassword4" placeholder="Last Name">
+      </div>
+    </div>
+
+    <div class="form-row">
+                <div class="form-group col-md-3">
+                  <label for="inputEmail4">Position</label>
+                  <input type="text" class="form-control" id="inputEmail4" placeholder="Position">
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="inputPassword4">Employee No.</label>
+                  <input type="text" class="form-control" id="inputPassword4" placeholder="Employee No.">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputState">Hire Date</label>
+                    <div class="input-group">
+                      <input class="form-control" placeholder="yyyy-mm-dd"
+                             name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary glyphicon glyphicon-align-left" aria-hidden="true" (click)="d.toggle()" type="button">
+                            H
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                <div class="form-group col-md-3">
+                    <label for="inputState">Employment Status</label>
+                    <select id="inputState" class="form-control">
+                      <option selected>Choose...</option>
+                      <option>Full-time</option>
+                      <option>Part-time</option>
+                      <option>Probation</option>
+                      <option>Trainee</option>
+                      <option>Suspended</option>
+                      <option>Resigned</option>
+                    </select>
+                  </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="inputEmail4">Gender</label>
+          <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="inputState">Date of Birth</label>
+            <div class="input-group">
+              <input class="form-control" placeholder="yyyy-mm-dd"
+                     name="dp" [(ngModel)]="model" ngbDatepicker #dd="ngbDatepicker">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary glyphicon glyphicon-align-left" aria-hidden="true" (click)="dd.toggle()" type="button">
+                    H
+                </button>
+              </div>
+            </div>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="inputEmail4">Marital Status</label>
+            <select id="inputState" class="form-control">
+                <option selected>Choose...</option>
+                <option>Single</option>
+                <option>Married</option>
+                <option>Divorced</option>
+                <option>Widow</option>
+                <option>Separated</option>
+                <option>Secret</option>
+              </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputPassword4">Password</label>
+            <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+          </div>
+      </div>
+
+  </form>
+  
