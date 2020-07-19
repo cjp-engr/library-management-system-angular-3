@@ -242,19 +242,20 @@
       </div>
       <div class="modal-body">
         <!-- IMAGE -->
-        <img class = "upload-img-center" [src]="url" width = "350" height="350"> <br/>
+        <img class = "upload-img-center" [src]="url"> <br/>
         <div class="progress">
         <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
-        <div style="padding:5px;"></div>
+        <div style="padding:5px;"></div> 
 
       </div>
       <div class="modal-footer">
         <label class="btn btn-primary float-right">
           Upload Image
           <input type="file" (change)="upload($event)" accept=".png,.jpg" hidden/>
-        </label>
+        </label> 
       </div>
     </div>
   </div>
 </div>
+

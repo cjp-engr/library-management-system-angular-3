@@ -40,11 +40,11 @@ export class AdminFormComponent implements OnInit {
       }
     }
 
-    const id = Math.random().toString(36).substring(2);
+     const id = Math.random().toString(36).substring(2);
     
     this.ref = this.afStorage.ref(id); // create a reference to the storage bucket location
     this.task = this.ref.put(event.target.files[0]); // the put method creates an AngularFireUploadTask and kicks off the upload
-    this.uploadProgress = this.task.percentageChanges();
+    this.uploadProgress = this.task.percentageChanges();  
 
   }
 

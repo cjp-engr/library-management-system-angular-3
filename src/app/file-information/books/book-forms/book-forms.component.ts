@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from 'src/app/shared/services/books.service';
+import { Observable } from 'rxjs';
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from '@angular/fire/storage';
+
 
 @Component({
   selector: 'app-book-forms',
@@ -11,7 +14,13 @@ export class BookFormsComponent implements OnInit {
   selectedItems = [];
   dropdownSettings = {};
 
-  constructor(public booksService:BooksService) {}
+  uploadProgress: Observable<number>;
+
+  ref: AngularFireStorageReference;
+  task: AngularFireUploadTask;
+  url: any;
+
+  constructor(public booksService:BooksService, private afStorage: AngularFireStorage) {}
 
   ngOnInit() {
     var genre = [
@@ -84,6 +93,26 @@ export class BookFormsComponent implements OnInit {
   }
   onDeSelectAll(items: any) {
     console.log(items);
+  }
+
+  upload(event: any) {
+
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+      reader.onload = (event) => { // called once readAsDataURL is completed
+        this.url = event.target.result;
+      }
+    }
+/* 
+     const id = Math.random().toString(36).substring(2);
+    
+    this.ref = this.afStorage.ref(id); // create a reference to the storage bucket location
+    this.task = this.ref.put(event.target.files[0]); // the put method creates an AngularFireUploadTask and kicks off the upload
+    this.uploadProgress = this.task.percentageChanges(); 
+ */
   }
 
 }
