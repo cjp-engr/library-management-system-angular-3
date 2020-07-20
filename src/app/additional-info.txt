@@ -15,3 +15,5 @@ https://www.angularjswiki.com/angular/how-to-use-font-awesome-icons-in-angular-a
 https://codingthesmartway.com/firebase-cloud-storage-with-angular/
 https://blog.angular.io/file-uploads-come-to-angularfire-6842352b3b47
 https://www.talkingdotnet.com/show-image-preview-before-uploading-using-angular-7/
+https://angular.io/guide/user-input
+https://cheatography.com/oisar/cheat-sheets/angular-firebase/

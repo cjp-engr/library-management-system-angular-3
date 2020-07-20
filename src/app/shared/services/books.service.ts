@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
-//import { Observable } from 'rxjs';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from '@angular/fire/storage';
+import { finalize } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,12 +13,17 @@ export class BooksService {
   bookInfo: any;
   bookID: any;
 
-  //uploadProgress: Observable<number>;
+  uploadProgress: Observable<number>;
 
   ref: AngularFireStorageReference;
   task: AngularFireUploadTask;
   url: any;
   event: any;
+  image: any;
+  downloadURL: any;
+  imageName: any;
+  bookImageUrl: any;
+  //empID: any;
 
   constructor(private firestore: AngularFirestore, private afStorage: AngularFireStorage) {}
 
@@ -30,7 +36,8 @@ export class BooksService {
     inputType: new FormControl('', Validators.required),
     inputDescription: new FormControl('', Validators.required),
     inputGenre: new FormControl('', Validators.required),
-    inputBarcode: new FormControl('', Validators.required)
+    inputBarcode: new FormControl('', Validators.required),
+    //inputImageURL: new FormControl('')
   });
 
   getBooksInformation() { 
@@ -45,7 +52,7 @@ export class BooksService {
       const e = await this.firestore
         .collection('books')
         .add(data);
-        console.log(e.id);
+        //console.log(e.id);
     }
     catch (er) {
       console.log(er.message);
@@ -80,7 +87,9 @@ export class BooksService {
         inputType: '',
         inputDescription: '',
         inputGenre: '',
-        inputBarcode: ''
+        inputBarcode: '',
+        inputImage: '',
+        //inputImageURL: ''
       })
     }
   }
@@ -90,12 +99,52 @@ export class BooksService {
   }
 
   saveImageButton(){
-    const empID = Math.random().toString(36).substring(2);
+
+    const empID = 'books/ereredf';
     this.ref = this.afStorage.ref(empID);
+    //console.log(this.ref);
     this.task = this.ref.put((<HTMLInputElement>this.event.target).files[0]);
-    console.log(this.event);
-    //this.uploadProgress = this.task.percentageChanges(); 
-    this.clearAllData();
+    this.uploadProgress = this.task.percentageChanges();
+    //console.log(this.uploadProgress);
+
+let storageRef = this.afStorage.ref(empID);
+ this.task.snapshotChanges()
+    .pipe(
+          finalize(() => {
+            this.downloadURL = storageRef.getDownloadURL();
+            this.downloadURL.subscribe((downloadURLResponse: any) => {
+               console.log('downloadURL', downloadURLResponse);
+               this.bookImageUrl = downloadURLResponse;
+               console.log(this.bookImageUrl);
+               console.log(this.uploadProgress);
+            });
+          }),
+     )
+    .subscribe(); 
+
+  //this.clearAllData();  
+  }
+/*   
+  sampleOnly(){
+    let storageRef = this.afStorage.ref(this.empID+'.png');
+    this.task.snapshotChanges()
+    .pipe(
+          finalize(() => {
+            this.downloadURL = storageRef.getDownloadURL();
+            this.downloadURL.subscribe((downloadURLResponse: any) => {
+               console.log('downloadURL', downloadURLResponse);
+               this.bookImageUrl = downloadURLResponse;
+               console.log(this.bookImageUrl);
+               console.log(this.uploadProgress);
+            });
+          }),
+     )
+    .subscribe(); 
+    console.log(this.bookImageUrl);
+  }
+ */
+  getBookImageURL(){
+    return this.bookImageUrl;
   }
 
   clearAllData(){
@@ -104,6 +153,11 @@ export class BooksService {
     //this.uploadProgress = null;
     this.ref = null;
     this.task = null;
+  }
+
+  setImageName(imageName: any){
+    this.imageName = imageName;
+    console.log(this.imageName);
   }
 
 

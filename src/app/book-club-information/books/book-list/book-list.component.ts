@@ -19,12 +19,7 @@ export class BookListComponent implements OnInit {
   ngOnInit() {
     this.getBooksInformation();
   }
-/* 
-  ...  coffeeOrders;   getCoffeeOrders = () =>
-      this.ordersService
-      .getCoffeeOrders()
-      .subscribe(res =>(this.coffeeOrders = res));
-   */
+
   getBooksInformation = () => {
     this.booksService.getBooksInformation()
       .subscribe(res => (this.bookInformations = res));
@@ -40,10 +35,12 @@ export class BookListComponent implements OnInit {
   updateBookInformation(){
     if(this.booksService.form.valid){
       this.booksService.updateBookInformation();
+      console.log('bookds '+this.booksService.getBookImageURL());
       this.booksService.saveImageButton();
       this.clearAllData();
       this.toastr.success('You have successfully updated the book information.', 'Updated!');
       this.updateBookButton = "modal";
+      //this.booksService.sampleOnly();
     }else{
       this.toastr.warning('Please complete the form.', 'Warning!');
     }

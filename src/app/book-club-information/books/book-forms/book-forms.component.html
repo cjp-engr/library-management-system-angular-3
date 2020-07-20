@@ -1,6 +1,7 @@
 <form [formGroup]="this.booksService.form">
   <div class="container">
     <div class="row">
+
       <div class="col-md-6">
         <div class="form-group">
           <label for="inputTitle">Title</label>
@@ -10,6 +11,7 @@
           rows="2"
           style="resize: none;"
           formControlName="inputTitle"
+          (keyup)="onKeyTitle($event)"
         ></textarea>
         </div>
 
@@ -33,6 +35,8 @@
               id="inputISBN"
               placeholder="ISBN"
               formControlName="inputISBN"
+              (keyup)="onKeyISBN($event)"
+
             />
           </div>
 
@@ -108,7 +112,12 @@
           <div class="form-group col-md-7">
             <!-- RESERVE FOR BOOK IMAGE -->
             <img class = "upload-img-center rounded card-img-top" [src]="url" width="180" height="180"> <br/>
-
+            
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(this.booksService.uploadProgress | async) + '%'" [attr.aria-valuenow]="(this.booksService.uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div>
+              
+            </div>
+            
             <label class="btn btn-primary btn-block">
               Upload Image
               <input type="file" (change)="uploadImage($event)" accept=".png,.jpg" hidden/>

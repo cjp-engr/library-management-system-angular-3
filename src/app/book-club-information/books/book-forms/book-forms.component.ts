@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from 'src/app/shared/services/books.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 //import { Observable } from 'rxjs';
 //import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from '@angular/fire/storage';
 
@@ -14,6 +15,7 @@ export class BookFormsComponent implements OnInit {
   selectedItems = [];
   dropdownSettings = {};
   url: any;
+  uploadProgress: any;
 
 /*   uploadProgress: Observable<number>;
 
@@ -21,6 +23,9 @@ export class BookFormsComponent implements OnInit {
   task: AngularFireUploadTask;
   url: any;
   event: any; */
+  userEnteredISBN = "";
+  userEnteredTitle = "";
+  enteredTitleISBN = "";
 
   constructor(public booksService:BooksService) {}
 
@@ -109,6 +114,24 @@ export class BookFormsComponent implements OnInit {
       }
     }
     this.booksService.setEventInfo(event);
+  }
+
+  onKeyTitle(event: any){
+    this.userEnteredTitle = event.target.value;
+    this.enteredTitleISBN = this.userEnteredTitle+' '+this.userEnteredISBN;
+    this.bookTitleISBN(this.enteredTitleISBN);
+  }
+
+  onKeyISBN(event: any) { 
+    this.userEnteredISBN = event.target.value;
+    this.enteredTitleISBN = this.userEnteredTitle+' '+this.userEnteredISBN;
+    this.bookTitleISBN(this.enteredTitleISBN);
+  }
+
+  bookTitleISBN(enteredTitleISBN: any){
+    this.enteredTitleISBN = enteredTitleISBN.replace(/\s+/g, '-').toLowerCase();
+    console.log(this.enteredTitleISBN);
+    this.booksService.setImageName(this.enteredTitleISBN);
   }
 
 }
