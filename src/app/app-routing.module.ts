@@ -4,14 +4,14 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { PasswordRecoveryComponent } from './auth/password-recovery/password-recovery.component';
 import { AdminComponent } from './file-information/admin/admin.component';
-import { MembersComponent } from './file-information/members/members.component';
-import { BooksComponent } from './file-information/books/books.component';
 import { DashboardComponent } from './file-information/dashboard/dashboard.component';
 import { BorrowComponent } from './transaction-information/borrow/borrow.component';
 import { BorrowedBooksComponent } from './transaction-information/borrowed-books/borrowed-books.component';
 import { ReturnedBooksComponent } from './transaction-information/returned-books/returned-books.component';
 import { ReportsComponent } from './transaction-information/reports/reports.component';
-import { MemberInformationComponent } from './file-information/member-information/member-information.component';
+import { BooksComponent } from './book-club-information/books/books.component';
+import { MemberInformationComponent } from './book-club-information/member-information/member-information.component';
+import { MembersComponent } from './book-club-information/members/members.component';
 
 
 const routes: Routes = [
