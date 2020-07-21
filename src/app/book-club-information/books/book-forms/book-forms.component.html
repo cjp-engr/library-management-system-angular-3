@@ -1,29 +1,39 @@
 <form [formGroup]="this.booksService.form">
+
   <div class="container">
     <div class="row">
-
       <div class="col-md-6">
         <div class="form-group">
           <label for="inputTitle">Title</label>
           <textarea
+            class="form-control"
+            id="inputTitle"
+            rows="2"
+            style="resize: none;"
+            formControlName="inputTitle"
+            (keyup)="onKeyTitle($event)"
+          ></textarea>
+
+          <input
+          type="text"
           class="form-control"
-          id="inputTitle"
-          rows="2"
-          style="resize: none;"
-          formControlName="inputTitle"
-          (keyup)="onKeyTitle($event)"
-        ></textarea>
+          id="inputImageURL"
+          formControlName="inputImageURL"
+          value="{{ this.booksService.bookImageUrl }}"
+          hidden
+        />
+
         </div>
 
         <div class="form-group">
           <label for="inputAuthor">Author</label>
           <textarea
-          class="form-control"
-          id="inputAuthor"
-          rows="2"
-          style="resize: none;"
-          formControlName="inputAuthor"
-        ></textarea>
+            class="form-control"
+            id="inputAuthor"
+            rows="2"
+            style="resize: none;"
+            formControlName="inputAuthor"
+          ></textarea>
         </div>
 
         <div class="form-row">
@@ -36,16 +46,16 @@
               placeholder="ISBN"
               formControlName="inputISBN"
               (keyup)="onKeyISBN($event)"
-
             />
           </div>
 
           <div class="form-group col-md-4">
             <label for="inputYearPublished">Year Published</label>
-            <input type="text" 
-            class="form-control" 
-            id="inputYearPublished" 
-            formControlName="inputYearPublished"
+            <input
+              type="text"
+              class="form-control"
+              id="inputYearPublished"
+              formControlName="inputYearPublished"
             />
           </div>
         </div>
@@ -53,24 +63,25 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputStatus">Status</label>
-            <select id="inputStatus" 
-            class="form-control"
-            formControlName="inputStatus"
+            <select
+              id="inputStatus"
+              class="form-control"
+              formControlName="inputStatus"
             >
               <option selected>Choose...</option>
               <option>Available</option>
               <option>Checked Out</option>
               <option>Not Available</option>
               <option>On Hold</option>
-              
             </select>
           </div>
 
           <div class="form-group col-md-6">
             <label for="inputType">Type</label>
-            <select id="inputType" 
-            class="form-control"
-            formControlName="inputType"
+            <select
+              id="inputType"
+              class="form-control"
+              formControlName="inputType"
             >
               <option selected>Choose...</option>
               <option>Fiction</option>
@@ -96,32 +107,48 @@
 
         <div class="form-group">
           <angular2-multiselect
-          id="inputGenre"
-          formControlName="inputGenre"
-          [data]="dropdownList"
-          
-          [settings]="dropdownSettings"
-          (onSelect)="onItemSelect($event)"
-          (onDeSelect)="OnItemDeSelect($event)"
-          (onSelectAll)="onSelectAll($event)"
-          (onDeSelectAll)="onDeSelectAll($event)"
-        ></angular2-multiselect>
+            id="inputGenre"
+            formControlName="inputGenre"
+            [data]="dropdownList"
+            [settings]="dropdownSettings"
+            (onSelect)="onItemSelect($event)"
+            (onDeSelect)="OnItemDeSelect($event)"
+            (onSelectAll)="onSelectAll($event)"
+            (onDeSelectAll)="onDeSelectAll($event)"
+          ></angular2-multiselect>
         </div>
 
         <div class="form-row">
           <div class="form-group col-md-7">
             <!-- RESERVE FOR BOOK IMAGE -->
-            <img class = "upload-img-center rounded card-img-top" [src]="url" width="180" height="180"> <br/>
-            
+            <img
+              class="upload-img-center rounded card-img-top"
+              [src]="url"
+              width="180"
+              height="180"
+            />
+            <br />
+
             <div class="progress">
-              <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(this.booksService.uploadProgress | async) + '%'" [attr.aria-valuenow]="(this.booksService.uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div>
-              
+              <div
+                class="progress-bar progress-bar-striped bg-success"
+                role="progressbar"
+                [style.width]="(this.booksService.uploadProgress | async) + '%'"
+                [attr.aria-valuenow]="this.booksService.uploadProgress | async"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
             </div>
-            
+
             <label class="btn btn-primary btn-block">
               Upload Image
-              <input type="file" (change)="uploadImage($event)" accept=".png,.jpg" hidden/>
-            </label> 
+              <input
+                type="file"
+                (change)="uploadImage($event)"
+                accept=".png,.jpg"
+                hidden
+              />
+            </label>
           </div>
 
           <div class="form-group col-md-5">
@@ -133,10 +160,8 @@
               placeholder="Barcode"
               formControlName="inputBarcode"
             />
-
           </div>
         </div>
-
       </div>
     </div>
   </div>

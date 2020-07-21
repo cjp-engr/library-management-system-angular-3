@@ -17,3 +17,4 @@ https://blog.angular.io/file-uploads-come-to-angularfire-6842352b3b47
 https://www.talkingdotnet.com/show-image-preview-before-uploading-using-angular-7/
 https://angular.io/guide/user-input
 https://cheatography.com/oisar/cheat-sheets/angular-firebase/
+https://stackoverflow.com/questions/45223198/angular-4-how-to-use-await-async-within-subscribe

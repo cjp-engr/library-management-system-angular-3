@@ -9,23 +9,13 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class BooksComponent implements OnInit {
   addBookModal: any;
-  constructor(public booksService: BooksService, private toastr: ToastrService) { }
+  constructor(public booksService: BooksService) { }
 
   ngOnInit(): void {
   }
 
   onAddBook(){
-
-    if(this.booksService.form.valid){
-      this.booksService.saveImageButton();
-      this.booksService.addBooks();
-      this.toastr.success('You have successfully added the book information.', 'Added!');
-      this.booksService.clearForm();
-      this.addBookModal = "modal"
-    }else{
-      this.toastr.warning('Please complete the form.', 'Required!');
-    }
-
+    this.booksService.saveAddedBook();
   }
 
 }

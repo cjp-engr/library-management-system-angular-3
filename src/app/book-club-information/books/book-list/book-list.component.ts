@@ -34,7 +34,6 @@ export class BookListComponent implements OnInit {
 
   updateBookInformation(){
     if(this.booksService.form.valid){
-      this.booksService.saveImageButton();
       this.booksService.updateBookInformation();
       //console.log('bookds '+this.booksService.getBookImageURL());
       this.clearAllData();

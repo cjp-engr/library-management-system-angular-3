@@ -131,6 +131,7 @@ export class BookFormsComponent implements OnInit {
   bookTitleISBN(enteredTitleISBN: any){
     this.enteredTitleISBN = this.userEnteredTitle + this.userEnteredISBN;
     this.enteredTitleISBN = enteredTitleISBN.replace(/\s+/g, '-').toLowerCase();
+    console.log(this.enteredTitleISBN);
     this.booksService.setImageName(this.enteredTitleISBN);
   }
 
