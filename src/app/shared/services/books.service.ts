@@ -99,13 +99,12 @@ export class BooksService {
   }
 
   saveImageButton(){
-
-    const empID = 'books/ereredf';
+    console.log('this.imageName');
+    console.log(this.imageName);
+    const empID = 'books/'+this.imageName;
     this.ref = this.afStorage.ref(empID);
-    //console.log(this.ref);
     this.task = this.ref.put((<HTMLInputElement>this.event.target).files[0]);
     this.uploadProgress = this.task.percentageChanges();
-    //console.log(this.uploadProgress);
 
 let storageRef = this.afStorage.ref(empID);
  this.task.snapshotChanges()
@@ -117,35 +116,15 @@ let storageRef = this.afStorage.ref(empID);
                this.bookImageUrl = downloadURLResponse;
                console.log(this.bookImageUrl);
                console.log(this.uploadProgress);
+               //comment this if bookImageUrl is not found again
+               this.clearAllData();  
             });
           }),
      )
     .subscribe(); 
 
-  //this.clearAllData();  
   }
-/*   
-  sampleOnly(){
-    let storageRef = this.afStorage.ref(this.empID+'.png');
-    this.task.snapshotChanges()
-    .pipe(
-          finalize(() => {
-            this.downloadURL = storageRef.getDownloadURL();
-            this.downloadURL.subscribe((downloadURLResponse: any) => {
-               console.log('downloadURL', downloadURLResponse);
-               this.bookImageUrl = downloadURLResponse;
-               console.log(this.bookImageUrl);
-               console.log(this.uploadProgress);
-            });
-          }),
-     )
-    .subscribe(); 
-    console.log(this.bookImageUrl);
-  }
- */
-  getBookImageURL(){
-    return this.bookImageUrl;
-  }
+
 
   clearAllData(){
     this.event = '';
@@ -157,7 +136,7 @@ let storageRef = this.afStorage.ref(empID);
 
   setImageName(imageName: any){
     this.imageName = imageName;
-    console.log(this.imageName);
+    //console.log(this.imageName);
   }
 
 

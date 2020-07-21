@@ -34,13 +34,12 @@ export class BookListComponent implements OnInit {
 
   updateBookInformation(){
     if(this.booksService.form.valid){
-      this.booksService.updateBookInformation();
-      console.log('bookds '+this.booksService.getBookImageURL());
       this.booksService.saveImageButton();
+      this.booksService.updateBookInformation();
+      //console.log('bookds '+this.booksService.getBookImageURL());
       this.clearAllData();
       this.toastr.success('You have successfully updated the book information.', 'Updated!');
       this.updateBookButton = "modal";
-      //this.booksService.sampleOnly();
     }else{
       this.toastr.warning('Please complete the form.', 'Warning!');
     }
