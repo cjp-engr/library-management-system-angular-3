@@ -55,4 +55,8 @@ export class BookListComponent implements OnInit {
     this.booksService.clearForm();
   }
 
+  updateListIsClicked(){
+    this.booksService.updateListIsClicked_clearUploadUrl();
+  }
+
 }

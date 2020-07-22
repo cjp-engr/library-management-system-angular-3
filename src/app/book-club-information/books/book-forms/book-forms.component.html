@@ -121,14 +121,12 @@
           <div class="form-group col-md-7">
             <!-- RESERVE FOR BOOK IMAGE -->
 
+            <span *ngIf = "addBookModalOpen(); else updateModalOpen">
               <img
-              class="upload-img-center rounded card-img-top"
-              [src] = "this.booksService.bookImageUrlToBePassedAtBookForm"
-              width="180"
-              height="180"
+              class="upload-img-center rounded upload-card-img-top"
+              [src] = "this.booksService.newUploadImageUrl"
               alt = "Hello"
             />
-
             <br />
 
             <label class="btn btn-primary btn-block">
@@ -140,6 +138,18 @@
                 hidden
               />
             </label>
+
+            </span>
+
+          <ng-template #updateModalOpen>
+            <img
+            class="upload-img-center rounded uploaded-card-img-top"
+            [src] = "this.booksService.existingUploadedImageUrl"
+            alt = "Hello"
+          />
+
+          </ng-template> 
+
           </div>
 
           <div class="form-group col-md-5">

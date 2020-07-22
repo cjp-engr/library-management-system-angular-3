@@ -25,8 +25,9 @@ export class BooksService {
   downloadURL: any;
   imageName: any;
   bookImageUrl: any = '';
-  bookImageUrlToBePassedAtBookForm: any = '';
-  uploadImageUrl: any;
+  existingUploadedImageUrl: any = '';
+  newUploadImageUrl: any;
+  isAddBookModalOpen: boolean = false;
 
   //empID: any;
 
@@ -63,7 +64,7 @@ export class BooksService {
   populateBookInformationForm(bookInfo: any, bookID: any) {
     this.form.setValue(bookInfo);
     //to be implemented later
-    this.bookImageUrlToBePassedAtBookForm = bookInfo.inputImageURL;
+    this.existingUploadedImageUrl = bookInfo.inputImageURL;
     this.bookInfo = bookInfo;
     this.bookID = bookID;
   }
@@ -155,7 +156,7 @@ export class BooksService {
       reader.readAsDataURL(event.target.files[0]); // read file as data url
 
       reader.onload = (event) => { // called once readAsDataURL is completed
-        this.uploadImageUrl = event.target.result;
+        this.newUploadImageUrl = event.target.result;
       }
     }
     this.setEventInfo(event);
@@ -163,12 +164,18 @@ export class BooksService {
   }
 
   addButtonIsClicked_clearUploadUrl(){
-    this.bookImageUrlToBePassedAtBookForm = '';
+    this.existingUploadedImageUrl = '';
+    this.isAddBookModalOpen = true;
+  }
+
+  updateListIsClicked_clearUploadUrl(){
+    this.newUploadImageUrl = '';
+    this.isAddBookModalOpen = false;
   }
 
   clearAllDataForImageUrl() {
     this.event = '';
-    this.uploadImageUrl = '';
+    this.newUploadImageUrl = '';
     this.ref = null;
     this.task = null;
   }

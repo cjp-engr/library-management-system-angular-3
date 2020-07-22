@@ -4,8 +4,15 @@
     margin-right: auto;
 }
 
-.card-img-top {
+.upload-card-img-top {
     width: 100%;
     height: 12vw;
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/library-management-syste-35429.appspot.com/o/accessories%2Fbackground.png?alt=media&token=33d8efcd-d93b-400b-8266-caa8e8d2df1c");
+    object-fit: cover;
+}
+
+.uploaded-card-img-top {
+    width: 100%;
+    height: 20vw;
     object-fit: cover;
 }

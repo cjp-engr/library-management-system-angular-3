@@ -99,4 +99,8 @@ export class BookFormsComponent implements OnInit {
     this.booksService.setImageName(this.enteredTitleISBN);
   }
 
+  addBookModalOpen(){
+    return this.booksService.isAddBookModalOpen;
+  }
+
 }
