@@ -121,7 +121,7 @@
           <div class="form-group col-md-7">
             <!-- RESERVE FOR BOOK IMAGE -->
 
-            <span *ngIf = "addBookModalOpen(); else updateModalOpen">
+            <span *ngIf = "addBookModal_isOpen(); else updateModal_isOpen">
               <img
               class="upload-img-center rounded upload-card-img-top"
               [src] = "this.booksService.newUploadImageUrl"
@@ -141,7 +141,7 @@
 
             </span>
 
-          <ng-template #updateModalOpen>
+          <ng-template #updateModal_isOpen>
             <img
             class="upload-img-center rounded uploaded-card-img-top"
             [src] = "this.booksService.existingUploadedImageUrl"
