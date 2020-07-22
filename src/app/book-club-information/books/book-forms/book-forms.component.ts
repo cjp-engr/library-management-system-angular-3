@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from 'src/app/shared/services/books.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+
 //import { Observable } from 'rxjs';
 //import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from '@angular/fire/storage';
 
@@ -14,15 +14,8 @@ export class BookFormsComponent implements OnInit {
   dropdownList = [];
   selectedItems = [];
   dropdownSettings = {};
-  url: any;
-  uploadProgress: any;
+  //uploadProgress: any;
 
-/*   uploadProgress: Observable<number>;
-
-  ref: AngularFireStorageReference;
-  task: AngularFireUploadTask;
-  url: any;
-  event: any; */
   userEnteredISBN = "";
   userEnteredTitle = "";
   enteredTitleISBN = "";
@@ -83,38 +76,9 @@ export class BookFormsComponent implements OnInit {
       unSelectAllText: 'UnSelect All',
       enableSearchFilter: true,
 
-      //classes: 'myclass custom-class'
     };
   }
 
-  onItemSelect(item: any) {
-    console.log(item);
-    console.log(this.selectedItems);
-  }
-  OnItemDeSelect(item: any) {
-    console.log(item);
-    console.log(this.selectedItems);
-  }
-  onSelectAll(items: any) {
-    console.log(items);
-  }
-  onDeSelectAll(items: any) {
-    console.log(items);
-  }
-
-  uploadImage(event: any) {
-
-    if (event.target.files && event.target.files[0]) {
-      var reader = new FileReader();
-
-      reader.readAsDataURL(event.target.files[0]); // read file as data url
-
-      reader.onload = (event) => { // called once readAsDataURL is completed
-        this.url = event.target.result;
-      }
-    }
-    this.booksService.setEventInfo(event);
-  }
 
   onKeyTitle(event: any){
     this.userEnteredTitle = event.target.value;
@@ -134,7 +98,5 @@ export class BookFormsComponent implements OnInit {
     console.log(this.enteredTitleISBN);
     this.booksService.setImageName(this.enteredTitleISBN);
   }
-
-
 
 }

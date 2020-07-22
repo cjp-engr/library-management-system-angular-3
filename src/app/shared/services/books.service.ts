@@ -21,14 +21,12 @@ export class BooksService {
 
   ref: AngularFireStorageReference;
   task: AngularFireUploadTask;
-  url: any;
   event: any;
-  image: any;
   downloadURL: any;
   imageName: any;
   bookImageUrl: any = '';
   bookImageUrlToBePassedAtBookForm: any = '';
-  bookAddButtonIsClicked: boolean = false;
+  uploadImageUrl: any;
 
   //empID: any;
 
@@ -125,8 +123,8 @@ export class BooksService {
             this.setValuesBook();
             this.addBooks();
             //comment this if bookImageUrl is not found again
-            //this.clearAllDataForImageUrl();
-            //this.clearForm();
+            this.clearAllDataForImageUrl();
+            this.clearForm();
           },
           );
         })
@@ -149,9 +147,24 @@ export class BooksService {
     });
   }
 
+  uploadImage(event: any) {
+
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+      reader.onload = (event) => { // called once readAsDataURL is completed
+        this.uploadImageUrl = event.target.result;
+      }
+    }
+    this.setEventInfo(event);
+    
+  }
+
   clearAllDataForImageUrl() {
     this.event = '';
-    this.url = '';
+    this.uploadImageUrl = '';
     this.uploadProgress = null;
     this.ref = null;
     this.task = null;

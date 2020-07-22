@@ -114,10 +114,6 @@
             formControlName="inputGenre"
             [data]="dropdownList"
             [settings]="dropdownSettings"
-            (onSelect)="onItemSelect($event)"
-            (onDeSelect)="OnItemDeSelect($event)"
-            (onSelectAll)="onSelectAll($event)"
-            (onDeSelectAll)="onDeSelectAll($event)"
           ></angular2-multiselect>
         </div>
 
@@ -127,7 +123,7 @@
 
               <img
               class="upload-img-center rounded card-img-top"
-              src = "{{this.booksService.bookImageUrlToBePassedAtBookForm}}"
+              [src] = "this.booksService.uploadImageUrl"
               width="180"
               height="180"
             />
@@ -149,7 +145,7 @@
               Upload Image
               <input
                 type="file"
-                (change)="uploadImage($event)"
+                (change)="this.booksService.uploadImage($event)"
                 accept=".png,.jpg"
                 hidden
               />
