@@ -124,13 +124,14 @@
         <div class="form-row">
           <div class="form-group col-md-7">
             <!-- RESERVE FOR BOOK IMAGE -->
-            <img
+
+              <img
               class="upload-img-center rounded card-img-top"
-              [src] = "url"
+              src = "{{this.booksService.bookImageUrlToBePassedAtBookForm}}"
               width="180"
               height="180"
-              
             />
+
             <br />
 
             <div class="progress">

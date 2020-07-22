@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from 'src/app/shared/services/books.service';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-books',
@@ -17,5 +16,6 @@ export class BooksComponent implements OnInit {
   onAddBook(){
     this.booksService.saveAddedBook();
   }
+
 
 }

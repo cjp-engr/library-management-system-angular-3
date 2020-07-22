@@ -1,34 +1,60 @@
-<div style="padding: 50px">
-  <div class="d-flex justify-content-between" style="padding-bottom: 10px">
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addBookInformationModal">Add Book</button>
+<div style="padding: 50px;">
+  <div class="d-flex justify-content-between" style="padding-bottom: 10px;">
+    <button
+      type="button"
+      class="btn btn-primary btn-lg"
+      data-toggle="modal"
+      data-target="#addBookInformationModal"
+    >
+      Add Book
+    </button>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <input
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        Search
+      </button>
     </form>
   </div>
 
-  <app-book-list></app-book-list> 
+  <app-book-list></app-book-list>
 </div>
 
-<div class="modal fade" id="addBookInformationModal" tabindex="-1" role="dialog" aria-labelledby="addBookInformationModalTitle" aria-hidden="true">
+<div
+  class="modal fade"
+  id="addBookInformationModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="addBookInformationModalTitle"
+  aria-hidden="true"
+>
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Book Information Form</h5>
-
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          Book Information Form
+        </h5>
       </div>
       <div class="modal-body">
         <app-book-forms></app-book-forms>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" [attr.data-dismiss] = "addBookModal" (click)="onAddBook()">Save</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          [attr.data-dismiss]="addBookModal"
+          (click)="onAddBook()"
+        >
+          Save
+        </button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
       </div>
     </div>
   </div>
 </div>
-  
-
-
-
-

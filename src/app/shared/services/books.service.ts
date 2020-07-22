@@ -28,6 +28,7 @@ export class BooksService {
   imageName: any;
   bookImageUrl: any = '';
   bookImageUrlToBePassedAtBookForm: any = '';
+  bookAddButtonIsClicked: boolean = false;
 
   //empID: any;
 
@@ -124,7 +125,7 @@ export class BooksService {
             this.setValuesBook();
             this.addBooks();
             //comment this if bookImageUrl is not found again
-            //this.clearAllData();
+            //this.clearAllDataForImageUrl();
             //this.clearForm();
           },
           );
@@ -148,7 +149,7 @@ export class BooksService {
     });
   }
 
-  clearAllData() {
+  clearAllDataForImageUrl() {
     this.event = '';
     this.url = '';
     this.uploadProgress = null;
@@ -160,4 +161,5 @@ export class BooksService {
     this.imageName = imageName;
     //console.log(this.imageName);
   }
+
 }
