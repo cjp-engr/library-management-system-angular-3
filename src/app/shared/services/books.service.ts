@@ -17,7 +17,7 @@ export class BooksService {
   bookInfo: any;
   bookID: any;
 
-  uploadProgress: Observable<number>;
+  //uploadProgress: Observable<number>;
 
   ref: AngularFireStorageReference;
   task: AngularFireUploadTask;
@@ -107,7 +107,7 @@ export class BooksService {
     const empID = 'books/' + this.imageName;
     this.ref = this.afStorage.ref(empID);
     this.task = this.ref.put((<HTMLInputElement>this.event.target).files[0]);
-    this.uploadProgress = this.task.percentageChanges();
+    //this.uploadProgress = this.task.percentageChanges();
 
     let storageRef = this.afStorage.ref(empID);
     this.task
@@ -162,10 +162,13 @@ export class BooksService {
     
   }
 
+  addButtonIsClicked_clearUploadUrl(){
+    this.bookImageUrlToBePassedAtBookForm = '';
+  }
+
   clearAllDataForImageUrl() {
     this.event = '';
     this.uploadImageUrl = '';
-    this.uploadProgress = null;
     this.ref = null;
     this.task = null;
   }

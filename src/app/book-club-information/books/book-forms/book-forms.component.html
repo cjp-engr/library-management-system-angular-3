@@ -123,23 +123,13 @@
 
               <img
               class="upload-img-center rounded card-img-top"
-              [src] = "this.booksService.uploadImageUrl"
+              [src] = "this.booksService.bookImageUrlToBePassedAtBookForm"
               width="180"
               height="180"
+              alt = "Hello"
             />
 
             <br />
-
-            <div class="progress">
-              <div
-                class="progress-bar progress-bar-striped bg-success"
-                role="progressbar"
-                [style.width]="(this.booksService.uploadProgress | async) + '%'"
-                [attr.aria-valuenow]="this.booksService.uploadProgress | async"
-                aria-valuemin="0"
-                aria-valuemax="100"
-              ></div>
-            </div>
 
             <label class="btn btn-primary btn-block">
               Upload Image

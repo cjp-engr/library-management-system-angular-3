@@ -17,4 +17,8 @@ export class BooksComponent implements OnInit {
     this.booksService.saveAddedBook();
   }
 
+  addButtonIsClicked(){
+    this.booksService.addButtonIsClicked_clearUploadUrl();
+  }
+
 }
