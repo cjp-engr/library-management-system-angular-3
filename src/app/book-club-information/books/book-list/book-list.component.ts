@@ -23,7 +23,7 @@ export class BookListComponent implements OnInit {
   getBooksInformation = () => {
     this.booksService.getBooksInformation()
       .subscribe(res => (this.bookInformations = res));
-      //console.log('getBooksInformation');
+      
   }
 
   populateBookInformationForm(bookInfo: any, bookID: any){

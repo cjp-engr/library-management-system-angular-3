@@ -14,15 +14,18 @@
             (keyup)="onKeyTitle($event)"
           ></textarea>
 
+          <!-- inputImageURL -->
           <input
           type="text"
+          name = "inputImageURL"
           class="form-control"
           id="inputImageURL"
           formControlName="inputImageURL"
           value="{{ this.booksService.bookImageUrl }}"
           hidden
         />
-
+        <!-- inputImageURL -->
+                
         </div>
 
         <div class="form-group">
@@ -123,9 +126,10 @@
             <!-- RESERVE FOR BOOK IMAGE -->
             <img
               class="upload-img-center rounded card-img-top"
-              [src]="url"
+              [src] = "url"
               width="180"
               height="180"
+              
             />
             <br />
 

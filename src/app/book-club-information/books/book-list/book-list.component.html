@@ -33,7 +33,15 @@
         )
       "
     >
-    <td>Book Image</td>
+    <td>
+      <img
+      class="upload-img-center rounded card-img-top"
+      src="{{ bookInfo.payload.doc.data().inputImageURL}}"
+      width="150"
+      height="150"
+      
+    />
+      </td>
       <td>{{ bookInfo.payload.doc.data().inputTitle }}</td>
       <td>{{ bookInfo.payload.doc.data().inputAuthor }}</td>
       <td>{{ bookInfo.payload.doc.data().inputISBN }}</td>
@@ -81,24 +89,3 @@
   </div>
 </div>
 
-  <!-- PAGINATION -->
-  <nav aria-label="Page navigation example" class="float-right" style = "padding: 20px">
-    <ul class="pagination">
-      <li class="page-item">
-        <a class="page-link" aria-label="Previous">
-          <span aria-hidden="true">&laquo;</span>
-          <span class="sr-only">Previous</span>
-        </a>
-      </li>
-      <li class="page-item"><a class="page-link">1</a></li>
-      <li class="page-item"><a class="page-link">2</a></li>
-      <li class="page-item"><a class="page-link">3</a></li>
-      <li class="page-item">
-        <a class="page-link" aria-label="Next">
-          <span aria-hidden="true">&raquo;</span>
-          <span class="sr-only">Next</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
-  <!-- PAGINATION -->

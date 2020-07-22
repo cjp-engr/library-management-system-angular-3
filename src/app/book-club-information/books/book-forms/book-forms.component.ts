@@ -135,4 +135,6 @@ export class BookFormsComponent implements OnInit {
     this.booksService.setImageName(this.enteredTitleISBN);
   }
 
+  
+
 }

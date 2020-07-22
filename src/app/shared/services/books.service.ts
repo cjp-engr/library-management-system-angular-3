@@ -27,6 +27,8 @@ export class BooksService {
   downloadURL: any;
   imageName: any;
   bookImageUrl: any = '';
+  bookImageUrlToBePassedAtBookForm: any = '';
+
   //empID: any;
 
   constructor(
@@ -61,6 +63,8 @@ export class BooksService {
 
   populateBookInformationForm(bookInfo: any, bookID: any) {
     this.form.setValue(bookInfo);
+    //to be implemented later
+    this.bookImageUrlToBePassedAtBookForm = bookInfo.inputImageURL;
     this.bookInfo = bookInfo;
     this.bookID = bookID;
   }
@@ -116,10 +120,12 @@ export class BooksService {
             await downloadURLResponse;
             this.bookImageUrl = downloadURLResponse;
             console.log(this.bookImageUrl);
-            this.addBooks();
+            //WARNING!!! this.setValuesBook() SHOULD COME FIRST BEFORE this.addBooks();
             this.setValuesBook();
+            this.addBooks();
             //comment this if bookImageUrl is not found again
-            this.clearAllData();
+            //this.clearAllData();
+            //this.clearForm();
           },
           );
         })
@@ -145,7 +151,7 @@ export class BooksService {
   clearAllData() {
     this.event = '';
     this.url = '';
-    //this.uploadProgress = null;
+    this.uploadProgress = null;
     this.ref = null;
     this.task = null;
   }
