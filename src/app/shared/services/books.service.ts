@@ -7,8 +7,6 @@ import {
   AngularFireUploadTask,
 } from '@angular/fire/storage';
 import { finalize, map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-
 
 @Injectable({
   providedIn: 'root',
@@ -28,6 +26,7 @@ export class BooksService {
   existingUploadedImageUrl: any = '';
   newUploadImageUrl: any;
   isAddBookModalOpen: boolean = false;
+  inputDisabled: boolean = false;
 
   //empID: any;
 
@@ -62,8 +61,10 @@ export class BooksService {
   }
 
   populateBookInformationForm(bookInfo: any, bookID: any) {
+
     this.form.setValue(bookInfo);
     //to be implemented later
+    console.log(bookInfo);
     this.existingUploadedImageUrl = bookInfo.inputImageURL;
     this.bookInfo = bookInfo;
     this.bookID = bookID;
@@ -165,11 +166,13 @@ export class BooksService {
 
   addButtonIsClicked_clearUploadUrl(){
     this.existingUploadedImageUrl = '';
+    this.inputDisabled = null;
     this.isAddBookModalOpen = true;
   }
 
   updateListIsClicked_clearUploadUrl(){
     this.newUploadImageUrl = '';
+    this.inputDisabled = true;
     this.isAddBookModalOpen = false;
   }
 

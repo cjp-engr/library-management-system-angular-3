@@ -12,6 +12,7 @@
             style="resize: none;"
             formControlName="inputTitle"
             (keyup)="onKeyTitle($event)"
+            [attr.readonly] = "isInputDisable()"
           ></textarea>
 
           <!-- inputImageURL -->
@@ -36,6 +37,7 @@
             rows="2"
             style="resize: none;"
             formControlName="inputAuthor"
+            [attr.readonly] = "isInputDisable()"
           ></textarea>
         </div>
 
@@ -46,9 +48,9 @@
               type="text"
               class="form-control"
               id="inputISBN"
-              placeholder="ISBN"
               formControlName="inputISBN"
               (keyup)="onKeyISBN($event)"
+              [attr.readonly] = "isInputDisable()"
             />
           </div>
 
@@ -59,6 +61,7 @@
               class="form-control"
               id="inputYearPublished"
               formControlName="inputYearPublished"
+              [attr.readonly] = "isInputDisable()"
             />
           </div>
         </div>
@@ -85,6 +88,7 @@
               id="inputType"
               class="form-control"
               formControlName="inputType"
+              [attr.disabled] = "isInputDisable()"
             >
               <option selected>Choose...</option>
               <option>Fiction</option>
@@ -103,6 +107,7 @@
             rows="5"
             style="resize: none;"
             formControlName="inputDescription"
+            [attr.readonly] = "isInputDisable()"
           ></textarea>
         </div>
 
@@ -114,6 +119,7 @@
             formControlName="inputGenre"
             [data]="dropdownList"
             [settings]="dropdownSettings"
+            [attr.readonly] = "isInputDisable()"
           ></angular2-multiselect>
         </div>
 
@@ -158,8 +164,8 @@
               type="text"
               class="form-control"
               id="inputBarcode"
-              placeholder="Barcode"
               formControlName="inputBarcode"
+              [attr.readonly] = "isInputDisable()"
             />
           </div>
         </div>

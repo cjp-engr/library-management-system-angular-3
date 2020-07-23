@@ -79,6 +79,19 @@ export class BookFormsComponent implements OnInit {
     };
   }
 
+  isInputDisable():boolean{
+
+    if(this.booksService.inputDisabled){
+      this.dropdownSettings = {
+        disabled: true
+      }
+    }else{
+      this.dropdownSettings = {
+        disabled: false
+      }
+    }
+    return this.booksService.inputDisabled;
+  }
 
   onKeyTitle(event: any){
     this.userEnteredTitle = event.target.value;
