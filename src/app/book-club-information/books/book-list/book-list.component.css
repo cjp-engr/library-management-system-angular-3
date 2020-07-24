@@ -11,3 +11,11 @@
     height: 10vw;
     object-fit: cover;
 }
+
+.text-align-center{
+    text-align: center
+}
+
+.content-text-size{
+    font-size: 15px;
+}

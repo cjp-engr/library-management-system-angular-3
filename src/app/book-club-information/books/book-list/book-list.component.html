@@ -1,23 +1,51 @@
 <table class="table" style="width: 100%;">
   <colgroup>
-    <col span="1" style="width: 15%;" />
-    <col span="1" style="width: 25%;" />
-    <col span="1" style="width: 20%;" />
-    <col span="1" style="width: 15%;" />
-    <col span="1" style="width: 10%;" />
-    <col span="1" style="width: 10%;" />
-    <col span="1" style="width: 15%;" />
+    <col span="1" style="width: 14%;" />
+    <col span="1" style="width: 24%;" />
+    <col span="1" style="width: 17%;" />
+    <col span="1" style="width: 14%;" />
+    <col span="1" style="width: 8%;" />
+    <col span="1" style="width: 7%;" />
+    <col span="1" style="width: 14%;" />
   </colgroup>
 
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Book Image</th>
-      <th scope="col">Title</th>
-      <th scope="col">Author</th>
-      <th scope="col">ISBN</th>
-      <th scope="col">Type</th>
-      <th scope="col">Year Published</th>
-      <th scope="col">Status</th>
+      <th scope="col" sortable="inputImageURL">
+        <span class="d-flex justify-content-center">
+          Book Image
+        </span>
+      </th>
+      <th scope="col" sortable="inputTitle" >
+        <span class="d-flex justify-content-center">
+          Title
+        </span>
+      </th>
+      <th scope="col" sortable="inputAuthor">
+        <span class="d-flex justify-content-center">
+          Author
+        </span>
+      </th>
+      <th scope="col" sortable="inputISBN">
+        <span class="d-flex justify-content-center">
+          ISBN
+        </span>
+      </th>
+      <th scope="col" sortable="inputType">
+        <span class="d-flex justify-content-center">
+          Type
+        </span>
+      </th>
+      <th scope="col" sortable="inputYearPublished">
+        <span class="d-flex justify-content-center text-align-center">
+          Year Published
+        </span>
+      </th>
+      <th scope="col" sortable="inputStatus">
+        <span class="d-flex justify-content-center">
+          Status
+        </span>
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -43,12 +71,36 @@
       
     />
       </td>
-      <td>{{ bookInfo.payload.doc.data().inputTitle }}</td>
-      <td>{{ bookInfo.payload.doc.data().inputAuthor }}</td>
-      <td>{{ bookInfo.payload.doc.data().inputISBN }}</td>
-      <td>{{ bookInfo.payload.doc.data().inputType }}</td>
-      <td>{{ bookInfo.payload.doc.data().inputYearPublished }}</td>
-      <td>{{ bookInfo.payload.doc.data().inputStatus }}</td>
+      <td>
+        <span class="d-flex justify-content-center text-align-center content-text-size">
+          {{ bookInfo.payload.doc.data().inputTitle }}
+        </span>
+      </td>
+      <td>
+        <span class="d-flex justify-content-center text-align-center content-text-size">
+          {{ bookInfo.payload.doc.data().inputAuthor }}
+        </span>
+      </td>
+      <td>
+        <span class="d-flex justify-content-center text-align-center content-text-size">
+          {{ bookInfo.payload.doc.data().inputISBN }}
+        </span>
+      </td>
+      <td>
+        <span class="d-flex justify-content-center text-align-center content-text-size">
+          {{ bookInfo.payload.doc.data().inputType }}
+        </span>
+      </td>
+      <td>
+        <span class="d-flex justify-content-center text-align-center content-text-size">
+          {{ bookInfo.payload.doc.data().inputYearPublished }}
+        </span>
+      </td>
+      <td>
+        <span class="d-flex justify-content-center text-align-center content-text-size">
+          {{ bookInfo.payload.doc.data().inputStatus }}
+        </span>
+      </td>
     </tr>
   </tbody>
 </table>

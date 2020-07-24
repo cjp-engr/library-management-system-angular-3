@@ -52,6 +52,10 @@ export class BooksService {
     return this.firestore.collection('books').snapshotChanges();
   }
 
+  trylang(){
+
+  }
+
   async updateBookInformation() {
     try {
       await this.firestore.doc('books/' + this.bookID).set(this.form.value);
@@ -63,7 +67,6 @@ export class BooksService {
   populateBookInformationForm(bookInfo: any, bookID: any) {
 
     this.form.setValue(bookInfo);
-    //to be implemented later
     console.log(bookInfo);
     this.existingUploadedImageUrl = bookInfo.inputImageURL;
     this.bookInfo = bookInfo;
