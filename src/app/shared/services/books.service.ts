@@ -6,7 +6,8 @@ import {
   AngularFireStorageReference,
   AngularFireUploadTask,
 } from '@angular/fire/storage';
-import { finalize, map } from 'rxjs/operators';
+import { finalize } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
@@ -33,6 +34,7 @@ export class BooksService {
   constructor(
     private firestore: AngularFirestore,
     private afStorage: AngularFireStorage
+
   ) {}
 
   form = new FormGroup({
@@ -48,10 +50,10 @@ export class BooksService {
     inputImageURL: new FormControl('', Validators.required)
   });
 
+  //get from firebase collection to book list page
   getBooksInformation() {
     return this.firestore.collection('books').snapshotChanges();
   }
-
 
   async updateBookInformation() {
     try {
@@ -61,8 +63,8 @@ export class BooksService {
     }
   }
 
+  //populate fields in form
   populateBookInformationForm(bookInfo: any, bookID: any) {
-
     this.form.setValue(bookInfo);
     console.log(bookInfo);
     this.existingUploadedImageUrl = bookInfo.inputImageURL;
@@ -109,8 +111,6 @@ export class BooksService {
     const empID = 'books/' + this.imageName;
     this.ref = this.afStorage.ref(empID);
     this.task = this.ref.put((<HTMLInputElement>this.event.target).files[0]);
-    //this.uploadProgress = this.task.percentageChanges();
-
     let storageRef = this.afStorage.ref(empID);
     this.task
       .snapshotChanges()
@@ -125,6 +125,7 @@ export class BooksService {
             this.setValuesBook();
             this.addBooks();
             //comment this if bookImageUrl is not found again
+
             this.clearAllDataForImageUrl();
             this.clearForm();
             
@@ -133,7 +134,11 @@ export class BooksService {
         })
       )
       .subscribe();
+    
+    //this.uploadProgress = this.task.percentageChanges();
+
   }
+
 
   setValuesBook(){
     this.form.setValue({
@@ -151,7 +156,6 @@ export class BooksService {
   }
 
   uploadImage(event: any) {
-
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
 
@@ -162,7 +166,7 @@ export class BooksService {
       }
     }
     this.setEventInfo(event);
-    
+
   }
 
   addButtonIsClicked_clearUploadUrl(){
