@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from 'src/app/shared/services/books.service';
+import { BookListService } from 'src/app/shared/services/book-list.service';
 
 @Component({
   selector: 'app-books',
@@ -8,13 +9,16 @@ import { BooksService } from 'src/app/shared/services/books.service';
 })
 export class BooksComponent implements OnInit {
   addBookModal: any;
-  constructor(public booksService: BooksService) { }
+  constructor(public booksService: BooksService,
+              public bookListService: BookListService) { }
 
   ngOnInit(): void {
   }
 
   onAddBook(){
+
     this.booksService.saveAddedBook();
+    this.bookListService.afterClick_refreshBookList();
   }
 
   addButtonIsClicked(){

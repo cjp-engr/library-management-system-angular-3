@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/services/auth.service';
+import { BookListService } from '../shared/services/book-list.service';
 
 @Component({
   selector: 'app-side-nav',
@@ -9,7 +10,8 @@ import { AuthService } from '../shared/services/auth.service';
 export class SideNavComponent implements OnInit {
   isShow = false;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+              private bookListService: BookListService) { }
 
   ngOnInit(): void {
   }

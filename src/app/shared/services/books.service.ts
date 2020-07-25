@@ -127,6 +127,7 @@ export class BooksService {
             //comment this if bookImageUrl is not found again
             this.clearAllDataForImageUrl();
             this.clearForm();
+            
           },
           );
         })

@@ -45,6 +45,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { NgbdSortableHeader } from './shared/services/book-list.service';
 
+import { NgxPaginationModule } from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,7 +86,8 @@ import { NgbdSortableHeader } from './shared/services/book-list.service';
     CommonModule,
     BrowserAnimationsModule, 
     ToastrModule.forRoot(), 
-    NgbModule 
+    NgbModule,
+    NgxPaginationModule 
 
   ],
   providers: [AuthService,

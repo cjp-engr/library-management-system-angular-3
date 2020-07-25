@@ -4,7 +4,7 @@ import { BooksService } from './books.service';
 import { Directive, EventEmitter, Input, Output } from '@angular/core';
 import { IBook } from '../interface/book';
 
-export let BOOKS: IBook[] = [];
+export const BOOKS: IBook[] = [];
 
 export type SortColumn = keyof IBook | '';
 export type SortDirection = 'asc' | 'desc' | '';
@@ -64,12 +64,12 @@ export class BookListService {
       })
       
       //console.log(BOOKS.length);
-      console.log(BOOKS);
+      //console.log(BOOKS);
     });
 
   }
 
-  refreshAllBookData_afterUpdate(){
+  afterClick_refreshBookList(){
     while (BOOKS.length != 0) {
       BOOKS.pop();
     }

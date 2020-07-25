@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from 'src/app/shared/services/books.service';
 import { ToastrService } from 'ngx-toastr';
-import {  QueryList, ViewChildren } from '@angular/core';
-import { BookListService, NgbdSortableHeader, BOOKS, SortEvent, compare } from 'src/app/shared/services/book-list.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { QueryList, ViewChildren } from '@angular/core';
+import {
+  BookListService,
+  NgbdSortableHeader,
+  BOOKS,
+  SortEvent,
+  compare,
+} from 'src/app/shared/services/book-list.service';
 
 @Component({
   selector: 'app-book-list',
@@ -16,23 +21,47 @@ export class BookListComponent implements OnInit {
   bookInfo: any;
   bookID: any;
 
-  books = BOOKS;
-
+  /* book-list-sorting */
+  bookSorting = BOOKS;
   @ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader>;
+  /* book-list-sorting */
+
+  /* pagination */
+
+  collection = { count: BOOKS.length };
+  config: any;
+
+  public maxSize: number = 7;
+  public directionLinks: boolean = true;
+  public autoHide: boolean = false;
+  public responsive: boolean = true;
+  public labels: any = {
+    previousLabel: '<--',
+    nextLabel: '-->',
+    screenReaderPaginationLabel: 'Pagination',
+    screenReaderPageLabel: 'page',
+    screenReaderCurrentLabel: `You're on page`,
+  };
 
   constructor(
     public booksService: BooksService,
     public bookListService: BookListService,
     private toastr: ToastrService
-  ) {}
+  ) {
+    this.config = {
+      itemsPerPage: 3,
+      currentPage: 1,
+      totalItems: this.collection.count,
+    };
+  }
+
+  /* pagination */
 
   ngOnInit() {
     this.getBooksInformation();
-
   }
 
   getBooksInformation = () => {
-
     this.bookListService.getBookListInformation();
   };
 
@@ -54,8 +83,7 @@ export class BookListComponent implements OnInit {
     } else {
       this.toastr.warning('Please complete the form.', 'Warning!');
     }
-    this.bookListService.refreshAllBookData_afterUpdate();
-
+    this.bookListService.afterClick_refreshBookList();
   }
 
   closeButtonClicked() {
@@ -72,33 +100,33 @@ export class BookListComponent implements OnInit {
     this.booksService.updateListIsClicked_clearUploadUrl();
   }
 
-  onSort({column, direction}: SortEvent) {
+  /* book-list-sorting */
 
+  onSort({ column, direction }: SortEvent) {
     // resetting other headers
-    this.headers.forEach(header => {
+    this.headers.forEach((header) => {
       if (header.sortable !== column) {
         header.direction = '';
       }
     });
-    let i = 0;
-    // sorting countries   books = BOOKS;
-    if (direction === '' || column === '') {
-      this.books = BOOKS;
 
+    if (direction === '' || column === '') {
+      this.bookSorting = BOOKS;
     } else {
-      this.books = [...BOOKS].sort((a, b) => {
+      this.bookSorting = [...BOOKS].sort((a, b) => {
         const res = compare(a[column], b[column]);
 
         return direction === 'asc' ? res : -res;
       });
     }
   }
+  /* book-list-sorting */
 
+  /* pagination */
+  onPageChange(event: any) {
+    console.log(event);
+    this.config.currentPage = event;
+  }
+  /* pagination */
+  
 }
-
-
-
-
-
-
-
