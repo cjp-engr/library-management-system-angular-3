@@ -43,6 +43,8 @@ import { AdminListComponent } from './file-information/admin/admin-list/admin-li
 import { AdminFormComponent } from './file-information/admin/admin-form/admin-form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { NgbdSortableHeader } from './shared/services/book-list.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +67,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MemberFormsComponent,
     SearchMemberComponent,
     AdminListComponent,
-    AdminFormComponent
+    AdminFormComponent,
+    NgbdSortableHeader
   ],
   imports: [
     BrowserModule,
@@ -80,13 +83,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AngularMultiSelectModule,
     CommonModule,
     BrowserAnimationsModule, 
-    ToastrModule.forRoot(), NgbModule 
+    ToastrModule.forRoot(), 
+    NgbModule 
 
   ],
   providers: [AuthService,
               MemberService,
-              BooksService],
+              BooksService
+            ],
+              
   bootstrap: [AppComponent],
+
 })
 
 export class AppModule { 

@@ -1,15 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from 'src/app/shared/services/books.service';
 import { ToastrService } from 'ngx-toastr';
-import {
-  Directive,
-  EventEmitter,
-  Input,
-  Output,
-  QueryList,
-  ViewChildren,
-} from '@angular/core';
-
+import {  QueryList, ViewChildren } from '@angular/core';
+import { BookListService, NgbdSortableHeader, BOOKS, SortEvent, compare } from 'src/app/shared/services/book-list.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-book-list',
@@ -22,26 +16,24 @@ export class BookListComponent implements OnInit {
   bookInfo: any;
   bookID: any;
 
+  books = BOOKS;
+
+  @ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader>;
+
   constructor(
     public booksService: BooksService,
+    public bookListService: BookListService,
     private toastr: ToastrService
   ) {}
 
   ngOnInit() {
     this.getBooksInformation();
+
   }
 
   getBooksInformation = () => {
-    this.booksService.getBooksInformation().subscribe((res) => {
-      (this.bookInformations = res)
-         ,res.map((a) => {
-          const data = a.payload.doc.data();
-          //console.log(Object.entries(data));
-          //console.log(Object.keys(data).map(key => data[key]));
-          console.log(Object.keys(data).map((key) => [key, data[key]]));
-        });
-          
-    });
+
+    this.bookListService.getBookListInformation();
   };
 
   populateBookInformationForm(bookInfo: any, bookID: any) {
@@ -53,7 +45,6 @@ export class BookListComponent implements OnInit {
   updateBookInformation() {
     if (this.booksService.form.valid) {
       this.booksService.updateBookInformation();
-      //console.log('bookds '+this.booksService.getBookImageURL());
       this.clearAllData();
       this.toastr.success(
         'You have successfully updated the book information.',
@@ -63,6 +54,8 @@ export class BookListComponent implements OnInit {
     } else {
       this.toastr.warning('Please complete the form.', 'Warning!');
     }
+    this.bookListService.refreshAllBookData_afterUpdate();
+
   }
 
   closeButtonClicked() {
@@ -78,4 +71,34 @@ export class BookListComponent implements OnInit {
   updateListIsClicked() {
     this.booksService.updateListIsClicked_clearUploadUrl();
   }
+
+  onSort({column, direction}: SortEvent) {
+
+    // resetting other headers
+    this.headers.forEach(header => {
+      if (header.sortable !== column) {
+        header.direction = '';
+      }
+    });
+    let i = 0;
+    // sorting countries   books = BOOKS;
+    if (direction === '' || column === '') {
+      this.books = BOOKS;
+
+    } else {
+      this.books = [...BOOKS].sort((a, b) => {
+        const res = compare(a[column], b[column]);
+
+        return direction === 'asc' ? res : -res;
+      });
+    }
+  }
+
 }
+
+
+
+
+
+
+

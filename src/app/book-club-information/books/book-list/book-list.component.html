@@ -11,37 +11,37 @@
 
   <thead class="thead-dark">
     <tr>
-      <th scope="col" sortable="inputImageURL">
+      <th scope="col" sortable="bookImageURL" (sort)="onSort($event)">
         <span class="d-flex justify-content-center">
           Book Image
         </span>
       </th>
-      <th scope="col" sortable="inputTitle" >
+      <th scope="col" sortable="bookTitle" (sort)="onSort($event)">
         <span class="d-flex justify-content-center">
           Title
         </span>
       </th>
-      <th scope="col" sortable="inputAuthor">
+      <th scope="col" sortable="bookAuthor" (sort)="onSort($event)">
         <span class="d-flex justify-content-center">
           Author
         </span>
       </th>
-      <th scope="col" sortable="inputISBN">
+      <th scope="col" sortable="bookISBN" (sort)="onSort($event)">
         <span class="d-flex justify-content-center">
           ISBN
         </span>
       </th>
-      <th scope="col" sortable="inputType">
+      <th scope="col" sortable="bookType" (sort)="onSort($event)">
         <span class="d-flex justify-content-center">
           Type
         </span>
       </th>
-      <th scope="col" sortable="inputYearPublished">
+      <th scope="col" sortable="bookYearPublished" (sort)="onSort($event)">
         <span class="d-flex justify-content-center text-align-center">
           Year Published
         </span>
       </th>
-      <th scope="col" sortable="inputStatus">
+      <th scope="col" sortable="bookStatus" (sort)="onSort($event)">
         <span class="d-flex justify-content-center">
           Status
         </span>
@@ -53,19 +53,17 @@
       class="pointer"
       data-toggle="modal"
       data-target="#editBookInformationModal"
-      *ngFor="let bookInfo of bookInformations"
-      (click)="
-        populateBookInformationForm(
-          bookInfo.payload.doc.data(),
-          bookInfo.payload.doc.id
-        )
-      "
+      *ngFor="let book of books"
       (click)="updateListIsClicked()"
+      (click)="populateBookInformationForm(
+                book.bookInfoData,
+                book.bookInfoID
+      )"
     >
     <td>
       <img
       class="upload-img-center rounded card-img-top"
-      src="{{bookInfo.payload.doc.data().inputImageURL}}"
+      src="{{book.bookImageURL}}"
       width="150"
       height="150"
       
@@ -73,32 +71,32 @@
       </td>
       <td>
         <span class="d-flex justify-content-center text-align-center content-text-size">
-          {{ bookInfo.payload.doc.data().inputTitle }}
+          {{ book.bookTitle }}
         </span>
       </td>
       <td>
         <span class="d-flex justify-content-center text-align-center content-text-size">
-          {{ bookInfo.payload.doc.data().inputAuthor }}
+          {{ book.bookAuthor }}
         </span>
       </td>
       <td>
         <span class="d-flex justify-content-center text-align-center content-text-size">
-          {{ bookInfo.payload.doc.data().inputISBN }}
+          {{ book.bookISBN }}
         </span>
       </td>
       <td>
         <span class="d-flex justify-content-center text-align-center content-text-size">
-          {{ bookInfo.payload.doc.data().inputType }}
+          {{ book.bookType }}
         </span>
       </td>
       <td>
         <span class="d-flex justify-content-center text-align-center content-text-size">
-          {{ bookInfo.payload.doc.data().inputYearPublished }}
+          {{ book.bookYearPublished }}
         </span>
       </td>
       <td>
         <span class="d-flex justify-content-center text-align-center content-text-size">
-          {{ bookInfo.payload.doc.data().inputStatus }}
+          {{ book.bookStatus }}
         </span>
       </td>
     </tr>

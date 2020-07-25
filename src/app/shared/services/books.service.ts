@@ -52,9 +52,6 @@ export class BooksService {
     return this.firestore.collection('books').snapshotChanges();
   }
 
-  trylang(){
-
-  }
 
   async updateBookInformation() {
     try {
