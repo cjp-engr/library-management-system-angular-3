@@ -50,10 +50,7 @@ export class BooksService {
     inputImageURL: new FormControl('', Validators.required)
   });
 
-  //get from firebase collection to book list page
-  getBooksInformation() {
-    return this.firestore.collection('books').snapshotChanges();
-  }
+
 
   async updateBookInformation() {
     try {
