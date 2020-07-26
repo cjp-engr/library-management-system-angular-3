@@ -19,10 +19,11 @@ export class BooksComponent implements OnInit {
 
   onAddBook(){
     try{
+      this.bookListService.afterClick_refreshBookList();
       this.booksService.saveAddedBook();
       this.addBookModal = 'modal';
       this.toastr.success('You have successfully added a new book', 'Added');
-      this.bookListService.afterClick_refreshBookList();
+      
     }catch{
       this.toastr.warning('Please complete the form.', 'Warning!');
     }

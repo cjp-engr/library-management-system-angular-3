@@ -70,6 +70,7 @@ export class BookListService {
           BOOKS.push(bookList);
         });
         //console.log(BOOKS.length);
+        
       });
       
   }

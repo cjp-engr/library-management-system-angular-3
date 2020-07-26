@@ -49,7 +49,7 @@ export class BookListComponent implements OnInit {
     private toastr: ToastrService
   ) {
     this.config = {
-      itemsPerPage: 3,
+      itemsPerPage: 5,
       currentPage: 1,
       totalItems: this.collection.count,
     };
