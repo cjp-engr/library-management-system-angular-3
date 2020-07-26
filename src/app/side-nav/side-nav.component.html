@@ -84,14 +84,22 @@
           <div class="sb-sidenav-menu">
             <div class="nav">
               <div class="sb-sidenav-menu-heading">FILE INFORMATION</div>
-              <a class="nav-link" routerLink="/dashboard">
+              <a
+                class="nav-link"
+                routerLink="/dashboard"
+                routerLinkActive="active"
+              >
                 <div class="sb-nav-link-icon">
                   <i class="fas fa-tachometer-alt"></i>
                 </div>
                 Dashboard
               </a>
 
-              <a class="nav-link" routerLink="/admin-information">
+              <a
+                class="nav-link"
+                routerLink="/admin-information"
+                routerLinkActive="active"
+              >
                 <div class="sb-nav-link-icon">
                   <i class="fas fa-tachometer-alt"></i>
                 </div>
@@ -101,6 +109,7 @@
               <a
                 class="nav-link"
                 routerLink="/member-information"
+                routerLinkActive="active"
                 data-toggle="modal"
                 data-target="#searchMemberModal"
               >
@@ -110,14 +119,25 @@
                 Member Information
               </a>
 
-              <a class="nav-link" routerLink="/members">
+              <a
+                class="nav-link"
+                routerLink="/members"
+                routerLinkActive="active"
+              >
                 <div class="sb-nav-link-icon">
                   <i class="fas fa-tachometer-alt"></i>
                 </div>
                 Registered Members
               </a>
 
-              <a class="nav-link" routerLink="/books">
+              <a
+                class="nav-link"
+                routerLink="/books"
+                routerLinkActive = "active"
+                #rla="routerLinkActive"
+                (click)="bookTabIsClicked(rla.isActive)"
+               
+              >
                 <div class="sb-nav-link-icon">
                   <i class="fas fa-tachometer-alt"></i>
                 </div>

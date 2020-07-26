@@ -9,6 +9,7 @@ import { BookListService } from '../shared/services/book-list.service';
 })
 export class SideNavComponent implements OnInit {
   isShow = false;
+  isBookTabClicked: boolean;
 
   constructor(private authService: AuthService,
               private bookListService: BookListService) { }
@@ -26,6 +27,13 @@ export class SideNavComponent implements OnInit {
 
   IsUserLoggedOut(){
     this.isShow = !!this.isShow;
+  }
+
+  bookTabIsClicked(isActive: boolean){
+    if(!isActive){
+      this.bookListService.afterClick_refreshBookList();
+    }
+
   }
 
 }
