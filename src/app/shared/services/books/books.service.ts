@@ -7,7 +7,6 @@ import {
   AngularFireUploadTask,
 } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
-import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',

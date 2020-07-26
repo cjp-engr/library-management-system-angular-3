@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BooksService } from 'src/app/shared/services/books.service';
-import { BookListService } from 'src/app/shared/services/book-list.service';
+import { BooksService } from 'src/app/shared/services/books/books.service';
+import { BookListService } from 'src/app/shared/services/books/book-list.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

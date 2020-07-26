@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BooksService } from 'src/app/shared/services/books.service';
+import { BooksService } from 'src/app/shared/services/books/books.service';
 import { ToastrService } from 'ngx-toastr';
 import { QueryList, ViewChildren } from '@angular/core';
 import {
@@ -8,7 +8,7 @@ import {
   BOOKS,
   SortEvent,
   compare,
-} from 'src/app/shared/services/book-list.service';
+} from 'src/app/shared/services/books/book-list.service';
 
 @Component({
   selector: 'app-book-list',

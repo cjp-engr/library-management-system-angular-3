@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../shared/services/auth.service';
-import { BookListService } from '../shared/services/book-list.service';
+import { AuthService } from '../shared/services/auth/auth.service';
+import { BookListService } from '../shared/services/books/book-list.service';
 
 @Component({
   selector: 'app-side-nav',

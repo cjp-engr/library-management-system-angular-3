@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BooksService } from './books.service';
 
 import { Directive, EventEmitter, Input, Output } from '@angular/core';
-import { IBook } from '../interface/book';
+import { IBook } from '../../interface/book';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 export const BOOKS: IBook[] = [];

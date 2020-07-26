@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BooksService } from 'src/app/shared/services/books.service';
+import { BooksService } from 'src/app/shared/services/books/books.service';
 
 //import { Observable } from 'rxjs';
 //import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from '@angular/fire/storage';

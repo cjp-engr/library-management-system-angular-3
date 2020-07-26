@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MemberService } from 'src/app/shared/services/member.service';
+import { MemberService } from 'src/app/shared/services/member/member.service';
 
 @Component({
   selector: 'app-member-forms',

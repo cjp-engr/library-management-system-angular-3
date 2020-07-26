@@ -30,8 +30,10 @@
     "ng-multiselect-dropdown": "^0.2.10",
     "ng-validate-equal": "^1.0.4",
     "ngx-pagination": "^5.0.0",
+    "ngx-slick-carousel": "^0.5.1",
     "ngx-toastr": "^13.0.0",
     "rxjs": "~6.5.4",
+    "slick-carousel": "^1.8.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },

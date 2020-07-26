@@ -10,7 +10,7 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { PasswordRecoveryComponent } from './auth/password-recovery/password-recovery.component';
-import { AuthService } from './shared/services/auth.service';
+import { AuthService } from './shared/services/auth/auth.service';
 import { MembersComponent } from './book-club-information/members/members.component';
 import { BooksComponent } from './book-club-information/books/books.component';
 import { AdminComponent } from './file-information/admin/admin.component';
@@ -24,6 +24,9 @@ import { MemberListComponent } from './book-club-information/members/member-list
 import { MemberInformationComponent } from './book-club-information/member-information/member-information.component';
 import { BookFormsComponent } from './book-club-information/books/book-forms/book-forms.component';
 import { MemberFormsComponent } from './book-club-information/members/member-forms/member-forms.component';
+import { SearchMemberComponent } from './book-club-information/member-information/search-member/search-member.component';
+import { AdminListComponent } from './file-information/admin/admin-list/admin-list.component';
+import { AdminFormComponent } from './file-information/admin/admin-form/admin-form.component';
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
@@ -33,19 +36,21 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
 
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
-import { MemberService } from './shared/services/member.service';
+
+import { MemberService } from './shared/services/member/member.service';
+import { BooksService } from './shared/services/books/books.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { BooksService } from './shared/services/books.service';
-import { SearchMemberComponent } from './book-club-information/member-information/search-member/search-member.component';
-import { AdminListComponent } from './file-information/admin/admin-list/admin-list.component';
-import { AdminFormComponent } from './file-information/admin/admin-form/admin-form.component';
+
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { NgbdSortableHeader } from './shared/services/book-list.service';
+import { NgbdSortableHeader } from './shared/services/books/book-list.service';
 
 import { NgxPaginationModule } from 'ngx-pagination';
+
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [
@@ -87,7 +92,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     BrowserAnimationsModule, 
     ToastrModule.forRoot(), 
     NgbModule,
-    NgxPaginationModule 
+    NgxPaginationModule,
+    SlickCarouselModule 
 
   ],
   providers: [AuthService,

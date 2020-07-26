@@ -19,3 +19,4 @@ https://angular.io/guide/user-input
 https://cheatography.com/oisar/cheat-sheets/angular-firebase/
 https://stackoverflow.com/questions/45223198/angular-4-how-to-use-await-async-within-subscribe
 https://stackoverflow.com/questions/47549001/how-to-use-get-method-to-retrieve-all-collection-in-angularfire2
+https://www.npmjs.com/package/ngx-slick-carousel
