@@ -8,12 +8,5 @@ export interface IUser {
     firstName?: any,
     lastName?: any,
     userName?: any
-      
-/*   
-    uid: string,
-    firstName: string,
-    lastName: string,
-    username: string,
-    email: string
-    */
+    
 }
