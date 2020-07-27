@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { FormControl, FormGroup } from "@angular/forms";
+import { FormControl, FormGroup } from '@angular/forms';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AdminService {
+  constructor(private firestore: AngularFirestore) {}
 
-  constructor() { }
-
-  form = new FormGroup({        
+  form = new FormGroup({
     inputImageUrl: new FormControl(''),
     inputDB_ID: new FormControl(''),
     inputFirstName: new FormControl(''),
@@ -28,8 +28,48 @@ export class AdminService {
     inputEmploymentStatus: new FormControl(''),
     inputDepartment: new FormControl(''),
     inputSalary: new FormControl(''),
-    inputReportsTo: new FormControl('')
-})
+    inputReportsTo: new FormControl(''),
+    employeeFormCompleted: new FormControl(false),
+  });
 
+  async addEmployee_Admin() {
+    let data = this.form.getRawValue();
 
+    try {
+      const e = await this.firestore.collection('employees').add(data);
+      //console.log(e.id);
+    } catch (er) {
+      console.log(er.message);
+    }
+    console.log('Done Adding Employee');
+  }
+
+  populateEmployeeInformationForm(
+    emp_adminID_DBAfterRegister,
+    employeeAdminInfo
+  ) {
+    this.form.setValue({
+      inputImageUrl: '',
+      inputDB_ID: emp_adminID_DBAfterRegister,
+      inputFirstName: '',
+      inputMiddleName: '',
+      inputLastName: '',
+      inputUserName: '',
+      inputGender: '',
+      inputDateOfBirth: '',
+      inputMaritalStatus: '',
+      inputMobileNumber: '',
+      inputTelephoneNumber: '',
+      inputEmail: '',
+      inputAddress: '',
+      inputPosition: '',
+      inputEmployeeNo: '',
+      inputHireDate: '',
+      inputEmploymentStatus: '',
+      inputDepartment: '',
+      inputSalary: '',
+      inputReportsTo: '',
+      employeeFormCompleted: false
+    });
+  }
 }

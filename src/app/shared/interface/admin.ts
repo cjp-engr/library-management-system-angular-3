@@ -1,5 +1,5 @@
 //employee information
-export interface IAdmin_Form {
+export interface IEmployee_Admin_Form {
   //user info saved after registration
   employee_adminFirstName: any;
   employee_adminLastName: any;
@@ -25,10 +25,10 @@ export interface IAdmin_Form {
 
 }
 
-export interface IAdmin_AfterRegister {
-  adminFirstName: any;
-  adminLastName: any;
-  adminEmail: any;
-  adminUserName: any;
-  adminID_DB: any;
+export interface IEmployee_Admin_AfterRegister {
+  emp_adminFirstNameAfterRegister: any;
+  emp_adminLastNameAfterRegister: any;
+  emp_adminEmailAfterRegister: any;
+  emp_adminUserNameAfterRegister: any;
+  emp_adminID_DBAfterRegister: any;
 }

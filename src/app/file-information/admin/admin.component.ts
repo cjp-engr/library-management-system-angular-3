@@ -11,7 +11,7 @@ export class AdminComponent implements OnInit {
   constructor(public adminFormService: AdminFormService) { }
 
   ngOnInit(): void {
-
+    this.adminFormService.getEmployee_Admin_AfterRegister();
   }
 
 }

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
+import { AdminFormService, EMPLOYEE_ADMIN_AFTER_REGISTER } from 'src/app/shared/services/admin/admin-form.service';
+import { AdminService } from 'src/app/shared/services/admin/admin.service';
 
 @Component({
   selector: 'app-admin-list',
@@ -6,10 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-list.component.css']
 })
 export class AdminListComponent implements OnInit {
+  employeeAdminAfterRegister: any;
 
-  constructor() { }
+  constructor(public adminFormService: AdminFormService, public adminService: AdminService) { 
+    this.employeeAdminAfterRegister = EMPLOYEE_ADMIN_AFTER_REGISTER;
+    //console.log('admin-list');
+    //console.log(this.employeeAdminAfterRegister);
+  }
 
   ngOnInit(): void {
+  }
+
+  populateEmployeeInformationForm(emp_adminID_DBAfterRegister, employeeAdminInfo){
+    //console.log(emp_adminID_DBAfterRegister);
+    //console.log(employeeAdminInfo);
+    this.adminService.populateEmployeeInformationForm(emp_adminID_DBAfterRegister, employeeAdminInfo);
+    
   }
   
 

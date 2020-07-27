@@ -1,60 +1,90 @@
 <div style="padding: 10px;">
   <div class="d-flex justify-content-between" style="padding-bottom: 10px;">
-    <button
-      type="button"
-      class="btn btn-primary btn-lg"
-      routerLink="/register"
-    >
+    <button type="button" class="btn btn-primary btn-lg" routerLink="/register">
       Add Employee
     </button>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <input
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        Search
+      </button>
     </form>
   </div>
-
 </div>
 
-  <!-- Only will be used -->
-  <div style="padding: 10px;">
-    <div class="row d-flex justify-content-between">
-      <div class="column">
-        <div class="card" style="width: 18rem; height: 22rem; cursor: pointer;" data-toggle="modal" data-target="#editAdminInformationModal">
-          <img src="https://firebasestorage.googleapis.com/v0/b/library-management-syste-35429.appspot.com/o/chibi.png?alt=media&token=b0edd9b1-bd97-4596-bb6c-bddbbc46f5e6" class="card-img-top" alt="Jane" style="width:100%">
-          <div class="container">
-            <div style="padding:5px;">
-            <h5 class="card-title">Maria Sophia Emmett Liam Henarez</h5>
-            <h6 class="card-subtitle mb-2"> <strong>Position: </strong>Lead Senior Software Engineer</h6>
-            <h6 class="card-subtitle mb-2"> <strong>Employee No: </strong>123</h6>
-            <h6 class="card-subtitle mb-2"><strong>Department: </strong>Engineering and IT</h6>
-            <h6 class="card-subtitle mb-2"><strong>Reports to: </strong> Elon Musk</h6>
-          </div>
+<!-- Only will be used -->
+<div style="padding: 0px;">
+  <div class="row d-flex justify-content-between">
+    <div
+      class="column"
+      *ngFor="let employeeAdmin of employeeAdminAfterRegister"
+      (click) = "populateEmployeeInformationForm(employeeAdmin.emp_adminID_DBAfterRegister, employeeAdmin)"
+    >
+      <div
+        class="card"
+        style="width: 18rem; height: 22rem; cursor: pointer;"
+        data-toggle="modal"
+        data-target="#editAdminInformationModal"
+      >
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/library-management-syste-35429.appspot.com/o/chibi.png?alt=media&token=b0edd9b1-bd97-4596-bb6c-bddbbc46f5e6"
+          class="card-img-top"
+          alt="Jane"
+          style="width: 100%;"
+        />
+        <div class="container">
+          <div style="padding: 0px;">
+            <h5 class="card-title">
+              {{ employeeAdmin.emp_adminFirstNameAfterRegister }}
+              {{ employeeAdmin.emp_adminLastNameAfterRegister }}
+            </h5>
+            <h6 class="card-subtitle mb-2"><strong>Position: </strong>_____</h6>
+            <h6 class="card-subtitle mb-2">
+              <strong>Employee No: </strong>_____
+            </h6>
+            <h6 class="card-subtitle mb-2">
+              <strong>Department: </strong>_____
+            </h6>
+            <h6 class="card-subtitle mb-2">
+              <strong>Reports to: </strong>_____
+            </h6>
           </div>
         </div>
-      </div>
-  </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="editAdminInformationModal" tabindex="-1" role="dialog" aria-labelledby="editAdminInformationModalTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Edit Employee Information</h5>
-      </div>
-      <div class="modal-body">
-        <app-admin-form></app-admin-form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
 </div>
 
-
-
-
-
-
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="editAdminInformationModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="editAdminInformationModalTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          Edit Employee Information
+        </h5>
+      </div>
+      <div class="modal-body">
+        <app-admin-form></app-admin-form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
