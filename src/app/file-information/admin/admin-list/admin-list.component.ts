@@ -19,11 +19,15 @@ export class AdminListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  populateEmployeeInformationForm(emp_adminID_DBAfterRegister, employeeAdminInfo){
+  populateEmployeeInformationForm(emp_adminID_DBAfterRegister: any, employeeAdminInfo: any){
     //console.log(emp_adminID_DBAfterRegister);
     //console.log(employeeAdminInfo);
-    this.adminService.populateEmployeeInformationForm(emp_adminID_DBAfterRegister, employeeAdminInfo);
+    this.adminService.populateEmployeeAdminInformationForm(emp_adminID_DBAfterRegister, employeeAdminInfo);
     
+  }
+
+  trylang(){
+    this.adminService.trylangKungGumagana();
   }
   
 

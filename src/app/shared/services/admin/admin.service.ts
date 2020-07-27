@@ -1,12 +1,25 @@
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from '@angular/fire/storage';
+import { finalize } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AdminService {
-  constructor(private firestore: AngularFirestore) {}
+  event: any;
+  newUploadImageUrl: any;
+  imageName: any;
+  ref: AngularFireStorageReference;
+  task: AngularFireUploadTask;
+  downloadURL: any;
+  employeeAdminImageUrl: any;
+
+  constructor(
+    private firestore: AngularFirestore,
+    private afStorage: AngularFireStorage
+  ) {}
 
   form = new FormGroup({
     inputImageUrl: new FormControl(''),
@@ -44,32 +57,93 @@ export class AdminService {
     console.log('Done Adding Employee');
   }
 
-  populateEmployeeInformationForm(
-    emp_adminID_DBAfterRegister,
-    employeeAdminInfo
+  trylangKungGumagana(){
+    console.log(this.imageName);
+  }
+
+  saveAddedEmployee_Admin() {
+    console.log('this.imageName');
+    console.log(this.imageName);
+    const empID = 'employeesAdmin/' + this.imageName;
+    this.ref = this.afStorage.ref(empID);
+    this.task = this.ref.put((<HTMLInputElement>this.event.target).files[0]);
+    let storageRef = this.afStorage.ref(empID);
+    this.task
+      .snapshotChanges()
+      .pipe(
+        finalize(() => {
+          this.downloadURL = storageRef.getDownloadURL();
+          this.downloadURL.subscribe(async (downloadURLResponse: any) => {
+            await downloadURLResponse;
+            this.employeeAdminImageUrl = downloadURLResponse;
+            //console.log(this.bookImageUrl);
+            //WARNING!!! this.setValuesBook() SHOULD COME FIRST BEFORE this.addBooks();
+            this.setValuesEmployee_Admin();
+            //this.addBooks();
+            //comment this if bookImageUrl is not found again
+
+            //this.clearAllDataForImageUrl();
+            //this.clearForm();
+          });
+        })
+      )
+      .subscribe();
+
+    //this.uploadProgress = this.task.percentageChanges();
+  }
+
+  setValuesEmployee_Admin(){
+    
+  }
+
+  populateEmployeeAdminInformationForm(
+    emp_adminID_DBAfterRegister: string,
+    employeeAdminInfo: any
   ) {
     this.form.setValue({
-      inputImageUrl: '',
       inputDB_ID: emp_adminID_DBAfterRegister,
-      inputFirstName: '',
-      inputMiddleName: '',
-      inputLastName: '',
-      inputUserName: '',
-      inputGender: '',
-      inputDateOfBirth: '',
-      inputMaritalStatus: '',
-      inputMobileNumber: '',
-      inputTelephoneNumber: '',
-      inputEmail: '',
-      inputAddress: '',
-      inputPosition: '',
-      inputEmployeeNo: '',
-      inputHireDate: '',
-      inputEmploymentStatus: '',
-      inputDepartment: '',
-      inputSalary: '',
-      inputReportsTo: '',
-      employeeFormCompleted: false
+      inputFirstName: employeeAdminInfo.emp_adminFirstNameAfterRegister,
+      inputLastName: employeeAdminInfo.emp_adminLastNameAfterRegister,
+      inputUserName: employeeAdminInfo.emp_adminUserNameAfterRegister,
+      inputEmail: employeeAdminInfo.emp_adminEmailAfterRegister,
+
+      inputMiddleName: this.form.controls.inputMiddleName.value,
+      inputGender: this.form.controls.inputGender.value,
+      inputDateOfBirth: '' + this.form.controls.inputDateOfBirth.value,
+      inputMaritalStatus: this.form.controls.inputMaritalStatus.value,
+      inputMobileNumber: this.form.controls.inputMobileNumber.value,
+      inputTelephoneNumber: this.form.controls.inputTelephoneNumber.value,
+      inputAddress: this.form.controls.inputAddress.value,
+      inputPosition: this.form.controls.inputPosition.value,
+      inputEmployeeNo: emp_adminID_DBAfterRegister.slice(2, 15).toUpperCase(),
+      inputHireDate: '' + this.form.controls.inputHireDate.value,
+      inputEmploymentStatus: this.form.controls.inputEmploymentStatus.value,
+      inputDepartment: this.form.controls.inputDepartment.value,
+      inputSalary: this.form.controls.inputSalary.value,
+      inputReportsTo: this.form.controls.inputReportsTo.value,
+
+      inputImageUrl: this.form.controls.inputImageUrl.value,
+
+      employeeFormCompleted: this.form.controls.employeeFormCompleted.value,
     });
+    this.imageName = this.form.controls.inputEmployeeNo.value
+  }
+
+  uploadImage(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+      reader.onload = (event) => {
+        // called once readAsDataURL is completed
+        this.newUploadImageUrl = event.target.result;
+      };
+    }
+    this.setEventInfo(event);
+  }
+
+  setEventInfo(event: any) {
+    this.event = event;
   }
 }

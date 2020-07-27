@@ -24,6 +24,7 @@
       class="column"
       *ngFor="let employeeAdmin of employeeAdminAfterRegister"
       (click) = "populateEmployeeInformationForm(employeeAdmin.emp_adminID_DBAfterRegister, employeeAdmin)"
+      (click) = "trylang()"
     >
       <div
         class="card"

@@ -10,6 +10,7 @@ export const EMPLOYEE_ADMIN_AFTER_REGISTER: IEmployee_Admin_AfterRegister[] = []
 export class AdminFormService {
   constructor(private firestore: AngularFirestore) {}
 
+  /* FROM 'user' COLLECTION */
   getEmployee_Admin_AfterRegister() {
     return this.firestore
       .collection('users')
