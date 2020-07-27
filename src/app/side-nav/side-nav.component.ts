@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/services/auth/auth.service';
 import { BookListService } from '../shared/services/books/book-list.service';
+import { AdminFormService } from '../shared/services/admin/admin-form.service';
 
 @Component({
   selector: 'app-side-nav',
@@ -12,7 +13,8 @@ export class SideNavComponent implements OnInit {
   isBookTabClicked: boolean;
 
   constructor(private authService: AuthService,
-              private bookListService: BookListService) { }
+              private bookListService: BookListService,
+              private adminFormService: AdminFormService) { }
 
   ngOnInit(): void {
   }
@@ -33,7 +35,13 @@ export class SideNavComponent implements OnInit {
     if(!isActive){
       this.bookListService.afterClick_refreshBookList();
     }
+  }
 
+  adminTabIsClicked(isActive: boolean){
+    
+    if(!isActive){
+      this.adminFormService.afterClick_refreshAdminInfo_AfterRegister();
+    }
   }
 
 }

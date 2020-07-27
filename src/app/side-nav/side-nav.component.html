@@ -99,12 +99,15 @@
                 class="nav-link"
                 routerLink="/admin-information"
                 routerLinkActive="active"
+                #adminTab="routerLinkActive"
+                (click)="adminTabIsClicked(adminTab.isActive)"
               >
                 <div class="sb-nav-link-icon">
                   <i class="fas fa-tachometer-alt"></i>
                 </div>
                 Employee Information
               </a>
+
               <div class="sb-sidenav-menu-heading">BOOK CLUB INFORMATION</div>
               <a
                 class="nav-link"
@@ -134,8 +137,8 @@
                 class="nav-link"
                 routerLink="/books"
                 routerLinkActive = "active"
-                #rla="routerLinkActive"
-                (click)="bookTabIsClicked(rla.isActive)"
+                #bookTab="routerLinkActive"
+                (click)="bookTabIsClicked(bookTab.isActive)"
                
               >
                 <div class="sb-nav-link-icon">

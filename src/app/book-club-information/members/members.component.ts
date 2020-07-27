@@ -15,7 +15,9 @@ export class MembersComponent implements OnInit {
     private toastr: ToastrService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
 
   onAddMemberSubmit() {
     if (this.memberService.form.valid) {

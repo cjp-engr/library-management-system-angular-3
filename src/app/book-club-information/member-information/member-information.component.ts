@@ -10,6 +10,7 @@ export class MemberInformationComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

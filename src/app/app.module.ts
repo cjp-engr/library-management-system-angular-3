@@ -51,6 +51,7 @@ import { NgbdSortableHeader } from './shared/services/books/book-list.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { AdminFormService } from './shared/services/admin/admin-form.service';
 
 @NgModule({
   declarations: [
@@ -98,7 +99,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
   ],
   providers: [AuthService,
               MemberService,
-              BooksService
+              BooksService,
+              AdminFormService
             ],
               
   bootstrap: [AppComponent],
