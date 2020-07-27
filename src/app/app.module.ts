@@ -52,6 +52,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { AdminFormService } from './shared/services/admin/admin-form.service';
+import { AdminService } from './shared/services/admin/admin.service';
 
 @NgModule({
   declarations: [
@@ -100,7 +101,8 @@ import { AdminFormService } from './shared/services/admin/admin-form.service';
   providers: [AuthService,
               MemberService,
               BooksService,
-              AdminFormService
+              AdminFormService,
+              AdminService
             ],
               
   bootstrap: [AppComponent],

@@ -1,4 +1,20 @@
-<form>
+<form [formGroup]="this.adminService.form">
+  <input
+    type="text"
+    class="form-control"
+    id="inputImageUrl"
+    placeholder="Image Url"
+    formControlName="inputImageUrl"
+  />
+
+  <input
+    type="text"
+    class="form-control"
+    id="inputDB_ID"
+    placeholder="Employee ID"
+    formControlName="inputDB_ID"
+  />
+
   <div class="form-row">
     <div class="form-group col-md-5">
       <label for="inputFirstName">First Name</label>
@@ -7,6 +23,7 @@
         class="form-control"
         id="inputFirstName"
         placeholder="First Name"
+        formControlName="inputFirstName"
       />
     </div>
     <div class="form-group col-md-3">
@@ -16,6 +33,7 @@
         class="form-control"
         id="inputMiddleName"
         placeholder="Middle Name"
+        formControlName="inputMiddleName"
       />
     </div>
     <div class="form-group col-md-4">
@@ -25,6 +43,7 @@
         class="form-control"
         id="inputLastName"
         placeholder="Last Name"
+        formControlName="inputLastName"
       />
     </div>
   </div>
@@ -37,11 +56,16 @@
         class="form-control"
         id="inputUserName"
         placeholder="User Name"
+        formControlName="inputUserName"
       />
     </div>
     <div class="form-group col-md-3">
       <label for="inputGender">Gender</label>
-      <select id="inputGender" class="form-control">
+      <select
+        id="inputGender"
+        class="form-control"
+        formControlName="inputGender"
+      >
         <option selected>Choose...</option>
         <option>Male</option>
         <option>Female</option>
@@ -59,6 +83,7 @@
           [(ngModel)]="inputDateOfBirthModel"
           ngbDatepicker
           #inputDateOfBirth="ngbDatepicker"
+          formControlName="inputDateOfBirth"
         />
         <div class="input-group-append">
           <button
@@ -74,7 +99,11 @@
     </div>
     <div class="form-group col-md-3">
       <label for="inputMaritalStatus">Marital Status</label>
-      <select id="inputMaritalStatus" class="form-control">
+      <select
+        id="inputMaritalStatus"
+        class="form-control"
+        formControlName="inputMaritalStatus"
+      >
         <option selected>Choose...</option>
         <option>Single</option>
         <option>Married</option>
@@ -94,6 +123,7 @@
         class="form-control"
         id="inputMobileNumber"
         placeholder="Mobile Number"
+        formControlName="inputMobileNumber"
       />
     </div>
     <div class="form-group col-md-4">
@@ -103,6 +133,7 @@
         class="form-control"
         id="inputTelephoneNumber"
         placeholder="Telephone Number"
+        formControlName="inputTelephoneNumber"
       />
     </div>
     <div class="form-group col-md-4">
@@ -112,6 +143,7 @@
         class="form-control"
         id="inputEmail"
         placeholder="Email"
+        formControlName="inputEmail"
       />
     </div>
   </div>
@@ -124,13 +156,19 @@
         class="form-control"
         id="inputAddress"
         placeholder="Address"
+        formControlName="inputAddress"
       />
     </div>
     <div
       class="form-group col-md-4"
       style="display: flex; align-items: center; justify-content: center;"
     >
-      <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#employeeImageModal">
+      <button
+        type="button"
+        class="btn btn-primary btn-lg btn-block"
+        data-toggle="modal"
+        data-target="#employeeImageModal"
+      >
         Employee Image
       </button>
     </div>
@@ -144,6 +182,7 @@
         class="form-control"
         id="inputPosition"
         placeholder="Position"
+        formControlName="inputPosition"
       />
     </div>
     <div class="form-group col-md-3">
@@ -153,6 +192,7 @@
         class="form-control"
         id="inputEmployeeNo"
         placeholder="Employee No."
+        formControlName="inputEmployeeNo"
       />
     </div>
     <div class="form-group col-md-3">
@@ -166,6 +206,7 @@
           [(ngModel)]="inputHireDateModel"
           ngbDatepicker
           #inputHireDate="ngbDatepicker"
+          formControlName="inputHireDate"
         />
         <div class="input-group-append">
           <button
@@ -181,7 +222,11 @@
     </div>
     <div class="form-group col-md-3">
       <label for="inputEmploymentStatus">Employment Status</label>
-      <select id="inputEmploymentStatus" class="form-control">
+      <select
+        id="inputEmploymentStatus"
+        class="form-control"
+        formControlName="inputEmploymentStatus"
+      >
         <option selected>Choose...</option>
         <option>Full-time</option>
         <option>Part-time</option>
@@ -196,7 +241,11 @@
   <div class="form-row">
     <div class="form-group col-md-4">
       <label for="inputDepartment">Department</label>
-      <select id="inputDepartment" class="form-control">
+      <select
+        id="inputDepartment"
+        class="form-control"
+        formControlName="inputDepartment"
+      >
         <option selected>Choose...</option>
         <option>Research and Development</option>
         <option>Purchasing</option>
@@ -212,6 +261,7 @@
         class="form-control"
         id="inputSalary"
         placeholder="Salary"
+        formControlName="inputSalary"
       />
     </div>
     <div class="form-group col-md-4">
@@ -221,6 +271,7 @@
         class="form-control"
         id="inputReportsTo"
         placeholder="Reports to"
+        formControlName="inputReportsTo"
       />
     </div>
   </div>
@@ -242,8 +293,6 @@
       </div>
       <div class="modal-body">
         <!-- IMAGE -->
-
-
       </div>
       <div class="modal-footer">
         <button class="btn btn-primary btn-block">
@@ -253,4 +302,3 @@
     </div>
   </div>
 </div>
-

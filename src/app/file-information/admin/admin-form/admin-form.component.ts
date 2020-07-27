@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
+import { AdminService } from 'src/app/shared/services/admin/admin.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class AdminFormComponent implements OnInit {
   inputDateOfBirthModel: NgbDateStruct;
   inputHireDateModel: NgbDateStruct;
 
-  constructor() {}
+  constructor(public adminService: AdminService) {}
    
   ngOnInit(): void {
   }
