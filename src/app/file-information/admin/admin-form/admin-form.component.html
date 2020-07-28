@@ -194,7 +194,7 @@
       />
     </div>
     <div class="form-group col-md-3">
-      <label for="inputEmployeeNo">Employee Reference</label>
+      <label for="inputEmployeeNo">Employee Code</label>
       <input
         type="text"
         class="form-control"
@@ -308,8 +308,6 @@
           alt="Hello"
         />
         <br />
-      </div>
-      <div class="modal-footer">
         <label class="btn btn-primary btn-block">
           Upload Image
           <input
@@ -319,6 +317,12 @@
             hidden
           />
         </label>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="saveEmployeeAdminImage()">Save</button>
+        <button type="button" class="btn btn-secondary">Cancel</button>
+
       </div>
     </div>
   </div>

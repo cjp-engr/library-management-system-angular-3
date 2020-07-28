@@ -45,11 +45,11 @@ export class AdminService {
     employeeFormCompleted: new FormControl(false),
   });
 
-  async addEmployee_Admin() {
+  async addEmployeeAdmin() {
     let data = this.form.getRawValue();
 
     try {
-      const e = await this.firestore.collection('employees').add(data);
+      const e = await this.firestore.collection('employeesAdmin').add(data);
       //console.log(e.id);
     } catch (er) {
       console.log(er.message);
@@ -58,43 +58,14 @@ export class AdminService {
   }
 
   trylangKungGumagana(){
-    console.log(this.imageName);
+    console.log(this.imageName.replace(/\s+/g, '-').toLowerCase());
   }
 
-  saveAddedEmployee_Admin() {
-    console.log('this.imageName');
-    console.log(this.imageName);
-    const empID = 'employeesAdmin/' + this.imageName;
-    this.ref = this.afStorage.ref(empID);
-    this.task = this.ref.put((<HTMLInputElement>this.event.target).files[0]);
-    let storageRef = this.afStorage.ref(empID);
-    this.task
-      .snapshotChanges()
-      .pipe(
-        finalize(() => {
-          this.downloadURL = storageRef.getDownloadURL();
-          this.downloadURL.subscribe(async (downloadURLResponse: any) => {
-            await downloadURLResponse;
-            this.employeeAdminImageUrl = downloadURLResponse;
-            //console.log(this.bookImageUrl);
-            //WARNING!!! this.setValuesBook() SHOULD COME FIRST BEFORE this.addBooks();
-            this.setValuesEmployee_Admin();
-            //this.addBooks();
-            //comment this if bookImageUrl is not found again
+  saveAddedEmployeeAdmin() {
 
-            //this.clearAllDataForImageUrl();
-            //this.clearForm();
-          });
-        })
-      )
-      .subscribe();
-
-    //this.uploadProgress = this.task.percentageChanges();
+  
   }
 
-  setValuesEmployee_Admin(){
-    
-  }
 
   populateEmployeeAdminInformationForm(
     emp_adminID_DBAfterRegister: string,
@@ -126,24 +97,51 @@ export class AdminService {
 
       employeeFormCompleted: this.form.controls.employeeFormCompleted.value,
     });
-    this.imageName = this.form.controls.inputEmployeeNo.value
+    this.imageName = this.form.controls.inputLastName.value+' '+this.form.controls.inputEmployeeNo.value;
   }
 
   uploadImage(event: any) {
+
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
 
       reader.readAsDataURL(event.target.files[0]); // read file as data url
 
-      reader.onload = (event) => {
-        // called once readAsDataURL is completed
+      reader.onload = (event) => { // called once readAsDataURL is completed
         this.newUploadImageUrl = event.target.result;
-      };
+      }
     }
     this.setEventInfo(event);
+
   }
 
   setEventInfo(event: any) {
     this.event = event;
   }
+
+  saveEmployeeAdminImage(){
+    
+    let empAdminImageName = this.imageName.replace(/\s+/g, '-').toLowerCase();
+    const employeeAdminID = 'employeesAdmin/'+empAdminImageName;
+    this.ref = this.afStorage.ref(employeeAdminID);
+    this.task = this.ref.put((<HTMLInputElement>this.event.target).files[0]);
+    let storageRef = this.afStorage.ref(employeeAdminID);
+    this.task
+      .snapshotChanges()
+      .pipe(
+        finalize(() => {
+          this.downloadURL = storageRef.getDownloadURL();
+          this.downloadURL.subscribe(async (downloadURLResponse: any) => {
+            await downloadURLResponse;
+            this.employeeAdminImageUrl = downloadURLResponse;
+            console.log(this.employeeAdminImageUrl);
+            
+          },
+          );
+        })
+      )
+      .subscribe();
+    
+  }
+
 }

@@ -18,5 +18,10 @@ export class AdminFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  saveEmployeeAdminImage(){
+    this.adminService.saveEmployeeAdminImage();
+    
+  }
+
 
 }

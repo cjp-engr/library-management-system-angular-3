@@ -104,10 +104,10 @@ export class BooksService {
   saveAddedBook() {
     console.log('this.imageName');
     console.log(this.imageName);
-    const empID = 'books/' + this.imageName;
-    this.ref = this.afStorage.ref(empID);
+    const bookID = 'books/' + this.imageName;
+    this.ref = this.afStorage.ref(bookID);
     this.task = this.ref.put((<HTMLInputElement>this.event.target).files[0]);
-    let storageRef = this.afStorage.ref(empID);
+    let storageRef = this.afStorage.ref(bookID);
     this.task
       .snapshotChanges()
       .pipe(

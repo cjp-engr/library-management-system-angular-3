@@ -29,6 +29,5 @@ export class AdminListComponent implements OnInit {
   trylang(){
     this.adminService.trylangKungGumagana();
   }
-  
 
 }
