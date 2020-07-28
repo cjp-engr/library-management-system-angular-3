@@ -1,5 +1,5 @@
 //employee information
-export interface IEmployee_Admin_Form {
+export interface IEmployee_Admin_CompletedForm {
   //user info saved after registration
   employee_adminFirstName: any;
   employee_adminLastName: any;

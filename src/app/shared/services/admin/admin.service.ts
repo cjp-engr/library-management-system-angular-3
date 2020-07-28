@@ -22,26 +22,26 @@ export class AdminService {
   ) {}
 
   form = new FormGroup({
-    inputImageUrl: new FormControl('', Validators.required),
-    inputDB_ID: new FormControl('', Validators.required),
-    inputFirstName: new FormControl('', Validators.required),
-    inputMiddleName: new FormControl('', Validators.required),
-    inputLastName: new FormControl('', Validators.required),
-    inputUserName: new FormControl('', Validators.required),
-    inputGender: new FormControl('', Validators.required),
-    inputDateOfBirth: new FormControl('', Validators.required),
-    inputMaritalStatus: new FormControl('', Validators.required),
-    inputMobileNumber: new FormControl('', Validators.required),
-    inputTelephoneNumber: new FormControl('', Validators.required),
-    inputEmail: new FormControl('', Validators.required),
-    inputAddress: new FormControl('', Validators.required),
-    inputPosition: new FormControl('', Validators.required),
-    inputEmployeeNo: new FormControl('', Validators.required),
-    inputHireDate: new FormControl('', Validators.required),
-    inputEmploymentStatus: new FormControl('', Validators.required),
-    inputDepartment: new FormControl('', Validators.required),
-    inputSalary: new FormControl('', Validators.required),
-    inputReportsTo: new FormControl('', Validators.required),
+    inputImageUrl: new FormControl(''),
+    inputDB_ID: new FormControl(''),
+    inputFirstName: new FormControl(''),
+    inputMiddleName: new FormControl(''),
+    inputLastName: new FormControl(''),
+    inputUserName: new FormControl(''),
+    inputGender: new FormControl(''),
+    inputDateOfBirth: new FormControl(''),
+    inputMaritalStatus: new FormControl(''),
+    inputMobileNumber: new FormControl(''),
+    inputTelephoneNumber: new FormControl(''),
+    inputEmail: new FormControl(''),
+    inputAddress: new FormControl(''),
+    inputPosition: new FormControl(''),
+    inputEmployeeNo: new FormControl(''),
+    inputHireDate: new FormControl(''),
+    inputEmploymentStatus: new FormControl(''),
+    inputDepartment: new FormControl(''),
+    inputSalary: new FormControl(''),
+    inputReportsTo: new FormControl(''),
     employeeFormCompleted: new FormControl(false),
   });
 
@@ -84,7 +84,7 @@ export class AdminService {
 
     });
     this.addEmployeeAdmin();
-
+    console.log(this.form.value);
   }
 
   populateEmployeeAdminInformationForm_AfterRegister(
@@ -117,7 +117,7 @@ export class AdminService {
       inputImageUrl: this.form.controls.inputImageUrl.value,
 
     });
-    this.imageName = this.form.controls.inputUserName.value+' '+this.form.controls.inputEmployeeNo.value;
+    this.imageName = this.form.controls.inputUserName.value+'_'+this.form.controls.inputEmployeeNo.value;
   }
 
   uploadImage(event: any) {
