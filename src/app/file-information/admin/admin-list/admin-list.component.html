@@ -17,7 +17,7 @@
   </div>
 </div>
 
-<!-- Only will be used -->
+<!-- If User is not yet completed the form -->
 <div style="padding: 20px;">
   <div class="row d-flex justify-content-between">
     <div
@@ -64,6 +64,7 @@
     </div>
   </div>
 </div>
+<!-- If User is not yet completed the form -->
 
 <!-- Modal -->
 <div
@@ -91,7 +92,7 @@
         <button
           type="button"
           class="btn btn-primary"
-          (click) = "saveCompletedFormEmployeeAdminInformation()"
+          (click)="saveCompletedFormEmployeeAdminInformation()"
         >
           Save changes
         </button>

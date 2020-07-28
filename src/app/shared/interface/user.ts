@@ -7,6 +7,7 @@ export interface IUser {
     emailVerified: boolean;
     firstName?: any,
     lastName?: any,
-    userName?: any
+    userName?: any,
+    isUserCompletedForm?: boolean
     
 }

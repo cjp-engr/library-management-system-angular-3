@@ -40,21 +40,21 @@ export class AuthService {
           this.router.navigate(['/dashboard']);
           window.alert('Hello Welcome Back');
         });
-        this.SetUserData(result.user);
+        //this.SetUserData(result.user);
       }).catch((error) => {
         window.alert(error.message)
       })
   }
 
   // Sign up with email/password
-  async SignUp(email: any, password: any, firstName: string, lastName: string, userName: string) {
+  async SignUp(email: any, password: any, firstName: string, lastName: string, userName: string, isUserCompletedForm: boolean = false) {
     try {
       const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
       /* Call the SendVerificaitonMail() function when new user sign
       up and returns promise */
       //this.SendVerificationMail();
       //this.SetUserData(result.user);
-      this.SignUpSetUserData(result.user, firstName, lastName, userName);
+      this.SignUpSetUserData(result.user, firstName, lastName, userName, isUserCompletedForm);
       console.log('Hello New User');
       this.router.navigate(['/dashboard']);
     }
@@ -102,7 +102,7 @@ export class AuthService {
        this.ngZone.run(() => {
           this.router.navigate(['dashboard']);
         })
-      this.SetUserData(result.user);
+      //this.SetUserData(result.user);
     }).catch((error) => {
       window.alert(error)
     })
@@ -111,7 +111,7 @@ export class AuthService {
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  
+/*   
   SetUserData(user: any) {
  
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
@@ -131,8 +131,8 @@ export class AuthService {
     })
   }
   
-
-  SignUpSetUserData(user: any, firstName: string, lastName: string, userName: string) {
+ */
+  SignUpSetUserData(user: any, firstName: string, lastName: string, userName: string, isUserCompletedForm: boolean = false) {
  
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
     const userData: IUser = {
@@ -143,7 +143,8 @@ export class AuthService {
       photoURL: user.photoURL,
       emailVerified: user.emailVerified, 
       firstName: firstName,
-      lastName: lastName
+      lastName: lastName,
+      isUserCompletedForm: isUserCompletedForm.valueOf()
       
     }
 
