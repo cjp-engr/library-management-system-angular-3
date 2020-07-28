@@ -23,7 +23,8 @@ export class AdminFormService {
             emp_adminLastNameAfterRegister: a.payload.doc.get('lastName'),
             emp_adminEmailAfterRegister: a.payload.doc.get('email'),
             emp_adminUserNameAfterRegister: a.payload.doc.get('displayName'),
-            emp_adminID_DBAfterRegister: a.payload.doc.get('uid')
+            emp_adminID_DBAfterRegister: a.payload.doc.get('uid'),
+            emp_adminIsUserCompletedForm: a.payload.doc.get('isUserCompletedForm')
           };
           EMPLOYEE_ADMIN_AFTER_REGISTER.push(employeeAdminAfterRegister);
         })

@@ -120,6 +120,9 @@ export class AdminService {
     this.imageName = this.form.controls.inputUserName.value+'_'+this.form.controls.inputEmployeeNo.value;
   }
 
+
+  /* IMAGE UPLOADING */
+
   uploadImage(event: any) {
 
     if (event.target.files && event.target.files[0]) {
@@ -166,5 +169,7 @@ export class AdminService {
       .subscribe();
     
   }
+
+    /* IMAGE UPLOADING */
 
 }
