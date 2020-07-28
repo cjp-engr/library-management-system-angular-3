@@ -27,5 +27,4 @@ export class AdminFormComponent implements OnInit {
     return this.adminService.employeeAdminImageUrl;
   }
 
-
 }

@@ -18,18 +18,17 @@
 </div>
 
 <!-- Only will be used -->
-<div style="padding: 0px;">
+<div style="padding: 20px;">
   <div class="row d-flex justify-content-between">
     <div
       class="column"
       *ngFor="let employeeAdmin of employeeAdminAfterRegister"
       (click)="
-        populateEmployeeInformationForm(
+        populateEmployeeInformationForm_AfterRegister(
           employeeAdmin.emp_adminID_DBAfterRegister,
           employeeAdmin
         )
       "
-      (click)="trylang()"
     >
       <div
         class="card"
@@ -92,6 +91,7 @@
         <button
           type="button"
           class="btn btn-primary"
+          (click) = "saveCompletedFormEmployeeAdminInformation()"
         >
           Save changes
         </button>
@@ -99,3 +99,4 @@
     </div>
   </div>
 </div>
+<!-- Modal -->
