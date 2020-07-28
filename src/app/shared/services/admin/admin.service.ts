@@ -97,7 +97,7 @@ export class AdminService {
 
       employeeFormCompleted: this.form.controls.employeeFormCompleted.value,
     });
-    this.imageName = this.form.controls.inputLastName.value+' '+this.form.controls.inputEmployeeNo.value;
+    this.imageName = this.form.controls.inputUserName.value+' '+this.form.controls.inputEmployeeNo.value;
   }
 
   uploadImage(event: any) {
@@ -135,7 +135,6 @@ export class AdminService {
             await downloadURLResponse;
             this.employeeAdminImageUrl = downloadURLResponse;
             console.log(this.employeeAdminImageUrl);
-            
           },
           );
         })

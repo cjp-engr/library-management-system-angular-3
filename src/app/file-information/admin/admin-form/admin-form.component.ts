@@ -23,5 +23,9 @@ export class AdminFormComponent implements OnInit {
     
   }
 
+  setValueEmployeeAdminImageUrl():string{
+    return this.adminService.employeeAdminImageUrl;
+  }
+
 
 }
