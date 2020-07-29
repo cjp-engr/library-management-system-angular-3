@@ -134,7 +134,7 @@ export class AuthService {
  */
   SignUpSetUserData(user: any, firstName: string, lastName: string, userName: string, isUserCompletedForm: string) {
  
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`employees/${user.uid}`);
     const userData: IUser = {
  
       uid: user.uid,
@@ -144,7 +144,23 @@ export class AuthService {
       emailVerified: user.emailVerified, 
       firstName: firstName,
       lastName: lastName,
-      isUserCompletedForm: isUserCompletedForm
+      isUserCompletedForm: isUserCompletedForm,
+      inputImageUrl: '',
+      inputDB_ID: '',
+      inputMiddleName: '',
+      inputGender: '',
+      inputDateOfBirth: '',
+      inputMaritalStatus: '',
+      inputMobileNumber: '',
+      inputTelephoneNumber: '',
+      inputAddress: '',
+      inputPosition: '',
+      inputEmployeeNo: '',
+      inputHireDate: '',
+      inputEmploymentStatus: '',
+      inputDepartment: '',
+      inputSalary: '',
+      inputReportsTo: '',
       
     }
 

@@ -41,9 +41,5 @@ export class AdminListComponent implements OnInit {
     );
   }
 
-  saveCompletedFormEmployeeAdminInformation() {
-    this.adminService.saveCompletedFormEmployeeAdminInformation();
-  }
-
 
 }

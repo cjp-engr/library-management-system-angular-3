@@ -27,4 +27,12 @@ export class AdminFormComponent implements OnInit {
     return this.adminService.employeeAdminImageUrl;
   }
 
+  uploadImage(event: any){
+    this.adminService.uploadImage(event);
+  }
+
+  newUploadImageUrl(){
+    return this.adminService.newUploadImageUrl;
+  }
+
 }

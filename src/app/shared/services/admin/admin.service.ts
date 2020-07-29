@@ -45,47 +45,12 @@ export class AdminService {
     employeeFormCompleted: new FormControl(false),
   });
 
-  async addEmployeeAdmin() {
-    let data = this.form.getRawValue();
-
-    try {
-      const e = await this.firestore.collection('employeesAdmin').add(data);
-      //console.log(e.id);
-    } catch (er) {
-      console.log(er.message);
-    }
-    console.log('Done Adding Employee');
-  }
-
-  saveCompletedFormEmployeeAdminInformation() {
-    this.form.setValue({
-      inputDB_ID: this.form.controls.inputDB_ID.value,
-      inputFirstName: this.form.controls.inputFirstName.value,
-      inputLastName: this.form.controls.inputLastName.value,
-      inputUserName: this.form.controls.inputUserName.value,
-      inputEmail: this.form.controls.inputEmail.value,
-      inputEmployeeNo: this.form.controls.inputEmployeeNo.value,
-      employeeFormCompleted: true,
-      inputImageUrl: this.employeeAdminImageUrl,
-
-      inputMiddleName: this.form.controls.inputMiddleName.value,
-      inputGender: this.form.controls.inputGender.value,
-      inputDateOfBirth: this.form.controls.inputDateOfBirth.value,
-      inputMaritalStatus: this.form.controls.inputMaritalStatus.value,
-      inputMobileNumber: this.form.controls.inputMobileNumber.value,
-      inputTelephoneNumber: this.form.controls.inputTelephoneNumber.value,
-      inputAddress: this.form.controls.inputAddress.value,
-      inputPosition: this.form.controls.inputPosition.value,
-      inputHireDate: this.form.controls.inputHireDate.value,
-      inputEmploymentStatus: this.form.controls.inputEmploymentStatus.value,
-      inputDepartment: this.form.controls.inputDepartment.value,
-      inputSalary: this.form.controls.inputSalary.value,
-      inputReportsTo: this.form.controls.inputReportsTo.value,
-
-    });
-    this.addEmployeeAdmin();
-
-  }
+  updateIsUserCompletedForm_AfterRegister(emp: any) {
+    return this.firestore
+        .collection('employees')
+        .doc(emp)
+        .set({ isUserCompletedForm: 'YES' }, { merge: true });
+ }
 
   populateEmployeeAdminInformationForm_AfterRegister(
     emp_adminID_DBAfterRegister: string,
@@ -118,12 +83,11 @@ export class AdminService {
 
     });
 
-    console.log(employeeAdminInfo.emp_adminFirstNameAfterRegister);
-    console.log(employeeAdminInfo.emp_adminID_IsUserCompletedForm);
+    //console.log(employeeAdminInfo.emp_adminFirstNameAfterRegister);
+    //console.log(employeeAdminInfo.emp_adminID_IsUserCompletedForm);
     
     this.imageName = this.form.controls.inputUserName.value+'_'+this.form.controls.inputEmployeeNo.value;
   }
-
 
   /* IMAGE UPLOADING */
 
@@ -149,7 +113,7 @@ export class AdminService {
   saveEmployeeAdminImage(){
 
     let empAdminImageName = this.imageName.replace(/\s+/g, '-').toLowerCase();
-    const employeeAdminID = 'employeesAdmin/'+empAdminImageName;
+    const employeeAdminID = 'employees/'+empAdminImageName;
     this.ref = this.afStorage.ref(employeeAdminID);
     this.task = this.ref.put((<HTMLInputElement>this.event.target).files[0]);
     let storageRef = this.afStorage.ref(employeeAdminID);

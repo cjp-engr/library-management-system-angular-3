@@ -305,7 +305,7 @@
 
         <img
           class="upload-img-center rounded upload-card-img-top"
-          [src]="this.adminService.newUploadImageUrl"
+          [src]="newUploadImageUrl()"
           alt="Hello"
         />
         <br />
@@ -313,7 +313,7 @@
           Upload Image
           <input
             type="file"
-            (change)="this.adminService.uploadImage($event)"
+            (change)="uploadImage($event)"
             accept=".png,.jpg"
             hidden
           />
