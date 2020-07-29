@@ -157,7 +157,7 @@ export class AuthService {
       inputEmployeeNo: '',
       inputHireDate: '',
       inputEmploymentStatus: '',
-      inputDepartment: '',
+      inputBranch: '',
       inputSalary: '',
       inputReportsTo: '',
       

@@ -21,7 +21,7 @@ export interface IUser {
     inputEmployeeNo?: any,
     inputHireDate?: any,
     inputEmploymentStatus?: any,
-    inputDepartment?: any,
+    inputBranch?: any,
     inputSalary?: any,
     inputReportsTo?: any
     

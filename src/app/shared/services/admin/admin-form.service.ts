@@ -41,7 +41,7 @@ export class AdminFormService {
             employee_adminEmployeeNumber: a.payload.doc.get('inputEmployeeNo'),
             employee_adminHireDate: a.payload.doc.get('inputHireDate'),
             employee_adminEmploymentStatus: a.payload.doc.get('inputEmploymentStatus'),
-            employee_adminDepartment: a.payload.doc.get('inputDepartment'),
+            employee_adminBranch: a.payload.doc.get('inputBranch'),
             employee_adminSalary: a.payload.doc.get('inputSalary'),
             employee_adminReportsTo: a.payload.doc.get('inputReportsTo'),
           };

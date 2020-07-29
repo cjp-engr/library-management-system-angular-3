@@ -43,7 +43,7 @@ export class AdminService {
     inputEmployeeNo: new FormControl(''),
     inputHireDate: new FormControl(''),
     inputEmploymentStatus: new FormControl(''),
-    inputDepartment: new FormControl(''),
+    inputBranch: new FormControl(''),
     inputSalary: new FormControl(''),
     inputReportsTo: new FormControl('')
   });
@@ -71,7 +71,7 @@ export class AdminService {
       inputPosition: employeeAdminInfo.employee_adminPosition,
       inputHireDate: employeeAdminInfo.employee_adminHireDate,
       inputEmploymentStatus: employeeAdminInfo.employee_adminEmploymentStatus,
-      inputDepartment: employeeAdminInfo.employee_adminDepartment,
+      inputBranch: employeeAdminInfo.employee_adminBranch,
       inputSalary: employeeAdminInfo.employee_adminSalary,
       inputReportsTo: employeeAdminInfo.employee_adminReportsTo,
       

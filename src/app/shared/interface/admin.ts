@@ -19,7 +19,7 @@ export interface IEmployee_Admin {
   employee_adminEmployeeNumber: any;
   employee_adminHireDate: any;
   employee_adminEmploymentStatus: any;
-  employee_adminDepartment: any;
+  employee_adminBranch: any;
   employee_adminSalary: any;
   employee_adminReportsTo: any;
 
