@@ -92,7 +92,6 @@ export class AdminService {
   async updateEmployeeAdminInformation() {
     try {
       await this.firestore.doc('employees/' + this.employeeUID).set(this.form.value);
-      this.updateEmployeeAdminImage();
       
     } catch (er) {
       console.log(er.message);

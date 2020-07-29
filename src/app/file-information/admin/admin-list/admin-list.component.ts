@@ -40,6 +40,7 @@ export class AdminListComponent implements OnInit {
 
   updateEmployeeAdminInformation(){
     this.adminService.updateEmployeeAdminInformation();
+    this.adminService.updateEmployeeAdminImage();
     this.adminFormService.afterClick_refreshEmployeeAdminInfo();
   }
 
