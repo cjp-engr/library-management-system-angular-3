@@ -40,7 +40,7 @@ export class SideNavComponent implements OnInit {
   adminTabIsClicked(isActive: boolean){
     
     if(!isActive){
-      this.adminFormService.afterClick_refreshAdminInfo_AfterRegister();
+      this.adminFormService.afterClick_refreshEmployeeAdminInfo();
     }
   }
 

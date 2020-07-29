@@ -39,7 +39,7 @@
         data-target="#editAdminInformationModal"
       >
         <img
-          src="https://firebasestorage.googleapis.com/v0/b/library-management-syste-35429.appspot.com/o/chibi.png?alt=media&token=b0edd9b1-bd97-4596-bb6c-bddbbc46f5e6"
+          src="{{empAd.employee_adminImage}}"
           class="card-img-top"
           alt="Jane"
           style="width: 100%;"
@@ -50,15 +50,15 @@
               {{ empAd.employee_adminFirstName }}
               {{ empAd.employee_adminLastName }}
             </h5>
-            <h6 class="card-subtitle mb-2"><strong>Position: </strong>_____</h6>
+            <h6 class="card-subtitle mb-2"><strong>Position: </strong>{{empAd.employee_adminPosition}}</h6>
             <h6 class="card-subtitle mb-2">
-              <strong>Employee No: </strong>_____
+              <strong>Employee Code: </strong>{{empAd.employee_adminEmployeeNumber}}
             </h6>
             <h6 class="card-subtitle mb-2">
-              <strong>Branch: </strong>_____
+              <strong>Branch: </strong>{{empAd.employee_adminBranch}}
             </h6>
             <h6 class="card-subtitle mb-2">
-              <strong>Reports to: </strong>_____
+              <strong>Reports to: </strong>{{empAd.employee_adminReportsTo}}
             </h6>
           </div>
         </div>
@@ -95,6 +95,7 @@
         <button
           type="button"
           class="btn btn-primary"
+          (click) = "updateEmployeeAdminInformation()"
         >
           Update
         </button>

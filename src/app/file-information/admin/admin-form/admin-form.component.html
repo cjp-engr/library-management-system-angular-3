@@ -5,7 +5,7 @@
     id="inputImageUrl"
     placeholder="Image Url"
     formControlName="inputImageUrl"
-    value = "{{setValueEmployeeAdminImageUrl()}}"
+    value="{{ setValueEmployeeAdminImageUrl() }}"
   />
 
   <input
@@ -14,6 +14,14 @@
     id="inputDB_ID"
     placeholder="Employee UID"
     formControlName="inputDB_ID"
+  />
+
+  <input
+    type="text"
+    class="form-control"
+    id="uid"
+    placeholder="UID"
+    formControlName="uid"
   />
 
   <div class="form-row">
@@ -310,12 +318,16 @@
             hidden
           />
         </label>
-
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="saveEmployeeAdminImage()">Save</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="saveEmployeeAdminImage()"
+        >
+          Save
+        </button>
         <button type="button" class="btn btn-secondary">Cancel</button>
-
       </div>
     </div>
   </div>

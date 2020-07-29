@@ -6,6 +6,7 @@ export interface IEmployee_Admin {
   employee_adminEmail: any;
   employee_adminUserName: any;
   employee_adminID_DB: any;
+  employee_adminUID: any;
   //to be completed by employee/user
   employee_adminMiddleName: any;
   employee_adminGender: any;

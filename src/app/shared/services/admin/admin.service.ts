@@ -16,7 +16,7 @@ export class AdminService {
   downloadURL: any;
   employeeAdminImageUrl: any;
 
-  employeeCode: any;
+  employeeUID: any;
 
   constructor(
     private firestore: AngularFirestore,
@@ -29,6 +29,7 @@ export class AdminService {
     lastName: new FormControl(''),
     displayName: new FormControl(''),
     email: new FormControl(''),
+    uid: new FormControl(''),
 
     inputMiddleName: new FormControl(''),
     inputImageUrl: new FormControl(''),
@@ -59,6 +60,7 @@ export class AdminService {
       lastName: employeeAdminInfo.employee_adminLastName,
       displayName: employeeAdminInfo.employee_adminUserName,
       email: employeeAdminInfo.employee_adminEmail,
+      uid: employeeAdminInfo.employee_adminUID,
 
       inputEmployeeNo: emp_adminID_DB.slice(2, 15).toUpperCase(),
       inputMiddleName: employeeAdminInfo.employee_adminMiddleName,
@@ -83,8 +85,27 @@ export class AdminService {
     //console.log(employeeAdminInfo.emp_adminID_IsUserCompletedForm);
     
     this.imageName = this.form.controls.displayName.value+'_'+this.form.controls.inputEmployeeNo.value;
-
+    this.employeeUID = emp_adminID_DB;
+    console.log(this.employeeUID);
   }
+
+  async updateEmployeeAdminInformation() {
+    try {
+      await this.firestore.doc('employees/' + this.employeeUID).set(this.form.value);
+      this.updateEmployeeAdminImage();
+      
+    } catch (er) {
+      console.log(er.message);
+    }
+  }
+
+  updateEmployeeAdminImage(){
+    return this.firestore.collection('employees')
+       .doc(this.employeeUID)
+       .set({ inputImageUrl: this.employeeAdminImageUrl}, { merge: true });
+  }
+
+
 
   /* IMAGE UPLOADING */
 

@@ -38,5 +38,10 @@ export class AdminListComponent implements OnInit {
     );
   }
 
+  updateEmployeeAdminInformation(){
+    this.adminService.updateEmployeeAdminInformation();
+    this.adminFormService.afterClick_refreshEmployeeAdminInfo();
+  }
+
 
 }

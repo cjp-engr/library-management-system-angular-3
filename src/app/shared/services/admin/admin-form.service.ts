@@ -28,6 +28,7 @@ export class AdminFormService {
             employee_adminEmail: a.payload.doc.get('email'),
             employee_adminUserName: a.payload.doc.get('displayName'),
             employee_adminID_DB: a.payload.doc.get('uid'),
+            employee_adminUID: a.payload.doc.get('uid'),
             //to be completed by employee/user
             employee_adminMiddleName: a.payload.doc.get('inputMiddleName'),
             employee_adminGender: a.payload.doc.get('inputGender'),
@@ -51,9 +52,10 @@ export class AdminFormService {
       });
   }
 
-  afterClick_refreshAdminInfo_AfterRegister() {
+  afterClick_refreshEmployeeAdminInfo() {
     while (EMPLOYEE_ADMIN.length != 0) {
       EMPLOYEE_ADMIN.pop();
     }
   }
+
 }
