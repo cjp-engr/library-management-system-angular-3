@@ -31,5 +31,5 @@ export interface IEmployee_Admin_AfterRegister {
   emp_adminEmailAfterRegister: any;
   emp_adminUserNameAfterRegister: any;
   emp_adminID_DBAfterRegister: any;
-  emp_adminIsUserCompletedForm: string;
+  emp_adminID_IsUserCompletedForm: string;
 }

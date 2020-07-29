@@ -12,7 +12,7 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.adminFormService.getEmployee_Admin_AfterRegister();
-
+    
   }
 
 }

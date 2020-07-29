@@ -8,6 +8,6 @@ export interface IUser {
     firstName?: any,
     lastName?: any,
     userName?: any,
-    isUserCompletedForm?: boolean
+    isUserCompletedForm?: string
     
 }

@@ -84,7 +84,7 @@ export class AdminService {
 
     });
     this.addEmployeeAdmin();
-    console.log(this.form.value);
+
   }
 
   populateEmployeeAdminInformationForm_AfterRegister(
@@ -117,6 +117,10 @@ export class AdminService {
       inputImageUrl: this.form.controls.inputImageUrl.value,
 
     });
+
+    console.log(employeeAdminInfo.emp_adminFirstNameAfterRegister);
+    console.log(employeeAdminInfo.emp_adminID_IsUserCompletedForm);
+    
     this.imageName = this.form.controls.inputUserName.value+'_'+this.form.controls.inputEmployeeNo.value;
   }
 
@@ -158,7 +162,7 @@ export class AdminService {
             downloadURLResponse;
             if(downloadURLResponse.length != 0){
               this.employeeAdminImageUrl = downloadURLResponse;
-              console.log('Hello World');
+              console.log(this.employeeAdminImageUrl);
             }
             
            

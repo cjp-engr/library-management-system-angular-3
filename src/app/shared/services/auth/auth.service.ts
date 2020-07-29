@@ -47,7 +47,7 @@ export class AuthService {
   }
 
   // Sign up with email/password
-  async SignUp(email: any, password: any, firstName: string, lastName: string, userName: string, isUserCompletedForm: boolean = false) {
+  async SignUp(email: any, password: any, firstName: string, lastName: string, userName: string, isUserCompletedForm: string) {
     try {
       const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
       /* Call the SendVerificaitonMail() function when new user sign
@@ -132,7 +132,7 @@ export class AuthService {
   }
   
  */
-  SignUpSetUserData(user: any, firstName: string, lastName: string, userName: string, isUserCompletedForm: boolean = false) {
+  SignUpSetUserData(user: any, firstName: string, lastName: string, userName: string, isUserCompletedForm: string) {
  
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
     const userData: IUser = {
@@ -144,7 +144,7 @@ export class AuthService {
       emailVerified: user.emailVerified, 
       firstName: firstName,
       lastName: lastName,
-      isUserCompletedForm: isUserCompletedForm.valueOf()
+      isUserCompletedForm: isUserCompletedForm
       
     }
 

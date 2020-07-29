@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
   }
 
  
-  SignUpUser(email: string, password: any, firstName: string, lastName: string, userName: string, isUserCompletedForm: boolean){
+  SignUpUser(email: string, password: any, firstName: string, lastName: string, userName: string, isUserCompletedForm: string){
     this.authService.SignUp(email, password, firstName, lastName, userName, isUserCompletedForm);
     
   }

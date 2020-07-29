@@ -9,6 +9,9 @@ export const EMPLOYEE_ADMIN_COMPLETED_FORM: IEmployee_Admin_CompletedForm[] = []
   providedIn: 'root',
 })
 export class AdminFormService {
+
+  isUserCompletedForm: string;
+
   constructor(private firestore: AngularFirestore) {}
 
   /* FROM 'user' COLLECTION */
@@ -18,13 +21,15 @@ export class AdminFormService {
       .snapshotChanges()
       .subscribe((res) => {
         res.map((a)=>{
+
           const employeeAdminAfterRegister: IEmployee_Admin_AfterRegister = {
             emp_adminFirstNameAfterRegister: a.payload.doc.get('firstName'),
             emp_adminLastNameAfterRegister: a.payload.doc.get('lastName'),
             emp_adminEmailAfterRegister: a.payload.doc.get('email'),
             emp_adminUserNameAfterRegister: a.payload.doc.get('displayName'),
             emp_adminID_DBAfterRegister: a.payload.doc.get('uid'),
-            emp_adminIsUserCompletedForm: a.payload.doc.get('isUserCompletedForm')
+            emp_adminID_IsUserCompletedForm: a.payload.doc.get('isUserCompletedForm')
+
           };
           EMPLOYEE_ADMIN_AFTER_REGISTER.push(employeeAdminAfterRegister);
         })
@@ -32,12 +37,14 @@ export class AdminFormService {
       });
   }
 
+
   afterClick_refreshAdminInfo_AfterRegister(){
     while(EMPLOYEE_ADMIN_AFTER_REGISTER.length != 0){
       EMPLOYEE_ADMIN_AFTER_REGISTER.pop();
     }
   }
 
+  /* IF USER ALREADY FILL UP AND THE COMPLETED THE FORM */
   getEmployee_Admin_CompletedForm(){
     return this.firestore
     .collection('employeesAdmin')
@@ -76,4 +83,5 @@ export class AdminFormService {
     });
 
   }
+
 }
