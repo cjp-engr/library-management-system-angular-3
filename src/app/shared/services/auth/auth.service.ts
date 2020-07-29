@@ -144,7 +144,6 @@ export class AuthService {
       emailVerified: user.emailVerified, 
       firstName: firstName,
       lastName: lastName,
-      isUserCompletedForm: isUserCompletedForm,
       inputImageUrl: '',
       inputDB_ID: '',
       inputMiddleName: '',

@@ -16,24 +16,28 @@ export class AdminService {
   downloadURL: any;
   employeeAdminImageUrl: any;
 
+  employeeCode: any;
+
   constructor(
     private firestore: AngularFirestore,
     private afStorage: AngularFireStorage
   ) {}
 
   form = new FormGroup({
+
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    displayName: new FormControl(''),
+    email: new FormControl(''),
+
+    inputMiddleName: new FormControl(''),
     inputImageUrl: new FormControl(''),
     inputDB_ID: new FormControl(''),
-    inputFirstName: new FormControl(''),
-    inputMiddleName: new FormControl(''),
-    inputLastName: new FormControl(''),
-    inputUserName: new FormControl(''),
     inputGender: new FormControl(''),
     inputDateOfBirth: new FormControl(''),
     inputMaritalStatus: new FormControl(''),
     inputMobileNumber: new FormControl(''),
     inputTelephoneNumber: new FormControl(''),
-    inputEmail: new FormControl(''),
     inputAddress: new FormControl(''),
     inputPosition: new FormControl(''),
     inputEmployeeNo: new FormControl(''),
@@ -41,52 +45,45 @@ export class AdminService {
     inputEmploymentStatus: new FormControl(''),
     inputDepartment: new FormControl(''),
     inputSalary: new FormControl(''),
-    inputReportsTo: new FormControl(''),
-    employeeFormCompleted: new FormControl(false),
+    inputReportsTo: new FormControl('')
   });
 
-  updateIsUserCompletedForm_AfterRegister(emp: any) {
-    return this.firestore
-        .collection('employees')
-        .doc(emp)
-        .set({ isUserCompletedForm: 'YES' }, { merge: true });
- }
 
-  populateEmployeeAdminInformationForm_AfterRegister(
-    emp_adminID_DBAfterRegister: string,
+  populateEmployeeAdminInformationForm(
+    emp_adminID_DB: string,
     employeeAdminInfo: any
   ) {
     this.form.setValue({
-      inputDB_ID: emp_adminID_DBAfterRegister,
-      inputFirstName: employeeAdminInfo.emp_adminFirstNameAfterRegister,
-      inputLastName: employeeAdminInfo.emp_adminLastNameAfterRegister,
-      inputUserName: employeeAdminInfo.emp_adminUserNameAfterRegister,
-      inputEmail: employeeAdminInfo.emp_adminEmailAfterRegister,
-      inputEmployeeNo: emp_adminID_DBAfterRegister.slice(2, 15).toUpperCase(),
-      employeeFormCompleted: this.form.controls.employeeFormCompleted.value,
+      inputDB_ID: emp_adminID_DB,
+      firstName: employeeAdminInfo.employee_adminFirstName,
+      lastName: employeeAdminInfo.employee_adminLastName,
+      displayName: employeeAdminInfo.employee_adminUserName,
+      email: employeeAdminInfo.employee_adminEmail,
 
-      inputMiddleName: this.form.controls.inputMiddleName.value,
-      inputGender: this.form.controls.inputGender.value,
-      inputDateOfBirth: '' + this.form.controls.inputDateOfBirth.value,
-      inputMaritalStatus: this.form.controls.inputMaritalStatus.value,
-      inputMobileNumber: this.form.controls.inputMobileNumber.value,
-      inputTelephoneNumber: this.form.controls.inputTelephoneNumber.value,
-      inputAddress: this.form.controls.inputAddress.value,
-      inputPosition: this.form.controls.inputPosition.value,
-      inputHireDate: '' + this.form.controls.inputHireDate.value,
-      inputEmploymentStatus: this.form.controls.inputEmploymentStatus.value,
-      inputDepartment: this.form.controls.inputDepartment.value,
-      inputSalary: this.form.controls.inputSalary.value,
-      inputReportsTo: this.form.controls.inputReportsTo.value,
-
-      inputImageUrl: this.form.controls.inputImageUrl.value,
+      inputEmployeeNo: emp_adminID_DB.slice(2, 15).toUpperCase(),
+      inputMiddleName: employeeAdminInfo.employee_adminMiddleName,
+      inputGender: employeeAdminInfo.employee_adminGender,
+      inputDateOfBirth: employeeAdminInfo.employee_adminDateOfBirth,
+      inputMaritalStatus: employeeAdminInfo.employee_adminMaritalStatus,
+      inputMobileNumber: employeeAdminInfo.employee_adminMobileNumber,
+      inputTelephoneNumber: employeeAdminInfo.employee_adminTelephoneNumber,
+      inputAddress: employeeAdminInfo.employee_adminAddress,
+      inputPosition: employeeAdminInfo.employee_adminPosition,
+      inputHireDate: employeeAdminInfo.employee_adminHireDate,
+      inputEmploymentStatus: employeeAdminInfo.employee_adminEmploymentStatus,
+      inputDepartment: employeeAdminInfo.employee_adminDepartment,
+      inputSalary: employeeAdminInfo.employee_adminSalary,
+      inputReportsTo: employeeAdminInfo.employee_adminReportsTo,
+      
+      inputImageUrl: employeeAdminInfo.employee_adminImage
 
     });
 
     //console.log(employeeAdminInfo.emp_adminFirstNameAfterRegister);
     //console.log(employeeAdminInfo.emp_adminID_IsUserCompletedForm);
     
-    this.imageName = this.form.controls.inputUserName.value+'_'+this.form.controls.inputEmployeeNo.value;
+    this.imageName = this.form.controls.displayName.value+'_'+this.form.controls.inputEmployeeNo.value;
+
   }
 
   /* IMAGE UPLOADING */

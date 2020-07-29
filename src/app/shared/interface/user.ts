@@ -8,7 +8,6 @@ export interface IUser {
     firstName?: any,
     lastName?: any,
     userName?: any,
-    isUserCompletedForm?: string,
     inputImageUrl?: any,
     inputDB_ID?: any,
     inputMiddleName?: any,
