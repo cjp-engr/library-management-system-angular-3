@@ -32,7 +32,12 @@ export class AdminFormComponent implements OnInit {
   }
 
   newUploadImageUrl(){
-    return this.adminService.newUploadImageUrl;
+    if(this.adminService.employeeAdminHasImage){
+      return this.adminService.displayEmployeeAdminUploadedImage;
+    }else{
+      return this.adminService.newUploadImageUrl;
+    }
+    
   }
 
 }

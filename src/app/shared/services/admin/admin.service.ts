@@ -20,6 +20,10 @@ export class AdminService {
 
   employeeAdminImageUpdated: boolean;
 
+  employeeAdminHasImage: boolean;
+
+  displayEmployeeAdminUploadedImage: any;
+
   constructor(
     private firestore: AngularFirestore,
     private afStorage: AngularFireStorage
@@ -88,7 +92,22 @@ export class AdminService {
     
     this.imageName = this.form.controls.displayName.value+'_'+this.form.controls.inputEmployeeNo.value;
     this.employeeUID = emp_adminID_DB;
-    console.log(this.employeeUID);
+    
+    this.checkIfEmployeeAdminHasImage();
+
+  }
+
+  checkIfEmployeeAdminHasImage(){
+    if(this.form.controls.inputImageUrl.value != ''){
+      console.log('I have image');
+      this.employeeAdminHasImage = true;
+      this.displayEmployeeAdminUploadedImage = this.form.controls.inputImageUrl.value;
+
+    }else{
+      console.log('No Image');
+      this.employeeAdminHasImage = false;
+      //this.newUploadImageUrl
+    }
   }
 
   async updateEmployeeAdminInformation() {
@@ -178,6 +197,8 @@ export class AdminService {
       this.employeeUID = null;
     
       this.employeeAdminImageUpdated = false;
+
+      this.employeeAdminHasImage = false;
 
 
     }

@@ -47,7 +47,7 @@ export class AdminListComponent implements OnInit {
       this.adminFormService.getEmployeeAdmin();
     }
     
-    console.log('Done Update!');
+    console.log('Done Employee Info Update!');
     this.adminService.clearEmployeeAdminResetValues();
   }
 

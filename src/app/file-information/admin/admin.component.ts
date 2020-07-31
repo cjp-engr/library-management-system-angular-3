@@ -10,6 +10,7 @@ export class AdminComponent implements OnInit {
   constructor(public adminFormService: AdminFormService) { }
 
   ngOnInit(): void {
+    this.adminFormService.afterClick_refreshEmployeeAdminInfo();
     this.adminFormService.getEmployeeAdmin();
   }
 
