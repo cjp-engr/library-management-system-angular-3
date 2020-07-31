@@ -49,6 +49,8 @@ export class AdminFormService {
           EMPLOYEE_ADMIN.push(employeeAdminAfterRegister);
         });
         //console.log(EMPLOYEE_ADMIN_AFTER_REGISTER);
+        
+        console.log('EMPLOYEE_ADMIN: '+EMPLOYEE_ADMIN.length);
       });
   }
 

@@ -7,12 +7,10 @@ import { AdminFormService } from 'src/app/shared/services/admin/admin-form.servi
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-
   constructor(public adminFormService: AdminFormService) { }
 
   ngOnInit(): void {
     this.adminFormService.getEmployeeAdmin();
-    
   }
 
 }

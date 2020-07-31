@@ -18,6 +18,8 @@ export class AdminService {
 
   employeeUID: any;
 
+  employeeAdminImageUpdated: boolean;
+
   constructor(
     private firestore: AngularFirestore,
     private afStorage: AngularFireStorage
@@ -99,12 +101,20 @@ export class AdminService {
   }
 
   updateEmployeeAdminImage(){
-    return this.firestore.collection('employees')
-       .doc(this.employeeUID)
-       .set({ inputImageUrl: this.employeeAdminImageUrl}, { merge: true });
+    //console.log(this.employeeAdminImageUrl);
+    if(this.employeeAdminImageUrl != null){
+      console.log('i am not null');
+      this.employeeAdminImageUpdated = true;
+      return this.firestore.collection('employees')
+      .doc(this.employeeUID)
+      .set({ inputImageUrl: this.employeeAdminImageUrl}, { merge: true });
+
+    }else{
+      console.log('employee image is not change');
+      this.employeeAdminImageUpdated = false;
+    }
+
   }
-
-
 
   /* IMAGE UPLOADING */
 
@@ -120,7 +130,6 @@ export class AdminService {
       }
     }
     this.setEventInfo(event);
-
   }
 
   setEventInfo(event: any) {
@@ -156,5 +165,21 @@ export class AdminService {
   }
 
     /* IMAGE UPLOADING */
+
+    clearEmployeeAdminResetValues(){
+      this.event = null;
+      this.newUploadImageUrl = null;
+      this.imageName = null;
+      this.ref = null;
+      this.task = null;
+      this.downloadURL = null;
+      this.employeeAdminImageUrl = null;
+    
+      this.employeeUID = null;
+    
+      this.employeeAdminImageUpdated = false;
+
+
+    }
 
 }

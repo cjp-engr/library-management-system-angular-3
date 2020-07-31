@@ -1,11 +1,10 @@
-import { Component, OnInit, ɵConsole } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   AdminFormService,
   EMPLOYEE_ADMIN
 } from 'src/app/shared/services/admin/admin-form.service';
 import { AdminService } from 'src/app/shared/services/admin/admin.service';
-import { getAttrsForDirectiveMatching } from '@angular/compiler/src/render3/view/util';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-list',
@@ -13,11 +12,12 @@ import { AngularFirestore } from '@angular/fire/firestore';
   styleUrls: ['./admin-list.component.css'],
 })
 export class AdminListComponent implements OnInit {
-  employeeAdmin
+  employeeAdmin: any;
 
   constructor(
     public adminFormService: AdminFormService,
-    public adminService: AdminService
+    public adminService: AdminService,
+    public router: Router
   ) {
     this.employeeAdmin = EMPLOYEE_ADMIN;
     //console.log('admin-list');
@@ -42,7 +42,12 @@ export class AdminListComponent implements OnInit {
     this.adminService.updateEmployeeAdminInformation();
     this.adminService.updateEmployeeAdminImage();
     this.adminFormService.afterClick_refreshEmployeeAdminInfo();
+
+    if(!this.adminService.employeeAdminImageUpdated){
+      this.adminFormService.getEmployeeAdmin();
+    }
+    
+    console.log('Done Update!');
+    this.adminService.clearEmployeeAdminResetValues();
   }
-
-
 }
