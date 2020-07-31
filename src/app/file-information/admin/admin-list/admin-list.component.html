@@ -22,16 +22,11 @@
   <div class="row d-flex justify-content-between">
     <div
       class="column"
-      
       *ngFor="let empAd of employeeAdmin"
       (click)="
-      populateEmployeeInformationForm(
-          empAd.employee_adminID_DB,
-          empAd
-        )
+        populateEmployeeInformationForm(empAd.employee_adminID_DB, empAd)
       "
     >
-
       <div
         class="card"
         style="width: 18rem; height: 22rem; cursor: pointer;"
@@ -39,7 +34,7 @@
         data-target="#editAdminInformationModal"
       >
         <img
-          src="{{empAd.employee_adminImage}}"
+          src="{{ empAd.employee_adminImage }}"
           class="card-img-top"
           alt="Jane"
           style="width: 100%;"
@@ -50,20 +45,22 @@
               {{ empAd.employee_adminFirstName }}
               {{ empAd.employee_adminLastName }}
             </h5>
-            <h6 class="card-subtitle mb-2"><strong>Position: </strong>{{empAd.employee_adminPosition}}</h6>
             <h6 class="card-subtitle mb-2">
-              <strong>Employee Code: </strong>{{empAd.employee_adminEmployeeNumber}}
+              <strong>Position: </strong>{{ empAd.employee_adminPosition }}
             </h6>
             <h6 class="card-subtitle mb-2">
-              <strong>Branch: </strong>{{empAd.employee_adminBranch}}
+              <strong>Employee Code: </strong
+              >{{ empAd.employee_adminEmployeeNumber }}
             </h6>
             <h6 class="card-subtitle mb-2">
-              <strong>Reports to: </strong>{{empAd.employee_adminReportsTo}}
+              <strong>Branch: </strong>{{ empAd.employee_adminBranch }}
+            </h6>
+            <h6 class="card-subtitle mb-2">
+              <strong>Reports to: </strong>{{ empAd.employee_adminReportsTo }}
             </h6>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
@@ -95,7 +92,7 @@
         <button
           type="button"
           class="btn btn-primary"
-          (click) = "updateEmployeeAdminInformation()"
+          (click)="updateEmployeeAdminInformation()"
         >
           Update
         </button>

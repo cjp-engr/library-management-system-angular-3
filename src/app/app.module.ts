@@ -50,7 +50,6 @@ import { NgbdSortableHeader } from './shared/services/books/book-list.service';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { AdminFormService } from './shared/services/admin/admin-form.service';
 import { AdminService } from './shared/services/admin/admin.service';
 
@@ -94,8 +93,7 @@ import { AdminService } from './shared/services/admin/admin.service';
     BrowserAnimationsModule, 
     ToastrModule.forRoot(), 
     NgbModule,
-    NgxPaginationModule,
-    SlickCarouselModule 
+    NgxPaginationModule
 
   ],
   providers: [AuthService,

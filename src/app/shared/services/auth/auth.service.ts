@@ -56,7 +56,7 @@ export class AuthService {
       //this.SetUserData(result.user);
       this.SignUpSetUserData(result.user, firstName, lastName, userName, isUserCompletedForm);
       console.log('Hello New User');
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/admin-information']);
     }
     catch (error) {
       window.alert(error.message);
