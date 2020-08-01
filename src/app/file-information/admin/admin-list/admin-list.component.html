@@ -22,14 +22,14 @@
   <div class="row d-flex justify-content-between">
     <div
       class="column"
-      *ngFor="let empAd of employeeAdmin"
+      *ngFor="let empAd of employeeAdmin;"
       (click)="
         populateEmployeeInformationForm(empAd.employee_adminID_DB, empAd)
       "
     >
       <div
         class="card"
-        style="width: 18rem; height: 20rem; cursor: pointer;"
+        style="width: 18rem; height: 19rem; cursor: pointer;"
         data-toggle="modal"
         data-target="#editAdminInformationModal"
       >
@@ -44,6 +44,7 @@
             <h5 class="card-title">
               {{ empAd.employee_adminFirstName }}
               {{ empAd.employee_adminLastName }}
+
             </h5>
             <h6 class="card-subtitle mb-2">
               <strong>Position: </strong>{{ empAd.employee_adminPosition }}

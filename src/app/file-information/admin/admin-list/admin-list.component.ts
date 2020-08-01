@@ -24,7 +24,9 @@ export class AdminListComponent implements OnInit {
     //console.log(this.employeeAdminAfterRegister);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
 
   populateEmployeeInformationForm(
     emp_adminID_DB: any,

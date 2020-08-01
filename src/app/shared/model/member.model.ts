@@ -1,6 +1,6 @@
 export class Member {
 
-    firstName: string;
+/*     firstName: string;
     lastName: string;
     age: string;
     gender: string;
@@ -10,7 +10,7 @@ export class Member {
     address: string;
     city: string;
     state: string;
-    zip: string;
+    zip: string; */
 
     // policyNumber: string;
     // creationDate: Date;

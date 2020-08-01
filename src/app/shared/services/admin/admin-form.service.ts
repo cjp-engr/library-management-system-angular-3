@@ -13,7 +13,7 @@ export class AdminFormService {
 
   constructor(private firestore: AngularFirestore) {}
 
-  /* FROM 'user' COLLECTION */
+  /* FROM 'employees' COLLECTION */
   getEmployeeAdmin() {
     return this.firestore
       .collection('employees')

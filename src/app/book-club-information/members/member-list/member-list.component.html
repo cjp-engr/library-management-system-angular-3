@@ -41,28 +41,28 @@
     <tr *ngFor="let memberInfo of memberInformation">
       <td>
         <span class="d-flex justify-content-center text-align-center content-text-size">
-          {{ memberInfo.payload.doc.data().inputFirstName }}
-          {{ memberInfo.payload.doc.data().inputLastName }}
+          {{ memberInfo.inputFirstName }}
+          {{ memberInfo.inputLastName }}
         </span>
       </td>
       <td>
         <span class="d-flex justify-content-center text-align-center content-text-size">
-          {{ memberInfo.payload.doc.data().inputMobileNumber }}
+          {{ memberInfo.inputMobileNumber }}
         </span>
       </td>
       <td>
         <span class="d-flex justify-content-center text-align-center content-text-size">
-          {{ memberInfo.payload.doc.data().inputState }}
+          {{ memberInfo.inputState }}
         </span>
       </td>
       <td>
         <span class="d-flex justify-content-center text-align-center content-text-size">
-          {{ memberInfo.payload.doc.data().inputAge }}
+          {{ memberInfo.inputAge }}
         </span>
       </td>
       <td>
         <span class="d-flex justify-content-center text-align-center content-text-size">
-          {{ memberInfo.payload.doc.data().inputStatus }}
+          {{ memberInfo.inputStatus }}
         </span>
       </td>
       <td>
@@ -74,8 +74,8 @@
             data-target="#editRegisteredMemberModal"
             (click)="
               populateMemberInformationForm(
-                memberInfo.payload.doc.data(),
-                memberInfo.payload.doc.id
+                memberInfo.memberInfoData,
+                memberInfo.memberID
               )
             "
           >
@@ -87,7 +87,7 @@
             style="margin: 5px; cursor: pointer;"
             data-toggle="modal"
             data-target="#deleteRegisteredMember"
-            (click)="deleteMemberInfoButton(memberInfo.payload.doc.id)"
+            (click)="deleteMemberInfoButton(memberInfo.memberID)"
           >
             Delete
           </button>
