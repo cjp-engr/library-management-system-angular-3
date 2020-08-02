@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MemberService } from 'src/app/shared/services/member/member.service';
 import { ToastrService } from 'ngx-toastr';
-import { MemberListService, MEMBERINFORMATION } from 'src/app/shared/services/member/member-list.service';
+import { MemberListService, MEMBERINFORMATION, NgbdSortableHeaderMemberList, SortEvent, compare } from 'src/app/shared/services/member/member-list.service';
+import { Directive, EventEmitter, Input, Output, QueryList, ViewChildren } from '@angular/core';
+
 //import { MEMBERINFORMATION, MemberFormsService } from 'src/app/shared/services/member/member-forms.service';
 
 @Component({
@@ -15,6 +17,9 @@ export class MemberListComponent implements OnInit {
   memberInfo: any;
   closeModalAfterSubmit: any = '';
 
+  //for sorting
+  memberSorting = MEMBERINFORMATION;
+
   constructor(
     private memberService: MemberService,
     private toastr: ToastrService,
@@ -22,12 +27,35 @@ export class MemberListComponent implements OnInit {
     private memberListService: MemberListService
   ) {
     //this.memberInformation = MEMBERINFORMATION
-    this.memberInformation = MEMBERINFORMATION;
+    
   }
 
   ngOnInit() {
     this.getMemberInformation();
   }
+
+  @ViewChildren(NgbdSortableHeaderMemberList) headers: QueryList<NgbdSortableHeaderMemberList>;
+
+  onSort({column, direction}: SortEvent) {
+
+    // resetting other headers
+    this.headers.forEach(header => {
+      if (header.sortableMemberList !== column) {
+        header.direction = '';
+      }
+    });
+
+    // sorting countries
+    if (direction === '' || column === '') {
+      this.memberSorting = MEMBERINFORMATION;
+    } else {
+      this.memberSorting = [...MEMBERINFORMATION].sort((a, b) => {
+        const res = compare(a[column], b[column]);
+        return direction === 'asc' ? res : -res;
+      });
+    }
+  }
+
 
   getMemberInformation = () => {
     //return this.memberFormsService.getMemberInformation();

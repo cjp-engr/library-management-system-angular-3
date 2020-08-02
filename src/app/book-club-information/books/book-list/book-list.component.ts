@@ -105,7 +105,7 @@ export class BookListComponent implements OnInit {
   onSort({ column, direction }: SortEvent) {
     // resetting other headers
     this.headers.forEach((header) => {
-      if (header.sortable !== column) {
+      if (header.sortableBookList !== column) {
         header.direction = '';
       }
     });

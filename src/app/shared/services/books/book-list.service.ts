@@ -23,7 +23,7 @@ export interface SortEvent {
 }
 
 @Directive({
-  selector: 'th[sortable]',
+  selector: 'th[sortableBookList]',
   host: {
     '[class.asc]': 'direction === "asc"',
     '[class.desc]': 'direction === "desc"',
@@ -31,13 +31,13 @@ export interface SortEvent {
   },
 })
 export class NgbdSortableHeaderBookList {
-  @Input() sortable: SortColumn = '';
+  @Input() sortableBookList: SortColumn = '';
   @Input() direction: SortDirection = '';
   @Output() sort = new EventEmitter<SortEvent>();
 
   rotate() {
     this.direction = rotate[this.direction];
-    this.sort.emit({ column: this.sortable, direction: this.direction });
+    this.sort.emit({ column: this.sortableBookList, direction: this.direction });
   }
 }
 

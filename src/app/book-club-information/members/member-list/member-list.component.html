@@ -9,27 +9,27 @@
 
   <thead class="thead-dark">
     <tr>
-      <th scope="col">
+      <th scope="col" sortableMemberList="inputLastName" (sort)="onSort($event)">
         <span class="d-flex justify-content-center">
           Name
         </span>
       </th>
-      <th scope="col">
+      <th scope="col" sortableMemberList="inputMobileNumber" (sort)="onSort($event)">
         <span class="d-flex justify-content-center">
           Mobile Number
         </span>
       </th>
-      <th scope="col">
+      <th scope="col" sortableMemberList="inputState" (sort)="onSort($event)">
         <span class="d-flex justify-content-center">
           Address
         </span>
       </th>
-      <th scope="col">
+      <th scope="col" sortableMemberList="inputAge" (sort)="onSort($event)">
         <span class="d-flex justify-content-center">
           Age
         </span>
       </th>
-      <th scope="col">
+      <th scope="col" sortableMemberList="inputStatus" (sort)="onSort($event)">
         <span class="d-flex justify-content-center">
           Status
         </span>
@@ -38,11 +38,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let memberInfo of memberInformation">
+    <tr *ngFor="let memberInfo of memberSorting">
       <td>
         <span class="d-flex justify-content-center text-align-center content-text-size">
-          {{ memberInfo.inputFirstName }}
           {{ memberInfo.inputLastName }}
+          
         </span>
       </td>
       <td>

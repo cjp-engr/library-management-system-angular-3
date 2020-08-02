@@ -53,7 +53,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 //import { AdminFormService } from './shared/services/admin/admin-form.service';
 import { AdminService } from './shared/services/admin/admin.service';
 import { AdminListService } from './shared/services/admin/admin-list.service';
-import { MemberListService } from './shared/services/member/member-list.service';
+import { MemberListService, NgbdSortableHeaderMemberList } from './shared/services/member/member-list.service';
 
 @NgModule({
   declarations: [
@@ -78,7 +78,8 @@ import { MemberListService } from './shared/services/member/member-list.service'
     SearchMemberComponent,
     AdminListComponent,
     AdminFormComponent,
-    NgbdSortableHeaderBookList
+    NgbdSortableHeaderBookList,
+    NgbdSortableHeaderMemberList
   ],
   imports: [
     BrowserModule,
