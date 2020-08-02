@@ -46,12 +46,14 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { NgbdSortableHeaderBookList } from './shared/services/books/book-list.service';
+import { NgbdSortableHeaderBookList, BookListService } from './shared/services/books/book-list.service';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 
-import { AdminFormService } from './shared/services/admin/admin-form.service';
+//import { AdminFormService } from './shared/services/admin/admin-form.service';
 import { AdminService } from './shared/services/admin/admin.service';
+import { AdminListService } from './shared/services/admin/admin-list.service';
+import { MemberListService } from './shared/services/member/member-list.service';
 
 @NgModule({
   declarations: [
@@ -98,8 +100,11 @@ import { AdminService } from './shared/services/admin/admin.service';
   ],
   providers: [AuthService,
               MemberService,
+              MemberListService,
               BooksService,
-              AdminFormService,
+              BookListService,
+              //AdminFormService,
+              AdminListService,
               AdminService
             ],
               

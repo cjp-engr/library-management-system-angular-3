@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+/* import { Injectable } from '@angular/core';
 
 import { AngularFirestore } from '@angular/fire/firestore';
 import { IEmployee_Admin } from '../../interface/admin';
@@ -13,7 +13,7 @@ export class AdminFormService {
 
   constructor(private firestore: AngularFirestore) {}
 
-  /* FROM 'employees' COLLECTION */
+  
   getEmployeeAdmin() {
     return this.firestore
       .collection('employees')
@@ -61,3 +61,4 @@ export class AdminFormService {
   }
 
 }
+ */

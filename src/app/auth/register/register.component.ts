@@ -9,7 +9,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { ConfirmedValidator } from 'src/app/shared/validator/confirmed.validator';
-import { AdminFormService } from 'src/app/shared/services/admin/admin-form.service';
+import { AdminListService } from 'src/app/shared/services/admin/admin-list.service';
+//import { AdminFormService } from 'src/app/shared/services/admin/admin-form.service';
 
 @Component({
   selector: 'app-register',
@@ -21,7 +22,8 @@ export class RegisterComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private fb: FormBuilder,
-    private adminFormService: AdminFormService
+    private adminListService: AdminListService
+    //private adminFormService: AdminFormService
   ) {
     this.form = fb.group(
       {
@@ -53,7 +55,8 @@ export class RegisterComponent implements OnInit {
       isUserCompletedForm
     );
 
-    this.adminFormService.afterClick_refreshEmployeeAdminInfo();
+    //this.adminFormService.afterClick_refreshEmployeeAdminInfo();
+    this.adminListService.afterClick_refreshEmployeeAdminInfo();
   }
 
   form: FormGroup = new FormGroup({});

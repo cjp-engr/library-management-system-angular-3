@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/services/auth/auth.service';
 import { BookListService } from '../shared/services/books/book-list.service';
-import { AdminFormService } from '../shared/services/admin/admin-form.service';
+//import { AdminFormService } from '../shared/services/admin/admin-form.service';
 import { MemberListService } from '../shared/services/member/member-list.service';
+import { AdminListService } from '../shared/services/admin/admin-list.service';
 //import { MemberFormsService } from '../shared/services/member/member-forms.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class SideNavComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private bookListService: BookListService,
-              private adminFormService: AdminFormService,
+              //private adminFormService: AdminFormService,
+              private adminListService: AdminListService,
               private memberListService: MemberListService
               //private memberFormsService: MemberFormsService
               ) { }
@@ -45,7 +47,8 @@ export class SideNavComponent implements OnInit {
   adminTabIsClicked(isActive: boolean){
     
     if(!isActive){
-      this.adminFormService.afterClick_refreshEmployeeAdminInfo();
+      //this.adminFormService.afterClick_refreshEmployeeAdminInfo();
+      this.adminListService.afterClick_refreshEmployeeAdminInfo();
     }
   }
 
