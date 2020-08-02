@@ -49,7 +49,7 @@ export class BookListComponent implements OnInit {
     private toastr: ToastrService
   ) {
     this.config = {
-      itemsPerPage: 5,
+      itemsPerPage: 3,
       currentPage: 1,
       totalItems: this.collection.count,
     };
@@ -62,6 +62,7 @@ export class BookListComponent implements OnInit {
   }
 
   getBooksInformation = () => {
+    this.bookListService.afterClick_refreshBookList();
     this.bookListService.getBookListInformation();
   };
 
@@ -84,6 +85,7 @@ export class BookListComponent implements OnInit {
       this.toastr.warning('Please complete the form.', 'Warning!');
     }
     this.bookListService.afterClick_refreshBookList();
+    this.bookListService.getBookListInformation();
   }
 
   closeButtonClicked() {
