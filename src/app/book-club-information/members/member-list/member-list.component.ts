@@ -17,7 +17,7 @@ export class MemberListComponent implements OnInit {
   memberInfo: any;
   closeModalAfterSubmit: any = '';
 
-  //for sorting
+  //for sorting table
   memberSorting = MEMBERINFORMATION;
 
   constructor(
@@ -34,6 +34,34 @@ export class MemberListComponent implements OnInit {
     this.getMemberInformation();
   }
 
+  //start Pagination
+  collection = { count: MEMBERINFORMATION.length };
+  config = {
+    id: 'custom',
+    itemsPerPage: 5,
+    currentPage: 1,
+    totalItems: this.collection.count
+  };
+
+  public maxSize: number = 7;
+  public directionLinks: boolean = true;
+  public autoHide: boolean = false;
+  public responsive: boolean = true;
+  public labels: any = {
+      previousLabel: '<--',
+      nextLabel: '-->',
+      screenReaderPaginationLabel: 'Pagination',
+      screenReaderPageLabel: 'page',
+      screenReaderCurrentLabel: `You're on page`
+  };
+
+  onPageChange(event: any){
+    console.log(event);
+    this.config.currentPage = event;
+  }
+  //end Pagination
+
+  //start for sorting table
   @ViewChildren(NgbdSortableHeaderMemberList) headers: QueryList<NgbdSortableHeaderMemberList>;
 
   onSort({column, direction}: SortEvent) {
@@ -55,7 +83,7 @@ export class MemberListComponent implements OnInit {
       });
     }
   }
-
+  //end for sorting table
 
   getMemberInformation = () => {
     //return this.memberFormsService.getMemberInformation();
