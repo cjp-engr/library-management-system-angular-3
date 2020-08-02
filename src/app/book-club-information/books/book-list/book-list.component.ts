@@ -4,7 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { QueryList, ViewChildren } from '@angular/core';
 import {
   BookListService,
-  NgbdSortableHeader,
+  NgbdSortableHeaderBookList,
   BOOKS,
   SortEvent,
   compare,
@@ -23,7 +23,7 @@ export class BookListComponent implements OnInit {
 
   /* book-list-sorting */
   bookSorting = BOOKS;
-  @ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader>;
+  @ViewChildren(NgbdSortableHeaderBookList) headers: QueryList<NgbdSortableHeaderBookList>;
   /* book-list-sorting */
 
   /* pagination */

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MemberService } from 'src/app/shared/services/member/member.service';
 import { ToastrService } from 'ngx-toastr';
-import { MEMBERINFORMATION, MemberFormsService } from 'src/app/shared/services/member/member-forms.service';
+import { MemberListService, MEMBERINFORMATION } from 'src/app/shared/services/member/member-list.service';
+//import { MEMBERINFORMATION, MemberFormsService } from 'src/app/shared/services/member/member-forms.service';
 
 @Component({
   selector: 'app-member-list',
@@ -17,9 +18,11 @@ export class MemberListComponent implements OnInit {
   constructor(
     private memberService: MemberService,
     private toastr: ToastrService,
-    private memberFormsService: MemberFormsService
+    //private memberFormsService: MemberFormsService
+    private memberListService: MemberListService
   ) {
-    this.memberInformation = MEMBERINFORMATION
+    //this.memberInformation = MEMBERINFORMATION
+    this.memberInformation = MEMBERINFORMATION;
   }
 
   ngOnInit() {
@@ -27,7 +30,8 @@ export class MemberListComponent implements OnInit {
   }
 
   getMemberInformation = () => {
-    return this.memberFormsService.getMemberInformation();
+    //return this.memberFormsService.getMemberInformation();
+    return this.memberListService.getMemberInformation();
   };
 
   populateMemberInformationForm(memberInfo: any, memberID: any) {

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MemberService } from 'src/app/shared/services/member/member.service';
 import { ToastrService } from 'ngx-toastr';
-import { MemberFormsService } from 'src/app/shared/services/member/member-forms.service';
+import { MemberListService } from 'src/app/shared/services/member/member-list.service';
+//import { MemberFormsService } from 'src/app/shared/services/member/member-forms.service';
 
 @Component({
   selector: 'app-members',
@@ -14,7 +15,8 @@ export class MembersComponent implements OnInit {
   constructor(
     private memberService: MemberService,
     private toastr: ToastrService,
-    private memberFormsService: MemberFormsService
+    //private memberFormsService: MemberFormsService
+    private memberListService: MemberListService
   ) {}
 
   ngOnInit(): void {
@@ -30,7 +32,8 @@ export class MembersComponent implements OnInit {
         'Added!'
       );
       this.closeModalAfterSubmit = "modal";
-      this.memberFormsService.afterClick_refreshMemberList();
+      //this.memberFormsService.afterClick_refreshMemberList();
+      this.memberListService.afterClick_refreshMemberList();
       //this.memberFormsService.getMemberInformation();
 
     } else {

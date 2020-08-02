@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { BooksService } from './books.service';
 
 import { Directive, EventEmitter, Input, Output } from '@angular/core';
 import { IBook } from '../../interface/book';
@@ -31,7 +30,7 @@ export interface SortEvent {
     '(click)': 'rotate()',
   },
 })
-export class NgbdSortableHeader {
+export class NgbdSortableHeaderBookList {
   @Input() sortable: SortColumn = '';
   @Input() direction: SortDirection = '';
   @Output() sort = new EventEmitter<SortEvent>();

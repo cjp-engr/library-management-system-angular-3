@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+/* import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { IMember } from '../../interface/member';
 
@@ -44,3 +44,4 @@ export class MemberFormsService {
     }
   }
 }
+ */

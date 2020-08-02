@@ -46,7 +46,7 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { NgbdSortableHeader } from './shared/services/books/book-list.service';
+import { NgbdSortableHeaderBookList } from './shared/services/books/book-list.service';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 
@@ -76,7 +76,7 @@ import { AdminService } from './shared/services/admin/admin.service';
     SearchMemberComponent,
     AdminListComponent,
     AdminFormComponent,
-    NgbdSortableHeader
+    NgbdSortableHeaderBookList
   ],
   imports: [
     BrowserModule,
