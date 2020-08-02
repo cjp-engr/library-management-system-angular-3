@@ -10,7 +10,7 @@ import { AdminListService, EMPLOYEE_ADMIN } from 'src/app/shared/services/admin/
   styleUrls: ['./admin-list.component.css'],
 })
 export class AdminListComponent implements OnInit {
-  employeeAdmin: any;
+  employeeAdmin = EMPLOYEE_ADMIN;
 
   constructor(
     //public adminFormService: AdminFormService,
@@ -19,13 +19,43 @@ export class AdminListComponent implements OnInit {
     public router: Router
   ) {
     //this.employeeAdmin = EMPLOYEE_ADMIN;
-    this.employeeAdmin = EMPLOYEE_ADMIN;
+
     //console.log('admin-list');
     //console.log(this.employeeAdminAfterRegister);
   }
 
   ngOnInit(): void {
+    this.getEmployeeAdmin();
+  }
 
+  collection = { count: EMPLOYEE_ADMIN.length };
+  config = {
+    id: 'custom',
+    itemsPerPage: 6,
+    currentPage: 1,
+    totalItems: this.collection.count
+  };
+
+  public maxSize: number = 7;
+  public directionLinks: boolean = true;
+  public autoHide: boolean = false;
+  public responsive: boolean = true;
+  public labels: any = {
+      previousLabel: '<--',
+      nextLabel: '-->',
+      screenReaderPaginationLabel: 'Pagination',
+      screenReaderPageLabel: 'page',
+      screenReaderCurrentLabel: `You're on page`
+  };
+
+  onPageChange(event: any){
+    console.log(event);
+    this.config.currentPage = event;
+  }
+
+  getEmployeeAdmin(){
+    this.adminListService.afterClick_refreshEmployeeAdminInfo();
+    this.adminListService.getEmployeeAdmin();
   }
 
   populateEmployeeInformationForm(

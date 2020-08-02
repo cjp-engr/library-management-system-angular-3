@@ -41,7 +41,8 @@
     <tr *ngFor="let memberInfo of memberSorting  | paginate: config">
       <td>
         <span class="d-flex justify-content-center text-align-center content-text-size">
-          {{ memberInfo.inputLastName }}
+          {{ memberInfo.inputLastName }},
+          {{ memberInfo.inputFirstName }}
           
         </span>
       </td>
