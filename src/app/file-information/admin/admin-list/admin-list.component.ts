@@ -10,6 +10,8 @@ import { AdminListService, EMPLOYEE_ADMIN } from 'src/app/shared/services/admin/
   styleUrls: ['./admin-list.component.css'],
 })
 export class AdminListComponent implements OnInit {
+  employeeSearch: any;
+
   employeeAdmin = EMPLOYEE_ADMIN;
 
   constructor(

@@ -12,6 +12,9 @@ import { Directive, EventEmitter, Input, Output, QueryList, ViewChildren } from 
   styleUrls: ['./member-list.component.css'],
 })
 export class MemberListComponent implements OnInit {
+
+  registeredMemberSearch: any;
+  
   memberInformation: any;
   memberID: any;
   memberInfo: any;
