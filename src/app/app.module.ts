@@ -56,6 +56,9 @@ import { AdminListService } from './shared/services/admin/admin-list.service';
 import { MemberListService, NgbdSortableHeaderMemberList } from './shared/services/member/member-list.service';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Members2Component } from './book-club-information/members2/members2.component';
+import { Members2ListComponent } from './book-club-information/members2/members2-list/members2-list.component';
+import { Members2FormComponent } from './book-club-information/members2/members2-form/members2-form.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +84,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     AdminListComponent,
     AdminFormComponent,
     NgbdSortableHeaderBookList,
-    NgbdSortableHeaderMemberList
+    NgbdSortableHeaderMemberList,
+    Members2Component,
+    Members2ListComponent,
+    Members2FormComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,50 @@
+<div style="padding: 50px;">
+    <div class="d-flex justify-content-between" style="padding-bottom: 10px;">
+      <button
+        type="button"
+        class="btn btn-primary btn-lg"
+        data-toggle="modal"
+        data-target="#addNewMemberModal"
+      >
+        Add New Member
+      </button>
+    </div>
+  
+    <app-members2-list></app-members2-list>
+  </div>
+
+  <div
+  class="modal fade"
+  id="addNewMemberModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="addNewMemberModalTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          Member Information Form
+        </h5>
+      </div>
+      <div class="modal-body">
+        <app-members2-form></app-members2-form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="submit"
+          id="onAddMember"
+          class="btn btn-primary"
+        >
+          Add
+        </button>
+        
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

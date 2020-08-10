@@ -12,6 +12,7 @@ import { ReportsComponent } from './transaction-information/reports/reports.comp
 import { BooksComponent } from './book-club-information/books/books.component';
 import { MemberInformationComponent } from './book-club-information/member-information/member-information.component';
 import { MembersComponent } from './book-club-information/members/members.component';
+import { Members2Component } from './book-club-information/members2/members2.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'admin-information', component: AdminComponent},
   {path: 'member-information', component: MemberInformationComponent},
   {path: 'members', component: MembersComponent},
+  {path: 'members2', component: Members2Component},
   {path: 'books', component: BooksComponent},
   {path: 'borrow', component: BorrowComponent},
   {path: 'borrowed-books', component: BorrowedBooksComponent},
