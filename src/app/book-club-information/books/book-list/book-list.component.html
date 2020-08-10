@@ -1,3 +1,16 @@
+<div class="float-right">
+  <input
+    class="form-control mr-sm-2"
+    type="search"
+    placeholder="Search"
+    aria-label="Search"
+    [(ngModel)]="bookSearch"
+    autocomplete="off"
+  />
+</div>
+<br>
+<br>
+
 <table class="table" style="width: 100%;">
   <colgroup>
     <col span="1" style="width: 14%;" />
@@ -53,7 +66,7 @@
       class="pointer"
       data-toggle="modal"
       data-target="#editBookInformationModal"
-      *ngFor="let book of bookSorting | paginate: config"
+      *ngFor="let book of bookSorting | paginate: config |filter:bookSearch"
       (click)="updateListIsClicked()"
       (click)="populateBookInformationForm(book.bookInfoData, book.bookInfoID)"
     >

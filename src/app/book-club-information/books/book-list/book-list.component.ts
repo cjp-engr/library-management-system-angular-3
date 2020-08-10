@@ -16,6 +16,9 @@ import {
   styleUrls: ['./book-list.component.css'],
 })
 export class BookListComponent implements OnInit {
+
+  bookSearch: any;
+  
   bookInformations: any;
   updateBookButton: any;
   bookInfo: any;

@@ -55,6 +55,8 @@ import { AdminService } from './shared/services/admin/admin.service';
 import { AdminListService } from './shared/services/admin/admin-list.service';
 import { MemberListService, NgbdSortableHeaderMemberList } from './shared/services/member/member-list.service';
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -96,7 +98,8 @@ import { MemberListService, NgbdSortableHeaderMemberList } from './shared/servic
     BrowserAnimationsModule, 
     ToastrModule.forRoot(), 
     NgbModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    Ng2SearchPipeModule
 
   ],
   providers: [AuthService,
