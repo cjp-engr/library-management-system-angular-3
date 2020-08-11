@@ -60,6 +60,7 @@ import { Members2Component } from './book-club-information/members2/members2.com
 import { Members2ListComponent } from './book-club-information/members2/members2-list/members2-list.component';
 import { Members2FormComponent } from './book-club-information/members2/members2-form/members2-form.component';
 import { Members2Service } from './shared/services/members2/members2.service';
+import { Members2ListService } from './shared/services/members2/members2-list.service';
 
 @NgModule({
   declarations: [
@@ -117,7 +118,8 @@ import { Members2Service } from './shared/services/members2/members2.service';
               //AdminFormService,
               AdminListService,
               AdminService,
-              Members2Service
+              Members2Service,
+              Members2ListService
             ],
               
   bootstrap: [AppComponent],

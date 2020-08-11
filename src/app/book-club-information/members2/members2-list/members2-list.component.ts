@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Members2Service } from 'src/app/shared/services/members2/members2.service';
+import { Members2ListService, MEMBERS2 } from 'src/app/shared/services/members2/members2-list.service';
 
 @Component({
   selector: 'app-members2-list',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Members2ListComponent implements OnInit {
 
-  constructor() { }
+  members2Sorting = MEMBERS2;
+
+  constructor(public members2Service: Members2Service,
+              public members2ListService: Members2ListService) { }
 
   ngOnInit(): void {
+    this.getMembers2ListInformation();
+  }
+
+  getMembers2ListInformation(){
+    this.members2ListService.getMembers2ListInformation();
   }
 
 }

@@ -46,7 +46,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr *ngFor = "let members2 of members2Sorting">
 
         <td>
             <span class="d-flex justify-content-center text-align-center content-text-size">
@@ -55,34 +55,38 @@
                 src="https://i.pinimg.com/originals/6c/9d/50/6c9d506df70599b86d0bb6821dbae3c1.jpg"
                 width="150"
                 height="150"
+                style = "cursor: pointer;"
+                data-toggle="modal" data-target="#uploadImageModal"
               />
               
             </span>
           </td>
         <td>
           <span class="d-flex justify-content-center text-align-center content-text-size">
-            José Protacio Rizal Mercado y Alonso Realonda
+            {{members2.members2FirstName}}
+            {{members2.members2MiddleInitial}}.
+            {{members2.members2LastName}}
             
           </span>
         </td>
         <td>
           <span class="d-flex justify-content-center text-align-center content-text-size">
-            09162756852
+            {{members2.members2MobileNumber}}
           </span>
         </td>
         <td>
           <span class="d-flex justify-content-center text-align-center content-text-size">
-            Blk 42 Lt 6 Dreamland Subdivision, Hagonoy, Taguig City
+            {{members2.members2CurrentAddress}}
           </span>
         </td>
         <td>
           <span class="d-flex justify-content-center text-align-center content-text-size">
-            25
+            {{members2.members2Age}}
           </span>
         </td>
         <td>
           <span class="d-flex justify-content-center text-align-center content-text-size">
-            Employed
+            {{members2.members2Status}}
           </span>
         </td>
         <td>
@@ -96,7 +100,7 @@
                   style="margin: 5px; cursor: pointer;"
                   title = "View"
                   data-toggle="modal"
-                  data-target="#viewIconModal"
+                  data-target="#updateViewIconModal"
                 >
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
@@ -113,7 +117,7 @@
                 style="margin: 5px; cursor: pointer;"
                 title = "Update"
                 data-toggle="modal"
-                data-target="#updateIconModal"
+                data-target="#updateViewIconModal"
               >
               <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
@@ -164,7 +168,7 @@
     </tbody>
   </table>
 
-  <!-- Modal -->
+  <!-- Modal DEACTIVATE-->
 <div class="modal fade" id="deactivateIconModal" tabindex="-1" role="dialog" aria-labelledby="deactivateIconModalTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -186,40 +190,13 @@
 </div>
 
 
+  <!-- Modal VIEW UPDATE-->
 <div
 class="modal fade"
-id="viewIconModal"
+id="updateViewIconModal"
 tabindex="-1"
 role="dialog"
-aria-labelledby="viewIconModalTitle"
-aria-hidden="true"
->
-<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLongTitle">
-        Member Information Form
-      </h5>
-    </div>
-    <div class="modal-body">
-      <app-members2-form></app-members2-form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">
-        Close
-      </button>
-    </div>
-  </div>
-</div>
-</div>
-
-
-<div
-class="modal fade"
-id="updateIconModal"
-tabindex="-1"
-role="dialog"
-aria-labelledby="updateIconModalTitle"
+aria-labelledby="updateViewIconModalTitle"
 aria-hidden="true"
 >
 <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -247,5 +224,43 @@ aria-hidden="true"
     </div>
   </div>
 </div>
+</div>
+
+<!-- Modal UPLOAD IMAGE-->
+<div class="modal fade" id="uploadImageModal" tabindex="-1" role="dialog" aria-labelledby="uploadImageModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <img
+        class="upload-img-center rounded upload-card-img-top"
+        [src] = "this.members2Service.newUploadImageUrl"
+        alt = "Hello"
+      />
+      <br />
+
+      <label class="btn btn-primary btn-block">
+        Upload Image
+        <input
+          type="file"
+          (change)="this.members2Service.uploadImage($event)"
+          accept=".png,.jpg"
+          hidden
+        />
+      </label>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
 
