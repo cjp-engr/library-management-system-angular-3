@@ -59,6 +59,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Members2Component } from './book-club-information/members2/members2.component';
 import { Members2ListComponent } from './book-club-information/members2/members2-list/members2-list.component';
 import { Members2FormComponent } from './book-club-information/members2/members2-form/members2-form.component';
+import { Members2Service } from './shared/services/members2/members2.service';
 
 @NgModule({
   declarations: [
@@ -115,7 +116,8 @@ import { Members2FormComponent } from './book-club-information/members2/members2
               BookListService,
               //AdminFormService,
               AdminListService,
-              AdminService
+              AdminService,
+              Members2Service
             ],
               
   bootstrap: [AppComponent],
