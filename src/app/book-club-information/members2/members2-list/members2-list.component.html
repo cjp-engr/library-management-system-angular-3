@@ -57,6 +57,7 @@
                 height="150"
                 style = "cursor: pointer;"
                 data-toggle="modal" data-target="#uploadImageModal"
+                (click) = "members2ImageName(members2.members2FirstName, members2.members2MiddleInitial, members2.members2LastName)"
               />
               
             </span>
@@ -265,7 +266,9 @@ aria-hidden="true"
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary"
+        (click) = "this.members2Service.saveAddedBook()"
+        >Save changes</button>
       </div>
     </div>
   </div>

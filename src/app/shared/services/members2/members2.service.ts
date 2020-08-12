@@ -50,6 +50,7 @@ async addMembers2() {
     console.log(er.message);
   }
   console.log('Done Adding Member');
+  this.clearForm();
 }
 
 populateMembers2InformationForm(memberInfo: any){

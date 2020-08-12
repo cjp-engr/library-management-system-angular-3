@@ -36,4 +36,9 @@ export class Members2ListComponent implements OnInit {
     this.members2Service.deactivateActionMembers2();
   }
 
+  members2ImageName(members2FirstName: string, members2MiddleInitial: string, members2LastName: string){
+    this.members2Service.setImageName((members2FirstName+" "+members2MiddleInitial+" "+members2LastName).replace(/\s+/g, '-').toLowerCase());
+
+  }
+
 }
