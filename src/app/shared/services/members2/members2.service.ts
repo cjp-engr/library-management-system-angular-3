@@ -15,6 +15,8 @@ export class Members2Service {
   task: AngularFireUploadTask;
   downloadURL: any;
   members2ImageUrl: any = '';
+  members2ID: any;
+  isMembers2WantToDeactivate: boolean;
 
   constructor(    
     private firestore: AngularFirestore,
@@ -50,7 +52,40 @@ async addMembers2() {
   console.log('Done Adding Member');
 }
 
+populateMembers2InformationForm(memberInfo: any){
+  //console.log(memberInfo);
+  this.form.setValue(memberInfo);
 
+}
+
+deactivateMembers2(members2InfoID: any){
+/* 
+  return this.firestore
+       .collection("members2")
+       .doc(data.payload.doc.id)
+       .set({ completed: true }, { merge: true });
+        */
+  this.members2ID = members2InfoID;
+  
+}
+
+
+members2DeactivateAction(membersAction: boolean){
+  this.isMembers2WantToDeactivate = membersAction;
+}
+
+deactivateActionMembers2(){
+  console.log(this.isMembers2WantToDeactivate);
+  console.log(this.members2ID);
+
+  if(this.isMembers2WantToDeactivate){
+    return this.firestore
+    .collection("members2")
+    .doc(this.members2ID)
+    .set({ inputMembershipStatus: "Deactivated" }, { merge: true });
+  }
+
+}
 
 clearForm() {
   if (this.form.valid) {

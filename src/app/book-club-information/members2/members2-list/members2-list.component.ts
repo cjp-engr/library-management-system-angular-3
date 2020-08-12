@@ -22,4 +22,18 @@ export class Members2ListComponent implements OnInit {
     this.members2ListService.getMembers2ListInformation();
   }
 
+  populateMembers2InformationForm(members2InfoData: any){
+    this.members2Service.populateMembers2InformationForm(members2InfoData);
+  }
+
+  deactivateMembers2(members2InfoID: any){
+    this.members2Service.deactivateMembers2(members2InfoID);
+
+  }
+
+  members2DeactivateAction(membersAction: boolean){
+    this.members2Service.members2DeactivateAction(membersAction);
+    this.members2Service.deactivateActionMembers2();
+  }
+
 }
