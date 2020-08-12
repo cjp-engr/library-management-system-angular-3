@@ -8,9 +8,8 @@ import { Members2Service } from 'src/app/shared/services/members2/members2.servi
   styleUrls: ['./members2-form.component.css']
 })
 export class Members2FormComponent implements OnInit {
-  inputDateOfBirthModel: NgbDateStruct;
-  inputDateAppliedModel: NgbDateStruct;
-  pansamantala: any;
+  inputDateOfBirth: NgbDateStruct;
+  inputDateApplied: NgbDateStruct;
 
   constructor(public members2Service: Members2Service) { }
 
