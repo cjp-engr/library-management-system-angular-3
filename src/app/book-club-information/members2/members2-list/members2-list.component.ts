@@ -34,6 +34,7 @@ export class Members2ListComponent implements OnInit {
   members2DeactivateAction(membersAction: boolean){
     this.members2Service.members2DeactivateAction(membersAction);
     this.members2Service.deactivateActionMembers2();
+    this.members2ListService.afterClick_refreshMember2List();
   }
 
   members2ImageName(members2FirstName: string, members2MiddleInitial: string, members2LastName: string){
