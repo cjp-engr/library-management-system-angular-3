@@ -48,6 +48,21 @@ export class Members2ListService {
   afterClick_refreshMember2List(){
     while(MEMBERS2.length != 0){
       MEMBERS2.pop();
+      
     }
+  }
+
+  checkIfNoImageUploaded() {
+    return this.firestore
+      .collection('members2')
+      .snapshotChanges()
+      .subscribe((res) => {
+        res.map((a) => {
+          return a.payload.doc.get('inputMemberImage')
+        });
+        //console.log(BOOKS.length);
+        
+      });
+      
   }
 }
