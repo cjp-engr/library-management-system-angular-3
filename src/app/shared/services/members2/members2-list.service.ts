@@ -44,4 +44,10 @@ export class Members2ListService {
       });
       
   }
+
+  afterClick_refreshMember2List(){
+    while(MEMBERS2.length != 0){
+      MEMBERS2.pop();
+    }
+  }
 }

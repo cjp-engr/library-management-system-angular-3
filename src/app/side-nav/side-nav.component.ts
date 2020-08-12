@@ -4,6 +4,7 @@ import { BookListService } from '../shared/services/books/book-list.service';
 //import { AdminFormService } from '../shared/services/admin/admin-form.service';
 import { MemberListService } from '../shared/services/member/member-list.service';
 import { AdminListService } from '../shared/services/admin/admin-list.service';
+import { Members2ListService } from '../shared/services/members2/members2-list.service';
 //import { MemberFormsService } from '../shared/services/member/member-forms.service';
 
 @Component({
@@ -19,7 +20,8 @@ export class SideNavComponent implements OnInit {
               private bookListService: BookListService,
               //private adminFormService: AdminFormService,
               private adminListService: AdminListService,
-              private memberListService: MemberListService
+              private memberListService: MemberListService,
+              private members2ListService: Members2ListService
               //private memberFormsService: MemberFormsService
               ) { }
 
@@ -56,6 +58,13 @@ export class SideNavComponent implements OnInit {
     if(!isActive){
       //this.memberFormsService.afterClick_refreshMemberList();
       this.memberListService.afterClick_refreshMemberList();
+    }
+  }
+
+  registeredMembers2TabIsClicked(isActive: boolean){
+    if(!isActive){
+      //this.memberFormsService.afterClick_refreshMemberList();
+      this.members2ListService.afterClick_refreshMember2List();
     }
   }
 

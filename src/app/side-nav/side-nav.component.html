@@ -97,6 +97,8 @@
               class="nav-link"
               routerLink="/members2"
               routerLinkActive="active"
+              #registeredMembers2Tab="routerLinkActive"
+              (click)="registeredMembers2TabIsClicked(registeredMembers2Tab.isActive)"
             >
               <div class="sb-nav-link-icon">
                 <i class="fas fa-tachometer-alt"></i>
