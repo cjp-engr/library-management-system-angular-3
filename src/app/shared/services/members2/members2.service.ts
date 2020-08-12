@@ -15,7 +15,8 @@ export class Members2Service {
   task: AngularFireUploadTask;
   downloadURL: any;
   members2ImageUrl: any = '';
-  members2ID: any;
+  membershipStatus_members2ID: any;
+  uploadImage_members2ID: any;
   isMembers2WantToDeactivate: boolean;
 
   constructor(    
@@ -59,14 +60,15 @@ populateMembers2InformationForm(memberInfo: any){
 
 }
 
-deactivateMembers2(members2InfoID: any){
+getDeactivateMembers2InfoID(members2InfoID: any){
 /* 
   return this.firestore
        .collection("members2")
        .doc(data.payload.doc.id)
        .set({ completed: true }, { merge: true });
         */
-  this.members2ID = members2InfoID;
+  this.membershipStatus_members2ID = members2InfoID;
+  console.log(this.membershipStatus_members2ID);
   
 }
 
@@ -77,12 +79,12 @@ members2DeactivateAction(membersAction: boolean){
 
 deactivateActionMembers2(){
   console.log(this.isMembers2WantToDeactivate);
-  console.log(this.members2ID);
+  console.log(this.membershipStatus_members2ID);
 
   if(this.isMembers2WantToDeactivate){
     return this.firestore
     .collection("members2")
-    .doc(this.members2ID)
+    .doc(this.membershipStatus_members2ID)
     .set({ inputMembershipStatus: "Deactivated" }, { merge: true });
   }
 
@@ -130,12 +132,12 @@ setEventInfo(event: any) {
 }
 
 saveAddedBook() {
-  console.log('this.imageName');
+
   console.log(this.imageName);
-  const bookID = 'members2/' + this.imageName;
-  this.ref = this.afStorage.ref(bookID);
+  const ID = 'members2/' + this.imageName;
+  this.ref = this.afStorage.ref(ID);
   this.task = this.ref.put((<HTMLInputElement>this.event.target).files[0]);
-  let storageRef = this.afStorage.ref(bookID);
+  let storageRef = this.afStorage.ref(ID);
   this.task
     .snapshotChanges()
     .pipe(
@@ -144,8 +146,11 @@ saveAddedBook() {
         this.downloadURL.subscribe(async (downloadURLResponse: any) => {
           await downloadURLResponse;
           this.members2ImageUrl = downloadURLResponse;
+          if(this.members2ImageUrl != null || this.members2ImageUrl != ""){
+            this.updateMemberInfo_ImageUpload(this.members2ImageUrl);
+          }
 
-        },
+        }
         );
       })
     )
@@ -153,6 +158,18 @@ saveAddedBook() {
   
   //this.uploadProgress = this.task.percentageChanges();
 
+}
+
+getImageMembers2InfoID(members2InfoID: any){
+  this.uploadImage_members2ID = members2InfoID;
+  
+}
+
+updateMemberInfo_ImageUpload(imageUrl: any){
+  return this.firestore
+  .collection("members2")
+  .doc(this.uploadImage_members2ID)
+  .set({ inputMemberImage: imageUrl }, { merge: true });
 }
 
 setImageName(imageName: any) {

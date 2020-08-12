@@ -26,8 +26,8 @@ export class Members2ListComponent implements OnInit {
     this.members2Service.populateMembers2InformationForm(members2InfoData);
   }
 
-  deactivateMembers2(members2InfoID: any){
-    this.members2Service.deactivateMembers2(members2InfoID);
+  getDeactivateMembers2InfoID(members2InfoID: any){
+    this.members2Service.getDeactivateMembers2InfoID(members2InfoID);
 
   }
 
@@ -38,6 +38,11 @@ export class Members2ListComponent implements OnInit {
 
   members2ImageName(members2FirstName: string, members2MiddleInitial: string, members2LastName: string){
     this.members2Service.setImageName((members2FirstName+" "+members2MiddleInitial+" "+members2LastName).replace(/\s+/g, '-').toLowerCase());
+
+  }
+
+  getImageMembers2InfoID(members2InfoID: any){
+    this.members2Service.getImageMembers2InfoID(members2InfoID);
 
   }
 
