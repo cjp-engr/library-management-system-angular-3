@@ -27,7 +27,14 @@ export class Members2Component implements OnInit {
       //this.bookListService.getBookListInformation();
     }
 
-    
+  }
+
+  setAddNewMemberButtonClicked(){
+    this.members2Service.setAddNewMemberButtonClicked(true);
+  }
+
+  clearForm(){
+    this.members2Service.clearForm();
   }
 
 }

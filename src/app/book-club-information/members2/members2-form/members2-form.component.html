@@ -17,6 +17,7 @@
         id="inputFirstName"
         formControlName="inputFirstName"
         placeholder="First Name"
+        [readonly] = "this.members2Service.isView"
       />
     </div>
 
@@ -28,6 +29,7 @@
         id="inputMiddleInitial"
         formControlName="inputMiddleInitial"
         placeholder="M.I."
+        [readonly] = "this.members2Service.isView"
       />
     </div>
 
@@ -39,6 +41,7 @@
         id="inputLastName"
         formControlName="inputLastName"
         placeholder="Last Name"
+        [readonly] = "this.members2Service.isView"
       />
     </div>
   </div>
@@ -52,6 +55,7 @@
         id="inputAge"
         formControlName="inputAge"
         placeholder="Age"
+        [readonly] = "this.members2Service.isView"
       />
     </div>
 
@@ -66,6 +70,7 @@
           ngbDatepicker
           #inputDateOfBirth="ngbDatepicker"
           formControlName="inputDateOfBirth"
+          [readonly] = "this.members2Service.isView"
         />
         <div class="input-group-append">
           <button
@@ -73,6 +78,7 @@
             aria-hidden="true"
             (click)="inputDateOfBirth.toggle()"
             type="button"
+            [attr.disabled]="this.members2Service.isView ? 'disabled' : null"
           >
             <svg
               width="1em"
@@ -98,6 +104,8 @@
         id="inputGender"
         class="form-control"
         formControlName="inputGender"
+        [attr.disabled]="this.members2Service.isView ? 'disabled' : null"
+
       >
         <option selected>Choose...</option>
         <option>Female</option>
@@ -112,6 +120,7 @@
         id="inputStatus"
         class="form-control"
         formControlName="inputStatus"
+        [attr.disabled]="this.members2Service.isView ? 'disabled' : null"
       >
         <option selected>Choose...</option>
         <option>Student</option>
@@ -132,6 +141,7 @@
         id="inputMobileNumber"
         formControlName="inputMobileNumber"
         placeholder="Mobile Number"
+        [readonly] = "this.members2Service.isView"
       />
     </div>
 
@@ -143,6 +153,7 @@
         id="inputEmail"
         formControlName="inputEmail"
         placeholder="Email"
+        [readonly] = "this.members2Service.isView"
 
       />
     </div>
@@ -157,6 +168,7 @@
         id="inputCurrentAddress"
         formControlName="inputCurrentAddress"
         placeholder="Current Address"
+        [readonly] = "this.members2Service.isView"
       />
     </div>
   </div>
@@ -173,6 +185,7 @@
           ngbDatepicker
           #inputDateApplied="ngbDatepicker"
           formControlName="inputDateApplied"
+          [readonly] = "this.members2Service.isView"
         />
         <div class="input-group-append">
           <button
@@ -180,6 +193,7 @@
             aria-hidden="true"
             (click)="inputDateApplied.toggle()"
             type="button"
+            [attr.disabled]="this.members2Service.isView ? 'disabled' : null"
           >
             <svg
               width="1em"
@@ -207,6 +221,7 @@
         id="inputAddedBy"
         formControlName="inputAddedBy"
         placeholder="Added By"
+        [readonly] = "this.members2Service.isView"
       />
     </div>
 
@@ -216,6 +231,7 @@
         id="inputMembershipStatus"
         class="form-control"
         formControlName="inputMembershipStatus"
+        [attr.disabled]="this.members2Service.isView ? 'disabled' : null"
       >
         <option selected>Choose...</option>
         <option>Active</option>

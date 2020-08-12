@@ -19,6 +19,8 @@ export class Members2Service {
   uploadImage_members2ID: any;
   isMembers2WantToDeactivate: boolean;
 
+  isView: boolean = false;
+
   constructor(    
     private firestore: AngularFirestore,
     private afStorage: AngularFireStorage) { }
@@ -175,6 +177,22 @@ updateMemberInfo_ImageUpload(imageUrl: any){
 setImageName(imageName: any) {
   this.imageName = imageName;
   //console.log(this.imageName);
+}
+
+setViewButtonClicked(isClicked: boolean){
+  this.isView = isClicked;
+  console.log(this.isView);
+
+}
+
+setUpdateButtonClicked(isClicked: boolean){
+  this.isView = !isClicked;
+  console.log(this.isView);
+}
+
+setAddNewMemberButtonClicked(isClicked: boolean){
+  this.isView = !isClicked;
+  console.log(this.isView);
 }
 
 }

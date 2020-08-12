@@ -47,4 +47,12 @@ export class Members2ListComponent implements OnInit {
 
   }
 
+  setViewButtonClicked(){
+    this.members2Service.setViewButtonClicked(true);
+  }
+
+  setUpdateButtonClicked(){
+    this.members2Service.setUpdateButtonClicked(true);
+  }
+
 }
