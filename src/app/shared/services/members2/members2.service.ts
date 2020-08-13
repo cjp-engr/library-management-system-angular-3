@@ -15,9 +15,10 @@ export class Members2Service {
   task: AngularFireUploadTask;
   downloadURL: any;
   members2ImageUrl: any = '';
-  membershipStatus_members2ID: any;
-  uploadImage_members2ID: any;
+  //membershipStatus_members2ID: any;
+  //uploadImage_members2ID: any;
   isMembers2WantToDeactivate: boolean;
+  members2InfoID: any;
 
   isView: boolean = false;
 
@@ -56,24 +57,38 @@ async addMembers2() {
   this.clearForm();
 }
 
+async updateMembers2Information() {
+  try {
+    await this.firestore.doc('members2/' + this.members2InfoID).set(this.form.value);
+  } catch (er) {
+    console.log(er.message);
+  }
+}
+
 populateMembers2InformationForm(memberInfo: any){
   //console.log(memberInfo);
   this.form.setValue(memberInfo);
 
 }
-
-getDeactivateMembers2InfoID(members2InfoID: any){
 /* 
-  return this.firestore
-       .collection("members2")
-       .doc(data.payload.doc.id)
-       .set({ completed: true }, { merge: true });
-        */
+getDeactivateMembers2InfoID(members2InfoID: any){
+
   this.membershipStatus_members2ID = members2InfoID;
   console.log(this.membershipStatus_members2ID);
   
 }
 
+getImageMembers2InfoID(members2InfoID: any){
+  this.uploadImage_members2ID = members2InfoID;
+  
+}
+
+ */
+
+setMembers2InfoID(members2InfoID: any){
+  this.members2InfoID = members2InfoID;
+
+}
 
 members2DeactivateAction(membersAction: boolean){
   this.isMembers2WantToDeactivate = membersAction;
@@ -81,12 +96,12 @@ members2DeactivateAction(membersAction: boolean){
 
 deactivateActionMembers2(){
   console.log(this.isMembers2WantToDeactivate);
-  console.log(this.membershipStatus_members2ID);
 
   if(this.isMembers2WantToDeactivate){
     return this.firestore
     .collection("members2")
-    .doc(this.membershipStatus_members2ID)
+    //.doc(this.membershipStatus_members2ID)
+    .doc(this.members2InfoID)
     .set({ inputMembershipStatus: "Deactivated" }, { merge: true });
   }
 
@@ -162,15 +177,12 @@ saveAddedBook() {
 
 }
 
-getImageMembers2InfoID(members2InfoID: any){
-  this.uploadImage_members2ID = members2InfoID;
-  
-}
 
 updateMemberInfo_ImageUpload(imageUrl: any){
   return this.firestore
   .collection("members2")
-  .doc(this.uploadImage_members2ID)
+  //.doc(this.uploadImage_members2ID)
+  .doc(this.members2InfoID)
   .set({ inputMemberImage: imageUrl }, { merge: true });
 }
 

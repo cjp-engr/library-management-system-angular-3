@@ -10,6 +10,7 @@ import { Members2ListService, MEMBERS2 } from 'src/app/shared/services/members2/
 export class Members2ListComponent implements OnInit {
 
   members2Sorting = MEMBERS2;
+  memberSearch: string;
 
   constructor(public members2Service: Members2Service,
               public members2ListService: Members2ListService) { }
@@ -26,15 +27,20 @@ export class Members2ListComponent implements OnInit {
     this.members2Service.populateMembers2InformationForm(members2InfoData);
   }
 
-  getDeactivateMembers2InfoID(members2InfoID: any){
-    this.members2Service.getDeactivateMembers2InfoID(members2InfoID);
+  setDeactivateMembers2InfoID(members2InfoID: any){
+    this.members2Service.setMembers2InfoID(members2InfoID);
 
+  }
+
+  setUpdateButtonMembers2InfoID(members2InfoID: any){
+    this.members2Service.setMembers2InfoID(members2InfoID);
   }
 
   members2DeactivateAction(membersAction: boolean){
     this.members2Service.members2DeactivateAction(membersAction);
     this.members2Service.deactivateActionMembers2();
     this.members2ListService.afterClick_refreshMember2List();
+    this.members2ListService.getMembers2ListInformation();
   }
 
   members2ImageName(members2FirstName: string, members2MiddleInitial: string, members2LastName: string){
@@ -42,8 +48,8 @@ export class Members2ListComponent implements OnInit {
 
   }
 
-  getImageMembers2InfoID(members2InfoID: any){
-    this.members2Service.getImageMembers2InfoID(members2InfoID);
+  setImageMembers2InfoID(members2InfoID: any){
+    this.members2Service.setMembers2InfoID(members2InfoID);
 
   }
 
@@ -53,6 +59,10 @@ export class Members2ListComponent implements OnInit {
 
   setUpdateButtonClicked(){
     this.members2Service.setUpdateButtonClicked(true);
+  }
+
+  updateMembers2Information(){
+    this.members2Service.updateMembers2Information();
   }
 
 }
